@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "KhoVanGUI",
+            "request": "launch",
+            "mainClass": "GUI.KhoVanGUI",
+            "projectName": "TestMaven"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.test",
+            "projectName": "TestMaven"
+        },
+        {
+            "type": "java",
+            "name": "TestConnection",
+            "request": "launch",
+            "mainClass": "DAO_JDBC.TestConnection",
+            "projectName": "TestMaven"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "DAO_JDBC.main",
+            "projectName": "TestMaven"
+        },
+        {
+            "type": "java",
+            "name": "test(1)",
+            "request": "launch",
+            "mainClass": "DAO_JDBC.test",
+            "projectName": "TestMaven"
+        },
+        {
+            "type": "java",
+            "name": "TestHibernate",
+            "request": "launch",
+            "mainClass": "TestHibernate",
+            "projectName": "TestMaven"
+        }
+    ]
+}
