@@ -184,4 +184,22 @@ public class NguoiDungDAO {
         return result;
     }
 
+    /**
+     * Tìm kiếm một người dùng dựa trên maND cho trước
+     * 
+     * @param maND
+     * @return null nếu không tìm thấy
+     */
+    public NguoiDungDTO findByID(String maND) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Query<NguoiDungDTO> query = session.createQuery("FROM NguoiDungDTO WHERE maND = :maND", NguoiDungDTO.class);
+        query.setParameter("maND", maND);
+
+        NguoiDungDTO nguoiDung = query.uniqueResult();
+
+        session.getTransaction().commit();
+        return nguoiDung;
+    }
 }
