@@ -71,26 +71,36 @@ public class test {
         // -----------------------------------------------------------
         // -----------------------------------------------------------
         // Test Thêm thông tin Sản Phẩm vào Database và Lấy thông tin mới từ Database
-        HoaDonDTO hoaDonDTO = new HoaDonDTO(
-                "HD01",
-                "15/04/2023",
-                "Loc",
-                "Test Them Hoa Don",
-                "Tien mat");
+        // HoaDonDTO hoaDonDTO = new HoaDonDTO(
+        // "HD01",
+        // "15/04/2023",
+        // "Loc",
+        // "Test Them Hoa Don",
+        // "Tien mat");
 
-        HoaDonDAO hoaDonDAO = new HoaDonDAO();
-        ArrayList<HoaDonDTO> arr = new ArrayList<>();
+        // HoaDonDAO hoaDonDAO = new HoaDonDAO();
+        // ArrayList<HoaDonDTO> arr = new ArrayList<>();
+        // try {
+        // hoaDonDAO.them(hoaDonDTO);
+        // arr = hoaDonDAO.ReadDB();
+
+        // for (int i = 0; i < arr.size(); i++) {
+        // System.out.println(arr.get(i).toString());
+        // }
+        // } catch (Exception e) {
+        // e.printStackTrace();
+        // }
+        // -----------------------------------------------------------
+        SanPhamDAO sp = new SanPhamDAO();
         try {
-            hoaDonDAO.them(hoaDonDTO);
-            arr = hoaDonDAO.ReadDB();
-
-            for (int i = 0; i < arr.size(); i++) {
-                System.out.println(arr.get(i).toString());
+            ArrayList<SanPhamDTO> arrSanPham = sp.ReadDB();
+            for (SanPhamDTO arr : arrSanPham){
+                arr.toString();
             }
         } catch (Exception e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        // -----------------------------------------------------------
 
     }
 

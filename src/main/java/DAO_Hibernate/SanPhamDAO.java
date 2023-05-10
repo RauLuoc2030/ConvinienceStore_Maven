@@ -191,4 +191,17 @@ public class SanPhamDAO {
         return result;
     }
 
+    public SanPhamDTO tim(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        Query<SanPhamDTO> query = session.createQuery("FROM SanPhamDTO WHERE MaSP = :keyword OR TenSP LIKE :searchKeyword", SanPhamDTO.class);
+        query.setParameter("keyword", keyword);
+        query.setParameter("searchKeyword", "%" + keyword + "%");
+        
+        SanPhamDTO sanPham = query.uniqueResult();
+        
+        session.getTransaction().commit();
+        return sanPham;
+    }
 }

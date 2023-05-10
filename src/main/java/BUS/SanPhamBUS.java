@@ -88,4 +88,8 @@ public class SanPhamBUS {
 
         return false;
     }
+
+    public SanPhamDTO tim(String keyword) {
+        return sanPhamDAO.tim(keyword);
+    }
 }

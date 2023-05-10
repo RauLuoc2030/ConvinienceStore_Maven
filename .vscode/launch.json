@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestTimSanPham",
+            "request": "launch",
+            "mainClass": "TestTimSanPham",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "DAO_JDBC.test",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "CreateSinhvien",
             "request": "launch",
             "mainClass": "CreateSinhvien",
