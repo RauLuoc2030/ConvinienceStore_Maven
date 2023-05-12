@@ -45,9 +45,9 @@ public class HoaDonDTO implements Serializable {
     private NhanVienDTO nhanVienDTO;
 
     /**
-     * Dùng để cấu hình mối quạn hệ ManyToMany giữa Hóa đơn và Sản phẩm:
-     * - Một hóa đơn có thể có nhiều sản phẩm
-     * - Một sản phẩm có thể được bán trong nhiều hóa đơn
+     * Dùng để cấu hình mối quạn hệ ManyToMany giữa Hóa đơn và Sản phẩm: - Một
+     * hóa đơn có thể có nhiều sản phẩm - Một sản phẩm có thể được bán trong
+     * nhiều hóa đơn
      */
     @ManyToMany
     @JoinTable(

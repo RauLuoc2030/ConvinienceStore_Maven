@@ -29,7 +29,6 @@ public class BanHang extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel8 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
@@ -91,7 +90,6 @@ public class BanHang extends javax.swing.JFrame {
         jPanel8.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 200));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1600, 900));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
