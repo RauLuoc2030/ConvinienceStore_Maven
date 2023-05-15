@@ -172,4 +172,18 @@ public class NhanVienDAO {
         return result;
     }
 
+    public NhanVienDTO tim(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<NhanVienDTO> query = session
+                .createQuery("FROM NhanVienDTO WHERE MaNV = :keyword OR TenNV LIKE :searchKeyword", NhanVienDTO.class);
+        query.setParameter("keyword", keyword);
+        query.setParameter("searchKeyword", "%" + keyword + "%");
+
+        NhanVienDTO sanPham = query.uniqueResult();
+
+        session.getTransaction().commit();
+        return sanPham;
+    }
 }
