@@ -8,17 +8,24 @@ import javax.persistence.*;
 @Table(name = "KHACHHANG")
 public class KhachHangDTO implements Serializable {
     @Id
+    @Column(name = "MAKH")
+    private String maKHString;
+
     @Column(name = "SDTKH")
     private String SDTKHString;
 
     @Column(name = "TENKH")
     private String tenKHString;
 
+
+
     /**
+     * @param maKHString
      * @param sDTKHString
      * @param tenKHString
      */
-    public KhachHangDTO(String sDTKHString, String tenKHString) {
+    public KhachHangDTO(String maKHString, String sDTKHString, String tenKHString) {
+        this.maKHString = maKHString;
         SDTKHString = sDTKHString;
         this.tenKHString = tenKHString;
     }
@@ -27,6 +34,20 @@ public class KhachHangDTO implements Serializable {
      *
      */
     public KhachHangDTO() {
+    }
+
+    /**
+     * @return the maKHString
+     */
+    public String getMaKHString() {
+        return maKHString;
+    }
+
+    /**
+     * @param maKHString the maKHString to set
+     */
+    public void setMaKHString(String maKHString) {
+        this.maKHString = maKHString;
     }
 
     /**

@@ -33,9 +33,6 @@ public class NhanVienDTO {
     @Column(name = "CHUCVU")
     private String chucVuNVString;
 
-    @Column(name = "LUONG")
-    private Integer luongNVInt;
-
     /**
      *
      */
@@ -50,11 +47,9 @@ public class NhanVienDTO {
      * @param diaChiNVString
      * @param chucVuNVString
      * @param ngaySinhNVDate
-     * @param luongNVInt
      */
     public NhanVienDTO(String maNVString, String hoTenNVString, String sDTNVString, String cCCDNVString,
-            String diaChiNVString, String chucVuNVString, String ngaySinhNVDate,
-            int luongNVInt) {
+            String diaChiNVString, String chucVuNVString, String ngaySinhNVDate) {
         this.maNVString = maNVString;
         this.hoTenNVString = hoTenNVString;
         SDTNVString = sDTNVString;
@@ -69,7 +64,6 @@ public class NhanVienDTO {
             System.out.println("Cannot convert String to Date");
             e.printStackTrace();
         }
-        this.luongNVInt = luongNVInt;
     }
 
     @Override
@@ -77,7 +71,7 @@ public class NhanVienDTO {
         return "NhanVienDTO [maNVString=" + maNVString + ", hoTenNVString=" + hoTenNVString + ", SDTNVString="
                 + SDTNVString + ", CCCDNVString=" + CCCDNVString + ", diaChiNVString=" + diaChiNVString
                 + ", chucVuNVString=" + chucVuNVString + ", ngaySinhNVDate=" + ngaySinhNVDate + ", heSoLuongNVDouble="
-                + ", luongNVInt=" + luongNVInt + "]";
+                + ", luongNVInt=" + "]";
     }
 
     /**
@@ -187,19 +181,5 @@ public class NhanVienDTO {
 
     public void setNgaySinhNVDate(Date ngaySinhNVDate) {
         this.ngaySinhNVDate = ngaySinhNVDate;
-    }
-
-    /**
-     * @return the luongNVInt
-     */
-    public Integer getLuongNVInt() {
-        return luongNVInt;
-    }
-
-    /**
-     * @param luongNVInt the luongNVInt to set
-     */
-    public void setLuongNVInt(Integer luongNVInt) {
-        this.luongNVInt = luongNVInt;
     }
 }

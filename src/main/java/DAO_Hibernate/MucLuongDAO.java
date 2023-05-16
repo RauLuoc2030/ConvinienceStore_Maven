@@ -6,9 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import DTO.NhanVienDTO;
+import DTO.MucLuongDTO;
 
-public class NhanVienDAO {
+public class MucLuongDAO {
     Session session;
 
     /**
@@ -16,14 +16,14 @@ public class NhanVienDAO {
      * 
      * @param condition
      * @param orderBy
-     * @return Danh sách Nhân viên
+     * @return Danh sách Mức lương
      */
-    public List<NhanVienDTO> readDB(String condition, String orderBy) {
+    public List<MucLuongDTO> readDB(String condition, String orderBy) {
         session = HibernateUtil.getSessionFactory().openSession();
-        List<NhanVienDTO> nhanVienDTOs = null;
+        List<MucLuongDTO> mucLuongDTOs = null;
 
         try {
-            String queryString = "from NhanVienDAO";
+            String queryString = "from MucLuongDTO";
 
             if (condition != null && !condition.isEmpty()) {
                 queryString += " where " + condition;
@@ -33,15 +33,15 @@ public class NhanVienDAO {
                 queryString += " order by " + orderBy;
             }
 
-            Query<NhanVienDTO> query = session.createQuery(queryString, NhanVienDTO.class);
-            nhanVienDTOs = query.list();
+            Query<MucLuongDTO> query = session.createQuery(queryString, MucLuongDTO.class);
+            mucLuongDTOs = query.list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
 
-        return nhanVienDTOs;
+        return mucLuongDTOs;
     }
 
     /**
@@ -50,7 +50,7 @@ public class NhanVienDAO {
      * @param condition
      * @return readDB(condition, null)
      */
-    public List<NhanVienDTO> readDB(String condition) {
+    public List<MucLuongDTO> readDB(String condition) {
         return readDB(condition, null);
     }
 
@@ -59,17 +59,18 @@ public class NhanVienDAO {
      * 
      * @return readDB(null, null)
      */
-    public List<NhanVienDTO> readDB() {
+    public List<MucLuongDTO> readDB() {
         return readDB(null, null);
     }
 
     /**
-     * Thêm một Nhân viên mới đã có thông tin vào CSDL
+     * Thêm một Mức lương mới đã có thông tin vào CSDL
      * 
-     * @param nhanVienDTO
+     * @param MucLuongDTO
      * @return True nếu thành công
+     * @throws Exception và rollback Transaction
      */
-    public boolean them(NhanVienDTO nhanVienDTO) {
+    public boolean them(MucLuongDTO mucLuongDTO) throws Exception {
         boolean result = false;
         session = null;
 
@@ -77,18 +78,12 @@ public class NhanVienDAO {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
-            NhanVienDTO newNhanVien = new NhanVienDTO();
+            MucLuongDTO newKhachHang = new MucLuongDTO();
 
-            newNhanVien.setMaNVString(nhanVienDTO.getMaNVString());
-            newNhanVien.setHoTenNVString(nhanVienDTO.getHoTenNVString());
-            newNhanVien.setHoTenNVString(nhanVienDTO.getHoTenNVString());
-            newNhanVien.setSDTNVString(nhanVienDTO.getSDTNVString());
-            newNhanVien.setCCCDNVString(nhanVienDTO.getCCCDNVString());
-            newNhanVien.setDiaChiNVString(nhanVienDTO.getDiaChiNVString());
-            newNhanVien.setChucVuNVString(nhanVienDTO.getChucVuNVString());
-            newNhanVien.setNgaySinhNVDate(nhanVienDTO.getNgaySinhNVDate());
+            newKhachHang.setMaMLString(mucLuongDTO.getMaMLString());
+            newKhachHang.setLuongInt(mucLuongDTO.getLuongInt());
 
-            session.save(newNhanVien);
+            session.save(newKhachHang);
             session.getTransaction().commit();
             result = true;
 
@@ -107,13 +102,13 @@ public class NhanVienDAO {
     }
 
     /**
-     * Xóa một Nhân viên khỏi CSDL
+     * Xóa một Mức lương khỏi CSDL
      * 
-     * @param nhanVienDTO
+     * @param mucLuongDTO
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
      */
-    public boolean xoa(NhanVienDTO nhanVienDTO) {
+    public boolean xoa(MucLuongDTO mucLuongDTO) throws Exception {
         boolean result = false;
         session = null;
         Transaction transaction = null;
@@ -121,7 +116,7 @@ public class NhanVienDAO {
             session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
-            session.delete(nhanVienDTO); // xóa đối tượng NhanVienDTO khỏi database
+            session.delete(mucLuongDTO); // xóa đối tượng MucLuongDTO khỏi database
 
             transaction.commit(); // commit transaction
             result = true;
@@ -140,20 +135,20 @@ public class NhanVienDAO {
     }
 
     /**
-     * Sửa một Nhân viên có trong CSDL
+     * Sửa một Mức lương có trong CSDL
      * 
-     * @param nhanVienDTO
+     * @param mucLuongDTO
      * @return
      * @throws Exception
      */
-    public boolean sua(NhanVienDTO nhanVienDTO) {
+    public boolean sua(MucLuongDTO mucLuongDTO) throws Exception {
         boolean result = false;
         Transaction transaction = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
-            session.update(nhanVienDTO); // sửa thông tin đối tượng NhanVienDTO trong database
+            session.update(mucLuongDTO); // sửa thông tin đối tượng MucLuongDTO trong database
 
             transaction.commit(); // commit transaction
             result = true;
@@ -171,16 +166,16 @@ public class NhanVienDAO {
         return result;
     }
 
-    public NhanVienDTO tim(String keyword) {
+    public MucLuongDTO tim(String keyword) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Query<NhanVienDTO> query = session
-                .createQuery("FROM NhanVienDTO WHERE MaNV = :keyword OR TenNV LIKE :searchKeyword", NhanVienDTO.class);
+        Query<MucLuongDTO> query = session
+                .createQuery("FROM MucLuongDTO WHERE MaML = :keyword OR Luong LIKE :searchKeyword", MucLuongDTO.class);
         query.setParameter("keyword", keyword);
         query.setParameter("searchKeyword", "%" + keyword + "%");
 
-        NhanVienDTO sanPham = query.uniqueResult();
+        MucLuongDTO sanPham = query.uniqueResult();
 
         session.getTransaction().commit();
         return sanPham;

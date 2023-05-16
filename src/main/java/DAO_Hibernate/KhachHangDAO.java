@@ -80,6 +80,7 @@ public class KhachHangDAO {
 
             KhachHangDTO newKhachHang = new KhachHangDTO();
 
+            newKhachHang.setMaKHString(khachHangDTO.getMaKHString());
             newKhachHang.setSDTKHString(khachHangDTO.getSDTKHString());
             newKhachHang.settenKHString(khachHangDTO.gettenKHString());
 
