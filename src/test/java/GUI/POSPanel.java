@@ -15,9 +15,9 @@ public class POSPanel {
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // Vertical layout
 
         // Create demo product data (only 20 products)
-        Product[] products = new Product[14];
+        Product_icon[] products = new Product_icon[14];
         for (int i = 0; i < products.length; i++) {
-            products[i] = new Product(
+            products[i] = new Product_icon(
                     new ImageIcon("product" + i + ".png"), // Icon file name
                     "Product " + (i + 1), // Name
                     "$" + ((i + 1) * 10), // Price
@@ -33,7 +33,7 @@ public class POSPanel {
                 rowPanel.setBackground(Color.LIGHT_GRAY);
 
                 for (int j = i; j < i + 5 && j < products.length; j++) {
-                    Product product = products[j];
+                    Product_icon product = products[j];
 
                     JPanel productPanel = new JPanel();
                     productPanel.setLayout(new BorderLayout());
@@ -71,13 +71,13 @@ public class POSPanel {
     }
 }
 
-class Product {
+class Product_icon {
     private ImageIcon icon;
     private String name;
     private String price;
     private String number;
 
-    public Product(ImageIcon icon, String name, String price, String number) {
+    public Product_icon(ImageIcon icon, String name, String price, String number) {
         this.icon = icon;
         this.name = name;
         this.price = price;

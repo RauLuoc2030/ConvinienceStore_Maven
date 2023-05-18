@@ -167,4 +167,18 @@ public class KhachHangDAO {
         return result;
     }
 
+    
+    public KhachHangDTO tim(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        Query<KhachHangDTO> query = session.createQuery("FROM KhachHangDTO WHERE MaKH = :keyword OR TenSP LIKE :searchKeyword", KhachHangDTO.class);
+        query.setParameter("keyword", keyword);
+        query.setParameter("searchKeyword", "%" + keyword + "%");
+        
+        KhachHangDTO sanPham = query.uniqueResult();
+        
+        session.getTransaction().commit();
+        return sanPham;
+    }
 }

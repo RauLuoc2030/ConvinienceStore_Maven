@@ -19,6 +19,8 @@ public class BanHang extends javax.swing.JFrame {
     public BanHang() {
         initComponents();
         setLocationRelativeTo(null);
+        Product_icon p = new Product_icon();
+        jPanel12.add(p);
     }
 
     /**
@@ -30,11 +32,15 @@ public class BanHang extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel8 = new javax.swing.JPanel();
+        jPanelProduct = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -60,13 +66,19 @@ public class BanHang extends javax.swing.JFrame {
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jTextField_TimKiem = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
 
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelProduct.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,7 +99,40 @@ public class BanHang extends javax.swing.JFrame {
         jLabel6.setText("Giá");
         jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 150, 25));
 
-        jPanel8.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 200));
+        jPanelProduct.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 200));
+
+        jPanel15.setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel8.setText("Product 1");
+
+        jLabel9.setText("Số lượng:");
+
+        jLabel10.setText("Tiền");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(128, 128, 128)
+                        .addComponent(jLabel10))
+                    .addComponent(jLabel8))
+                .addContainerGap(274, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(0, 16, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -113,14 +158,23 @@ public class BanHang extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
+        });
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Thêm Sản Phẩm");
         jPanel7.add(jLabel1, new java.awt.GridBagConstraints());
 
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 60));
 
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -129,6 +183,7 @@ public class BanHang extends javax.swing.JFrame {
         });
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Thanh Toán");
         jPanel3.add(jLabel2, new java.awt.GridBagConstraints());
 
@@ -139,73 +194,140 @@ public class BanHang extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel5.setLayout(new java.awt.GridLayout(4, 4));
 
+        jButton_7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_7.setText("7");
-        jButton_7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_7ActionPerformed(evt);
-            }
-        });
         jPanel5.add(jButton_7);
         jButton_7.getAccessibleContext().setAccessibleName("jButton1");
 
+        jButton_8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_8.setText("8");
         jPanel5.add(jButton_8);
 
+        jButton_9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_9.setText("9");
         jPanel5.add(jButton_9);
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton8.setText("SL");
         jPanel5.add(jButton8);
 
+        jButton_4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_4.setText("4");
         jPanel5.add(jButton_4);
 
+        jButton_5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_5.setText("5");
         jPanel5.add(jButton_5);
 
+        jButton_6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_6.setText("6");
         jPanel5.add(jButton_6);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("%CK");
         jPanel5.add(jButton1);
 
+        jButton_1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_1.setText("1");
         jPanel5.add(jButton_1);
 
+        jButton_2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_2.setText("2");
         jPanel5.add(jButton_2);
 
+        jButton_3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_3.setText("3");
         jPanel5.add(jButton_3);
 
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton11.setText("Giá");
         jPanel5.add(jButton11);
 
+        jButton12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton12.setText("+/-");
         jPanel5.add(jButton12);
 
+        jButton_0.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton_0.setText("0");
         jPanel5.add(jButton_0);
 
+        jButton15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton15.setText(",");
         jPanel5.add(jButton15);
 
+        jButton16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton16.setText("Xóa");
         jPanel5.add(jButton16);
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 250, 250));
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel8MouseClicked(evt);
+            }
+        });
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel11.setText("mua");
+        jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, 40));
+
+        jPanel9.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 167, 40));
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 165, Short.MAX_VALUE)
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
+
+        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 0, 167, 40));
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 164, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
+
+        jPanel9.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 0, 166, 40));
+
         jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 500, 40));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Tổng:");
-        jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 180, 60));
+        jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 180, 60));
+
+        jLabel7.setFont(new java.awt.Font("Bell MT", 0, 24)); // NOI18N
+        jLabel7.setText("1.200.000");
+        jPanel10.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 230, 60));
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 500, 60));
+
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEADING, 0, 0));
+        jPanel4.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 500, 850));
 
@@ -223,7 +345,9 @@ public class BanHang extends javax.swing.JFrame {
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 1100, 50));
 
-        jPanel12.setLayout(new java.awt.BorderLayout());
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 10);
+        flowLayout1.setAlignOnBaseline(true);
+        jPanel12.setLayout(flowLayout1);
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1100, 800));
 
         pack();
@@ -240,10 +364,6 @@ public class BanHang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jButton_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_7ActionPerformed
-
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
         // TODO add your handling code here:
         try {
@@ -255,6 +375,23 @@ public class BanHang extends javax.swing.JFrame {
         }
 //        jPanel8.setVisible(true);
     }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        Product_icon pt = new Product_icon();
+        jPanel12.add(pt);
+        jPanel12.revalidate();
+        jPanel12.repaint();
+        System.out.println("GUI.BanHang.jPanel7MouseClicked()");
+    }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
+        // TODO add your handling code here:
+        Product p = new Product();
+        jPanel17.add(p);
+        jPanel12.revalidate();
+        jPanel12.repaint();
+    }//GEN-LAST:event_jPanel8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -309,15 +446,24 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JButton jButton_8;
     private javax.swing.JButton jButton_9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -326,6 +472,7 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelProduct;
     private javax.swing.JTextField jTextField_TimKiem;
     // End of variables declaration//GEN-END:variables
 }

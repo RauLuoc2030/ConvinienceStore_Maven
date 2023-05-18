@@ -30,8 +30,22 @@ public class HoaDonDTO implements Serializable {
      * Chỉ cần SDT của khách hàng thì có thể biết được hóa đơn này do khách nào
      * mua
      */
-    @Column(name = "SDTKH")
-    private String SDTKHString;
+    @Column(name = "MAKH")
+    private String maKHString;
+
+    /**
+     * @return the maKHString
+     */
+    public String getMaKHString() {
+        return maKHString;
+    }
+
+    /**
+     * @param maKHString the maKHString to set
+     */
+    public void setMaKHString(String maKHString) {
+        this.maKHString = maKHString;
+    }
 
     @Column(name = "HINHTHUC")
     private String hinhThucThanhToanHDString;
@@ -75,7 +89,7 @@ public class HoaDonDTO implements Serializable {
      * @param hinhThucThanhToanHDString
      */
     public HoaDonDTO(String maHDString, String ngayMuaHangHDDate, String maNVString,
-            String SDTKHString, String hinhThucThanhToanHDString) {
+            String maKHString, String hinhThucThanhToanHDString) {
         this.maHDString = maHDString;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -86,7 +100,7 @@ public class HoaDonDTO implements Serializable {
             e.printStackTrace();
         }
         this.maNVString = maNVString;
-        this.SDTKHString = SDTKHString;
+        this.maKHString = maKHString;
         this.hinhThucThanhToanHDString = hinhThucThanhToanHDString;
     }
 
@@ -153,19 +167,6 @@ public class HoaDonDTO implements Serializable {
         this.maNVString = maNVString;
     }
 
-    /**
-     * @return the sDTKHString
-     */
-    public String getSDTKHString() {
-        return SDTKHString;
-    }
-
-    /**
-     * @param sDTKHString the sDTKHString to set
-     */
-    public void setSDTKHString(String sDTKHString) {
-        SDTKHString = sDTKHString;
-    }
 
     /**
      * @return the hinhThucThanhToanHDString
@@ -177,7 +178,7 @@ public class HoaDonDTO implements Serializable {
     @Override
     public String toString() {
         return "HoaDonDTO [maHDString=" + maHDString + ", ngayMuaHangHDDate=" + ngayMuaHangHDDate + ", maNVString="
-                + maNVString + ", SDTKHString=" + SDTKHString + ", hinhThucThanhToanHDString="
+                + maNVString + ", maKHString=" + maKHString + ", hinhThucThanhToanHDString="
                 + hinhThucThanhToanHDString + "]";
     }
 

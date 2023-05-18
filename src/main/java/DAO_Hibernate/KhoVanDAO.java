@@ -166,4 +166,18 @@ public class KhoVanDAO {
         return result;
     }
 
+    public KhoVanDTO tim(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<KhoVanDTO> query = session.createQuery("FROM KhoVanDTO WHERE MaLoHang = :keyword LIKE :searchKeyword",
+                KhoVanDTO.class);
+        query.setParameter("keyword", keyword);
+        query.setParameter("searchKeyword", "%" + keyword + "%");
+
+        KhoVanDTO sanPham = query.uniqueResult();
+
+        session.getTransaction().commit();
+        return sanPham;
+    }
 }

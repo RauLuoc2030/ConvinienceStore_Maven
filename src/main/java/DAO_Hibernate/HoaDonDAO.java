@@ -82,7 +82,7 @@ public class HoaDonDAO {
             newHoaDon.setMaHDString(hoaDonDTO.getMaHDString());
             newHoaDon.setNgayMuaHangHDDate(hoaDonDTO.getNgayMuaHangHDDate());
             newHoaDon.setMaNVString(hoaDonDTO.getMaNVString());
-            newHoaDon.setSDTKHString(hoaDonDTO.getSDTKHString());
+            newHoaDon.setMaKHString(hoaDonDTO.getMaKHString());
             newHoaDon.setHinhThucThanhToanHDString(hoaDonDTO.getHinhThucThanhToanHDString());
 
             session.save(newHoaDon);
@@ -168,4 +168,18 @@ public class HoaDonDAO {
         return result;
     }
 
+    public HoaDonDTO tim(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<HoaDonDTO> query = session.createQuery("FROM HoaDonDTO WHERE MaHD = :keyword LIKE :searchKeyword",
+                HoaDonDTO.class);
+        query.setParameter("keyword", keyword);
+        query.setParameter("searchKeyword", "%" + keyword + "%");
+
+        HoaDonDTO sanPham = query.uniqueResult();
+
+        session.getTransaction().commit();
+        return sanPham;
+    }
 }
