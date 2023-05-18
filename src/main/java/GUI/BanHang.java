@@ -5,6 +5,8 @@
 package GUI;
 
 import BUS.SanPhamBUS;
+import DTO.SanPhamDTO;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +16,7 @@ import javax.swing.JOptionPane;
 public class BanHang extends javax.swing.JFrame {
 
     private SanPhamBUS sanPhamBUS;
+    private boolean isjTextField_TimKiemActionPerformedEnable = true;
 
     /**
      * Creates new form BanHang
@@ -338,6 +341,11 @@ public class BanHang extends javax.swing.JFrame {
 
         jTextField_TimKiem.setBackground(new java.awt.Color(204, 204, 204));
         jTextField_TimKiem.setText("Tìm kiếm");
+        jTextField_TimKiem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_TimKiemMouseClicked(evt);
+            }
+        });
         jTextField_TimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField_TimKiemActionPerformed(evt);
@@ -359,10 +367,22 @@ public class BanHang extends javax.swing.JFrame {
         // TODO add your handling code here:
         String text = jTextField_TimKiem.getText();
         if (text.length() != 0) {
+            sanPhamBUS = new SanPhamBUS();
+            SanPhamDTO sp = sanPhamBUS.tim(text);
+            if (sp != null) {
+                Product_icon p = new Product_icon(sp.getTenSPString(), sp.getGiaInt().toString(), sp.getSoLuongSPInt().toString());
+                jPanel12.removeAll();
+                jPanel12.add(p);
+
+            } else {
+                jPanel12.removeAll();
+            }
+            jPanel12.revalidate();
+            jPanel12.repaint();
             System.out.println("TextField contains text");
         } else {
+            jPanel12.removeAll();
             sanPhamBUS = new SanPhamBUS();
-            sanPhamBUS.getList_SanPhamDTOs().size();
             for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
                 Product_icon pt = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i).getTenSPString(),
                         sanPhamBUS.getList_SanPhamDTOs().get(i).getGiaInt().toString(),
@@ -373,6 +393,15 @@ public class BanHang extends javax.swing.JFrame {
             jPanel12.repaint();
         }
     }//GEN-LAST:event_jTextField_TimKiemActionPerformed
+
+    private void jTextField_TimKiemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_TimKiemMouseClicked
+        // TODO add your handling code here:
+        if (isjTextField_TimKiemActionPerformedEnable) {
+            jTextField_TimKiem.setText("");
+            isjTextField_TimKiemActionPerformedEnable = false;
+        }
+
+    }//GEN-LAST:event_jTextField_TimKiemMouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
