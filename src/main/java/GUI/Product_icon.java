@@ -17,6 +17,13 @@ public class Product_icon extends javax.swing.JPanel {
         initComponents();
     }
 
+    public Product_icon(String ten, String gia, String sl) {
+        initComponents();
+        jLabelTen.setText(ten);
+        jLabelGia.setText(gia);
+        jLabelSL.setText(sl);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,10 +35,11 @@ public class Product_icon extends javax.swing.JPanel {
 
         jPanel11 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabelTen = new javax.swing.JLabel();
+        jLabelGia = new javax.swing.JLabel();
+        jLabelSL = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(160, 210));
+        setPreferredSize(new java.awt.Dimension(160, 230));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -47,13 +55,17 @@ public class Product_icon extends javax.swing.JPanel {
         });
         jPanel11.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 150));
 
-        jLabel5.setText("Tên ");
-        jPanel11.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 25));
+        jLabelTen.setText("Tên ");
+        jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 150, 25));
 
-        jLabel6.setText("Giá");
-        jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 150, 25));
+        jLabelGia.setText("Giá");
+        jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 150, 25));
 
-        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, 200));
+        jLabelSL.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelSL.setText("SL");
+        jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 150, 25));
+
+        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 230));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -62,8 +74,9 @@ public class Product_icon extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelGia;
+    private javax.swing.JLabel jLabelSL;
+    private javax.swing.JLabel jLabelTen;
     private javax.swing.JPanel jPanel11;
     // End of variables declaration//GEN-END:variables
 }
