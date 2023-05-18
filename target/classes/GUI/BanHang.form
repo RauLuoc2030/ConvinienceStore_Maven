@@ -589,18 +589,22 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel17">
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="0" width="500" height="500"/>
             </Constraint>
           </Constraints>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
-            <Property name="alignment" type="int" value="3"/>
-            <Property name="horizontalGap" type="int" value="0"/>
-            <Property name="verticalGap" type="int" value="0"/>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanelGioHang">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout">
+                <Property name="axis" type="int" value="1"/>
+              </Layout>
+            </Container>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
@@ -639,78 +643,33 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel12">
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1098, 798]"/>
+        </Property>
+        <Property name="viewportView" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="default"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="500" y="100" width="1100" height="800"/>
         </Constraint>
       </Constraints>
-      <LayoutCode>
-        <CodeStatement>
-          <CodeExpression id="1_flowLayout1">
-            <CodeVariable name="flowLayout1" type="4096" declaredType="java.awt.FlowLayout"/>
-            <ExpressionOrigin>
-              <ExpressionProvider type="CodeConstructor">
-                <CodeConstructor class="java.awt.FlowLayout" parameterTypes="int, int, int"/>
-              </ExpressionProvider>
-              <Parameters>
-                <CodeExpression id="2">
-                  <ExpressionOrigin>
-                    <Value type="int" value="0"/>
-                  </ExpressionOrigin>
-                </CodeExpression>
-                <CodeExpression id="3">
-                  <ExpressionOrigin>
-                    <Value type="int" value="10"/>
-                  </ExpressionOrigin>
-                </CodeExpression>
-                <CodeExpression id="4">
-                  <ExpressionOrigin>
-                    <Value type="int" value="10"/>
-                  </ExpressionOrigin>
-                </CodeExpression>
-              </Parameters>
-            </ExpressionOrigin>
-          </CodeExpression>
-          <StatementProvider type="CodeExpression">
-            <CodeExpression id="1_flowLayout1"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="2"/>
-            <CodeExpression id="3"/>
-            <CodeExpression id="4"/>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="1_flowLayout1"/>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="setAlignOnBaseline" class="java.awt.FlowLayout" parameterTypes="boolean"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="5">
-              <ExpressionOrigin>
-                <Value type="boolean" value="true"/>
-              </ExpressionOrigin>
-            </CodeExpression>
-          </Parameters>
-        </CodeStatement>
-        <CodeStatement>
-          <CodeExpression id="6_jPanel12">
-            <CodeVariable name="jPanel12" type="8194" declaredType="javax.swing.JPanel"/>
-            <ExpressionOrigin>
-              <ExpressionProvider type="ComponentRef">
-                <ComponentRef name="jPanel12"/>
-              </ExpressionProvider>
-            </ExpressionOrigin>
-          </CodeExpression>
-          <StatementProvider type="CodeMethod">
-            <CodeMethod name="setLayout" class="java.awt.Container" parameterTypes="java.awt.LayoutManager"/>
-          </StatementProvider>
-          <Parameters>
-            <CodeExpression id="1_flowLayout1"/>
-          </Parameters>
-        </CodeStatement>
-      </LayoutCode>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanelSanPham">
+          <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[1098, 798]"/>
+            </Property>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+        </Container>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

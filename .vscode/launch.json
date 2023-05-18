@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UpdateChildPanel",
+            "request": "launch",
+            "mainClass": "GUI.UpdateChildPanel",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "BanHang",
+            "request": "launch",
+            "mainClass": "GUI.BanHang",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "Five_Panel_1_Row",
             "request": "launch",
             "mainClass": "GUI.Five_Panel_1_Row",

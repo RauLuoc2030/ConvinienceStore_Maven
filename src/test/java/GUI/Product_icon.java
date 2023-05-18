@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import GUI.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -72,7 +73,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabelGia = new javax.swing.JLabel();
         jLabelSL = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(160, 230));
         setPreferredSize(new java.awt.Dimension(160, 230));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
