@@ -21,8 +21,6 @@ public class BanHang extends javax.swing.JFrame {
 
     private SanPhamBUS sanPhamBUS;
     private boolean isjTextField_TimKiemActionPerformedEnable = true;
-    private Integer numRow = 100;
-    private Integer slSPGH = 0;
 
     /**
      * Creates new form BanHang
@@ -40,17 +38,14 @@ public class BanHang extends javax.swing.JFrame {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     Component[] components = jPanelGioHang.getComponents();
-                    // Component[](jPanelGioHang.getComponents());
                     if (components.length == 0) {
-                        slSPGH++;
-                        if (++slSPGH > numRow) {
-                            ++numRow;
-                        }
+
                         Product p = new Product(product_icon.getTen(), product_icon.getGia());
                         jPanelGioHang.add(p);
                         jPanelGioHang.revalidate();
                         jPanelGioHang.repaint();
                     } else {
+                        boolean isExist = false;
                         for (Component component : components) {
                             if (component instanceof Product) {
                                 Product product = (Product) component;
@@ -61,23 +56,23 @@ public class BanHang extends javax.swing.JFrame {
                                     product.tangSoLuong();
                                     jPanelGioHang.revalidate();
                                     jPanelGioHang.repaint();
+                                    isExist = true;
                                     System.out.println("Sản phẩm đã tồn tại");
 
-                                } else { // Chưa tồn tại
-                                    slSPGH++;
-                                    Product p = new Product(product_icon.getTen(), product_icon.getGia());
-                                    jPanelGioHang.add(p);
-                                    jPanelGioHang.revalidate();
-                                    jPanelGioHang.repaint();
-                                    System.out.println("Sản phẩm chưa tồn tại");
                                 }
                             }
                         }
-                    }
 
+                        if (!isExist) { // Chưa tồn tại
+                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            jPanelGioHang.add(p);
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                            System.out.println("Sản phẩm chưa tồn tại");
+                        }
+                    }
                 }
-            }
-            );
+            });
 
             jPanelSanPham.add(product_icon);
             // product_icon.addMouseListener(product_icon);
@@ -96,7 +91,8 @@ public class BanHang extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanelProduct = new javax.swing.JPanel();
@@ -181,27 +177,25 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(128, 128, 128)
-                        .addComponent(jLabel10))
-                    .addComponent(jLabel8))
-                .addContainerGap(274, Short.MAX_VALUE))
-        );
+                jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addGap(128, 128, 128)
+                                                .addComponent(jLabel10))
+                                        .addComponent(jLabel8))
+                                .addContainerGap(274, Short.MAX_VALUE)));
         jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addGap(0, 16, Short.MAX_VALUE))
-        );
+                jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel10))
+                                .addGap(0, 16, Short.MAX_VALUE)));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -211,13 +205,11 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1600, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1600, Short.MAX_VALUE));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 50, Short.MAX_VALUE));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 50));
 
@@ -343,13 +335,11 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 165, Short.MAX_VALUE)
-        );
+                jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 165, Short.MAX_VALUE));
         jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 38, Short.MAX_VALUE)
-        );
+                jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 38, Short.MAX_VALUE));
 
         jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 0, 167, 40));
 
@@ -359,13 +349,11 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 164, Short.MAX_VALUE)
-        );
+                jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 164, Short.MAX_VALUE));
         jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 38, Short.MAX_VALUE)
-        );
+                jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 38, Short.MAX_VALUE));
 
         jPanel9.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 0, 166, 40));
 

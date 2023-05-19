@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestAddArray",
+            "request": "launch",
+            "mainClass": "GUI.TestAddArray",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "CustomComboBoxArrowIconExample",
+            "request": "launch",
+            "mainClass": "GUI.CustomComboBoxArrowIconExample",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "BorderComboBoxDemo",
+            "request": "launch",
+            "mainClass": "GUI.BorderComboBoxDemo",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "CuteComboBoxDemo",
+            "request": "launch",
+            "mainClass": "GUI.CuteComboBoxDemo",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "UpdateChildPanel",
             "request": "launch",
             "mainClass": "GUI.UpdateChildPanel",

@@ -16,6 +16,8 @@ public class Product extends javax.swing.JPanel {
     private String gia;
     private Integer sl;
 
+    private boolean isSelect;
+
     /**
      * Creates new form Product
      */
@@ -166,5 +168,19 @@ public class Product extends javax.swing.JPanel {
      */
     public void setjLabelThanhTien(javax.swing.JLabel jLabelThanhTien) {
         this.jLabelThanhTien = jLabelThanhTien;
+    }
+
+    /**
+     * @return the isSelect
+     */
+    public boolean isSelect() {
+        return isSelect;
+    }
+
+    /**
+     * @param isSelect the isSelect to set
+     */
+    public void setSelect(boolean isSelect) {
+        this.isSelect = isSelect;
     }
 }
