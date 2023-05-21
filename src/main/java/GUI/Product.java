@@ -47,6 +47,11 @@ public class Product extends javax.swing.JPanel {
         jLabelSoLuong.setText(sl.toString());
     }
 
+    public void resetSoLuong() {
+        sl = 0;
+        jLabelSoLuong.setText(sl.toString());
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,25 +66,68 @@ public class Product extends javax.swing.JPanel {
         jLabelSoLuong = new javax.swing.JLabel();
         jLabelThanhTien = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setMaximumSize(new java.awt.Dimension(479, 60));
         setMinimumSize(new java.awt.Dimension(479, 60));
         setPreferredSize(new java.awt.Dimension(479, 60));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTenSP.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelTenSP.setText("Tên");
-        add(jLabelTenSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 490, -1));
+        jLabelTenSP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTenSPMouseClicked(evt);
+            }
+        });
+        add(jLabelTenSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 460, -1));
 
         jLabelSoLuong.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelSoLuong.setText("Số lượng:");
+        jLabelSoLuong.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSoLuongMouseClicked(evt);
+            }
+        });
         add(jLabelSoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         jLabelThanhTien.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabelThanhTien.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelThanhTien.setText("Tiền");
+        jLabelThanhTien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelThanhTienMouseClicked(evt);
+            }
+        });
         add(jLabelThanhTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 180, 30));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        isSelect = true;
+    }//GEN-LAST:event_formMouseClicked
+
+    private void jLabelSoLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSoLuongMouseClicked
+        isSelect = true;
+
+    }//GEN-LAST:event_jLabelSoLuongMouseClicked
+
+    private void jLabelTenSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTenSPMouseClicked
+        // TODO add your handling code here:
+        isSelect = true;
+
+    }//GEN-LAST:event_jLabelTenSPMouseClicked
+
+    private void jLabelThanhTienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelThanhTienMouseClicked
+        // TODO add your handling code here:
+        isSelect = true;
+
+    }//GEN-LAST:event_jLabelThanhTienMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelSoLuong;

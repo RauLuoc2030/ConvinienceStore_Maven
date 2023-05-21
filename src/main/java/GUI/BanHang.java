@@ -46,6 +46,47 @@ public class BanHang extends javax.swing.JFrame {
                         jPanelGioHang.repaint();
                     } else {
                         boolean isExist = false;
+                        // Iterate over the components in reverse order
+                        for (int i = components.length - 1; i >= 0; i--) {
+                            Component component = components[i];
+                            if (component instanceof Product) {
+                                Product product = (Product) component;
+                                // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                if (product.getTen().equals(product_icon.getTen())
+                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                    // Tăng số lượng lên
+                                    product.tangSoLuong();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    isExist = true;
+                                    System.out.println("Sản phẩm đã tồn tại");
+                                }
+                            }
+                        }
+
+                        if (!isExist) { // Chưa tồn tại
+                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            jPanelGioHang.add(p);
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                            System.out.println("Sản phẩm chưa tồn tại");
+                        }
+                    }
+                }
+            });
+
+            product_icon.getjLabelIcon().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    Component[] components = jPanelGioHang.getComponents();
+                    if (components.length == 0) {
+
+                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        jPanelGioHang.add(p);
+                        jPanelGioHang.revalidate();
+                        jPanelGioHang.repaint();
+                    } else {
+                        boolean isExist = false;
                         for (Component component : components) {
                             if (component instanceof Product) {
                                 Product product = (Product) component;
@@ -92,7 +133,9 @@ public class BanHang extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanelProduct = new javax.swing.JPanel();
@@ -127,7 +170,7 @@ public class BanHang extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jButton_0 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        jButtonXoa = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -140,7 +183,6 @@ public class BanHang extends javax.swing.JFrame {
         jPanelGioHang = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jTextField_TimKiem = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
         jPanelSanPham = new javax.swing.JPanel();
 
         jPanelProduct.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -177,25 +219,27 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
-                jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addGap(128, 128, 128)
-                                                .addComponent(jLabel10))
-                                        .addComponent(jLabel8))
-                                .addContainerGap(274, Short.MAX_VALUE)));
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(128, 128, 128)
+                        .addComponent(jLabel10))
+                    .addComponent(jLabel8))
+                .addContainerGap(274, Short.MAX_VALUE))
+        );
         jPanel15Layout.setVerticalGroup(
-                jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel9)
-                                        .addComponent(jLabel10))
-                                .addGap(0, 16, Short.MAX_VALUE)));
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(0, 16, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -205,11 +249,13 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1600, Short.MAX_VALUE));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1600, Short.MAX_VALUE)
+        );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 50, Short.MAX_VALUE));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 50));
 
@@ -232,11 +278,6 @@ public class BanHang extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
-            }
-        });
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -311,9 +352,14 @@ public class BanHang extends javax.swing.JFrame {
         jButton15.setText(",");
         jPanel5.add(jButton15);
 
-        jButton16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton16.setText("Xóa");
-        jPanel5.add(jButton16);
+        jButtonXoa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonXoa.setText("Xóa");
+        jButtonXoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonXoaMouseClicked(evt);
+            }
+        });
+        jPanel5.add(jButtonXoa);
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 250, 250));
 
@@ -335,11 +381,13 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
-                jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 165, Short.MAX_VALUE));
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 165, Short.MAX_VALUE)
+        );
         jPanel13Layout.setVerticalGroup(
-                jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 38, Short.MAX_VALUE));
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
 
         jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 0, 167, 40));
 
@@ -349,11 +397,13 @@ public class BanHang extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
-                jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 164, Short.MAX_VALUE));
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 164, Short.MAX_VALUE)
+        );
         jPanel14Layout.setVerticalGroup(
-                jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 38, Short.MAX_VALUE));
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
 
         jPanel9.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 0, 166, 40));
 
@@ -399,18 +449,39 @@ public class BanHang extends javax.swing.JFrame {
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 1100, 50));
 
-        jScrollPane2.setMaximumSize(new java.awt.Dimension(1098, 798));
-
         jPanelSanPham.setMaximumSize(new java.awt.Dimension(1098, 798));
-        jScrollPane2.setViewportView(jPanelSanPham);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1100, 800));
+        jPanelSanPham.setPreferredSize(new java.awt.Dimension(1098, 798));
+        jPanelSanPham.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        getContentPane().add(jPanelSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1098, 798));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonXoaMouseClicked(java.awt.event.MouseEvent evt) {
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    // Remove the product from the panel and update the UI
+                    jPanelGioHang.remove(product);
+                }
+            }
+        }
+
+        // Update the UI after all products have been removed
+        jPanelGioHang.revalidate();
+        jPanelGioHang.repaint();
+    }
+
     private void jTextField_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField_TimKiemActionPerformed
-        // TODO add your handling code here:
         String text = jTextField_TimKiem.getText();
         if (text.length() != 0) {
             sanPhamBUS = new SanPhamBUS();
@@ -442,7 +513,6 @@ public class BanHang extends javax.swing.JFrame {
     }// GEN-LAST:event_jTextField_TimKiemActionPerformed
 
     private void jTextField_TimKiemMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jTextField_TimKiemMouseClicked
-        // TODO add your handling code here:
         if (isjTextField_TimKiemActionPerformedEnable) {
             jTextField_TimKiem.setText("");
             isjTextField_TimKiemActionPerformedEnable = false;
@@ -453,18 +523,6 @@ public class BanHang extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
     }// GEN-LAST:event_jLabel4MouseClicked
-
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel3MouseClicked
-        // TODO add your handling code here:
-        try {
-
-            jPanelSanPham.add(new SanPham_comp());
-
-        } catch (Exception p) {
-            p.printStackTrace();
-        }
-        // jPanel8.setVisible(true);
-    }// GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel7MouseClicked
         // TODO add your handling code here:
@@ -523,8 +581,8 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButtonXoa;
     private javax.swing.JButton jButton_0;
     private javax.swing.JButton jButton_1;
     private javax.swing.JButton jButton_2;
@@ -564,7 +622,6 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelProduct;
     private javax.swing.JPanel jPanelSanPham;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField_TimKiem;
     // End of variables declaration//GEN-END:variables
 }

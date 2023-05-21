@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CallProcedure",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.CallProcedure",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "TestTop10SP_BANCHAY",
+            "request": "launch",
+            "mainClass": "TestTop10SP_BANCHAY",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "AdminHomePage",
+            "request": "launch",
+            "mainClass": "GUI.Admin.AdminHomePage",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "TestAddArray",
             "request": "launch",
             "mainClass": "GUI.TestAddArray",

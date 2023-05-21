@@ -1,12 +1,28 @@
 package DAO_Hibernate;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.*;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.internal.SessionImpl;
+import org.hibernate.procedure.NamedParametersNotSupportedException;
+import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.Query;
+import org.hibernate.result.ResultSetOutput.*;
+import org.hibernate.result.*;
+
+import org.hibernate.result.*;
 
 import DTO.SanPhamDTO;
+import oracle.jdbc.OracleTypes;
+import oracle.jdbc.oracore.OracleType;
 
 public class SanPhamDAO {
     Session session;
@@ -194,14 +210,72 @@ public class SanPhamDAO {
     public SanPhamDTO tim(String keyword) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        
-        Query<SanPhamDTO> query = session.createQuery("FROM SanPhamDTO WHERE MaSP = :keyword OR TenSP LIKE :searchKeyword", SanPhamDTO.class);
+
+        Query<SanPhamDTO> query = session
+                .createQuery("FROM SanPhamDTO WHERE MaSP = :keyword OR TenSP LIKE :searchKeyword", SanPhamDTO.class);
         query.setParameter("keyword", keyword);
         query.setParameter("searchKeyword", "%" + keyword + "%");
-        
+
         SanPhamDTO sanPham = query.uniqueResult();
-        
+
         session.getTransaction().commit();
+        session.close();
         return sanPham;
     }
+
+    public List<SanPhamDTO> Top10Results(LocalDate frDate, LocalDate endDate) {
+        session = null;
+        Transaction tx = null;
+
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+
+            ProcedureCall procedureCall = session.createStoredProcedureCall("TOP10SP_BANCHAY");
+
+            // Đăng ký và thiết lập giá trị cho các tham số đầu vào
+            procedureCall.registerParameter("FR_DATE", Date.class, ParameterMode.IN)
+                    .bindValue(java.sql.Date.valueOf(frDate));
+            procedureCall.registerParameter("END_DATE", Date.class, ParameterMode.IN)
+                    .bindValue(java.sql.Date.valueOf(endDate));
+
+            // Đăng ký tham số đầu ra
+            procedureCall.registerParameter("TOP10", Class.forName("OracleTypes.CURSOR"),
+                    ParameterMode.OUT);
+                    
+            // // Đăng ký tham số đầu ra
+            // procedureCall.registerParameter("TOP10", Class.forName("oracle.jdbc.OracleTypes$REF_CURSOR"),
+            //         ParameterMode.OUT);
+
+            // Thực hiện stored procedure
+            procedureCall.execute();
+
+            // Lấy kết quả từ tham số đầu ra
+            List<SanPhamDTO> sanPhamList = new ArrayList<>();
+            ResultSetOutput resultSetOutput = (ResultSetOutput) procedureCall.getOutputs().getCurrent();
+            sanPhamList = resultSetOutput.getResultList(); // .unwrap(ResultSet.class);
+            // while (resultSet.next()) {
+            // SanPhamDTO dto = new SanPhamDTO();
+            // // Set values of DTO properties based on result set columns
+            // sanPhamList.add(dto);
+            // }
+
+            tx.commit();
+            return sanPhamList;
+        } catch (/* SQLException | */ ClassNotFoundException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            throw new RuntimeException("Error executing stored procedure", e);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
 }
+
+// getResultSet()
+// getNextResultSet()
+// unwarp(ResultSet.class)

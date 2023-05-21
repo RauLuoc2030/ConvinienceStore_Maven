@@ -13,6 +13,15 @@ import javax.persistence.*;
 // -> Chỉ định lớp SanPhamDTO chính là lớp đại diện cho bảng SANPHAM trong CSDL
 @Entity
 @Table(name = "SANPHAM")
+@NamedStoredProcedureQuery(name = "truSLSPKhiBan", procedureName = "TRU_SLSP_KHIBAN", parameters = {
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "SLSP", type = Integer.class),
+        @StoredProcedureParameter(mode = ParameterMode.IN, name = "MASPV", type = String.class)
+})
+@javax.persistence.NamedStoredProcedureQuery(name = "Top10Results", procedureName = "TOP10SP_BANCHAY", parameters = {
+        @javax.persistence.StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class),
+        @javax.persistence.StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class),
+        @javax.persistence.StoredProcedureParameter(mode = ParameterMode.OUT, type = void.class, name = "top10")
+}, resultClasses = { SanPhamDTO.class })
 public class SanPhamDTO implements Serializable {
     @Id // @Id dùng để xác định thuộc tính nào là khóa chính dưới CSDL
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Tự động tạo khóa chính
