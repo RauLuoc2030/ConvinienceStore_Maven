@@ -9,8 +9,8 @@ import java.sql.Types;
 public class CallProcedure {
     public static void main(String[] args) {
         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-        String username = "TestProcedure";
-        String password = "abc";
+        String username = "ConvinienceStore";
+        String password = "conviniencestore";
 
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
             CallableStatement cstmt = conn.prepareCall("{call TOP10SP_BANCHAY(?, ?, ?) }");

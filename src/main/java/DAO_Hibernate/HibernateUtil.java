@@ -10,7 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
-import DTO.KhoVanDTO;
+import DTO.KhoDTO;
 import DTO.NhanVienDTO;
 import DTO.SanPhamDTO;
 
@@ -39,7 +39,7 @@ public class HibernateUtil {
         // addAnnotatedClass()
         conf.addAnnotatedClass(SanPhamDTO.class);
         conf.addAnnotatedClass(NhanVienDTO.class);
-        conf.addAnnotatedClass(KhoVanDTO.class);
+        conf.addAnnotatedClass(KhoDTO.class);
         conf.addAnnotatedClass(KhachHangDTO.class);
         conf.addAnnotatedClass(HoaDonDTO.class);
 

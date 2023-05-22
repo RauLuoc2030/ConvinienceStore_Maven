@@ -6,9 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import DTO.KhoVanDTO;
+import DTO.KhoDTO;
 
-public class KhoVanDAO {
+public class KhoDAO {
     Session session;
 
     /**
@@ -18,9 +18,9 @@ public class KhoVanDAO {
      * @param orderBy
      * @return Danh sách Lô hàng
      */
-    public List<KhoVanDTO> readDB(String condition, String orderBy) {
+    public List<KhoDTO> readDB(String condition, String orderBy) {
         session = HibernateUtil.getSessionFactory().openSession();
-        List<KhoVanDTO> khoVanDTOs = null;
+        List<KhoDTO> khoDTOs = null;
 
         try {
             String queryString = "from KhoVanDTO";
@@ -33,15 +33,15 @@ public class KhoVanDAO {
                 queryString += " order by " + orderBy;
             }
 
-            Query<KhoVanDTO> query = session.createQuery(queryString, KhoVanDTO.class);
-            khoVanDTOs = query.list();
+            Query<KhoDTO> query = session.createQuery(queryString, KhoDTO.class);
+            khoDTOs = query.list();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
 
-        return khoVanDTOs;
+        return khoDTOs;
     }
 
     /**
@@ -50,7 +50,7 @@ public class KhoVanDAO {
      * @param condition
      * @return readDB(condition, null)
      */
-    public List<KhoVanDTO> readDB(String condition) {
+    public List<KhoDTO> readDB(String condition) {
         return readDB(condition, null);
     }
 
@@ -59,17 +59,17 @@ public class KhoVanDAO {
      * 
      * @return readDB(null, null)
      */
-    public List<KhoVanDTO> readDB() {
+    public List<KhoDTO> readDB() {
         return readDB(null, null);
     }
 
     /**
      * Thêm một Lô hàng mới đã có thông tin vào CSDL
      * 
-     * @param khoVanDTO
+     * @param khoDTO
      * @return True nếu thành công
      */
-    public boolean them(KhoVanDTO khoVanDTO) {
+    public boolean them(KhoDTO khoDTO) {
         boolean result = false;
         session = null;
 
@@ -77,11 +77,11 @@ public class KhoVanDAO {
             session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
 
-            KhoVanDTO newKhoVan = new KhoVanDTO();
-            newKhoVan.setMaLoHangString(khoVanDTO.getMaLoHangString());
-            newKhoVan.setNgayNhapDate(khoVanDTO.getNgayNhapDate());
-            newKhoVan.setNgayXuatDate(khoVanDTO.getNgayXuatDate());
-            newKhoVan.setTenCHXuatKhoString(khoVanDTO.getTenCHXuatKhoString());
+            KhoDTO newKhoVan = new KhoDTO();
+            newKhoVan.setMaLoHangString(khoDTO.getMaLoHangString());
+            newKhoVan.setNgayNhapDate(khoDTO.getNgayNhapDate());
+            newKhoVan.setNgayXuatDate(khoDTO.getNgayXuatDate());
+            newKhoVan.setTenCHXuatKhoString(khoDTO.getTenCHXuatKhoString());
 
             session.save(newKhoVan);
             session.getTransaction().commit();
@@ -104,11 +104,11 @@ public class KhoVanDAO {
     /**
      * Xóa một Lô hàng khỏi CSDL
      * 
-     * @param khoVanDTO
+     * @param khoDTO
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
      */
-    public boolean xoa(KhoVanDTO khoVanDTO) {
+    public boolean xoa(KhoDTO khoDTO) {
         boolean result = false;
         session = null;
         Transaction transaction = null;
@@ -116,7 +116,7 @@ public class KhoVanDAO {
             session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
-            session.delete(khoVanDTO); // xóa đối tượng KhoVanDTO khỏi database
+            session.delete(khoDTO); // xóa đối tượng KhoVanDTO khỏi database
 
             transaction.commit(); // commit transaction
             result = true;
@@ -137,18 +137,18 @@ public class KhoVanDAO {
     /**
      * Sửa một Nhân viên có trong CSDL
      * 
-     * @param khoVanDTO
+     * @param khoDTO
      * @return
      * @throws Exception
      */
-    public boolean sua(KhoVanDTO khoVanDTO) {
+    public boolean sua(KhoDTO khoDTO) {
         boolean result = false;
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
-            session.update(khoVanDTO); // sửa thông tin đối tượng KhoVanDTO trong database
+            session.update(khoDTO); // sửa thông tin đối tượng KhoVanDTO trong database
 
             transaction.commit(); // commit transaction
             result = true;
@@ -166,16 +166,16 @@ public class KhoVanDAO {
         return result;
     }
 
-    public KhoVanDTO tim(String keyword) {
+    public KhoDTO tim(String keyword) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Query<KhoVanDTO> query = session.createQuery("FROM KhoVanDTO WHERE MaLoHang = :keyword LIKE :searchKeyword",
-                KhoVanDTO.class);
+        Query<KhoDTO> query = session.createQuery("FROM KhoVanDTO WHERE MaLoHang = :keyword LIKE :searchKeyword",
+                KhoDTO.class);
         query.setParameter("keyword", keyword);
         query.setParameter("searchKeyword", "%" + keyword + "%");
 
-        KhoVanDTO sanPham = query.uniqueResult();
+        KhoDTO sanPham = query.uniqueResult();
 
         session.getTransaction().commit();
         return sanPham;

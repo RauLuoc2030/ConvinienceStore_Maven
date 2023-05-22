@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import BUS.KhoVanBUS;
+import BUS.KhoBUS;
 
 /**
  *
@@ -12,14 +12,14 @@ import BUS.KhoVanBUS;
  */
 public class QLKho extends javax.swing.JPanel {
 
-    private KhoVanBUS khoVanBUS;
+    private KhoBUS khoVanBUS;
 
     /**
      * Creates new form QLKho
      */
     public QLKho() {
         initComponents();
-        khoVanBUS = new KhoVanBUS();
+        khoVanBUS = new KhoBUS();
         for (int i = 0; i < khoVanBUS.getList_KhoVanDTOs().size(); i++) {
             LoHang loHang = new LoHang(khoVanBUS.getList_KhoVanDTOs().get(i).getMaLoHangString(), khoVanBUS.getList_KhoVanDTOs().get(i).getNgayNhapDate().toString(), i);
             jPanel4.add(loHang);

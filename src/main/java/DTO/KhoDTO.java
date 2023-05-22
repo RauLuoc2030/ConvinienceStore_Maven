@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "KHOVAN")
-public class KhoVanDTO {
+public class KhoDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MALOHANG")
@@ -28,7 +28,7 @@ public class KhoVanDTO {
     /**
      *
      */
-    public KhoVanDTO() {
+    public KhoDTO() {
     }
 
     /**
@@ -37,7 +37,7 @@ public class KhoVanDTO {
      * @param ngayXuatDate
      * @param tenCHXuatKhoString
      */
-    public KhoVanDTO(String maLoHangString, Date ngayNhapDate, Date ngayXuatDate, String tenCHXuatKhoString) {
+    public KhoDTO(String maLoHangString, Date ngayNhapDate, Date ngayXuatDate, String tenCHXuatKhoString) {
         this.maLoHangString = maLoHangString;
         this.ngayNhapDate = ngayNhapDate;
         this.ngayXuatDate = ngayXuatDate;
