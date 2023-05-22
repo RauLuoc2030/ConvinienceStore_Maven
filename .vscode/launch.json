@@ -13,6 +13,13 @@
         },
         {
             "type": "java",
+            "name": "DangNhap",
+            "request": "launch",
+            "mainClass": "GUI.DangNhap",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "TestTop10SP_BANCHAY",
             "request": "launch",
             "mainClass": "TestTop10SP_BANCHAY",
@@ -86,13 +93,6 @@
             "name": "hi",
             "request": "launch",
             "mainClass": "GUI.hi",
-            "projectName": "ConvinienceStore_Maven"
-        },
-        {
-            "type": "java",
-            "name": "DangNhap",
-            "request": "launch",
-            "mainClass": "GUI.DangNhap",
             "projectName": "ConvinienceStore_Maven"
         },
         {

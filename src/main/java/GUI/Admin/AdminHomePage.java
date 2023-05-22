@@ -46,6 +46,7 @@ public class AdminHomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -63,18 +64,17 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        panelRound1 = new GUI.PanelRound();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(163, 202, 235));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Cái lá.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 756, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(143, 203, 253));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -232,66 +232,57 @@ public class AdminHomePage extends javax.swing.JFrame {
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 738, 236, 67));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, -9, 282, 135));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 900));
-
-        jPanel10.setBackground(new java.awt.Color(163, 202, 235));
-        jPanel10.setPreferredSize(new java.awt.Dimension(1200, 90));
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel11.setBackground(new java.awt.Color(163, 202, 235));
-        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search 1.png"))); // NOI18N
-        jLabel1.setToolTipText("Tìm kiếm");
-        jPanel11.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 21, 48, 48));
-
-        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
-        panelRound1.setRoundBottomLeft(50);
-        panelRound1.setRoundBottomRight(50);
-        panelRound1.setRoundTopLeft(50);
-        panelRound1.setRoundTopRight(50);
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField1.setFont(new java.awt.Font("Be Vietnam Pro", 0, 18)); // NOI18N
-        jTextField1.setBorder(null);
-        panelRound1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 290, 50));
-
-        jPanel11.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
-
-        jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
-
-        getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 1200, 90));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 1200, 810));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 1200, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanelTrangChuMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelTrangChuMouseEntered
-        // TODO add your handling code here:
-        jPanelTrangChu.setBackground(new java.awt.Color(45, 96, 151));
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-    }// GEN-LAST:event_jPanelTrangChuMouseEntered
-
-    private void jPanelTrangChuMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelTrangChuMouseExited
-        // TODO add your handling code here:
-        jPanelTrangChu.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-    }// GEN-LAST:event_jPanelTrangChuMouseExited
-
-    private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel3MouseEntered
-        // TODO add your handling code here:
-        jPanel3.setBackground(new java.awt.Color(45, 96, 151));
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-    }// GEN-LAST:event_jPanel3MouseEntered
-
-    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel3MouseExited
+    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
         // TODO add your handling code here:
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-    }// GEN-LAST:event_jPanel3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3MouseExited
+
+    private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
+        // TODO add your handling code here:
+        jPanel3.setBackground(new java.awt.Color(45, 96, 151));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel3MouseEntered
+
+    private void jPanelTrangChuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelTrangChuMouseExited
+        // TODO add your handling code here:
+        jPanelTrangChu.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelTrangChuMouseExited
+
+    private void jPanelTrangChuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelTrangChuMouseEntered
+        // TODO add your handling code here:
+        jPanelTrangChu.setBackground(new java.awt.Color(45, 96, 151));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_jPanelTrangChuMouseEntered
+
+    private void jPanelTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelTrangChuMouseClicked
+        // TODO add your handling code here:
+        jPanelTrangChu.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Kiểm tra xem sự kiện click có xảy ra bên ngoài panel hay không
+                if (!SwingUtilities.isDescendingFrom(e.getComponent(), jPanelTrangChu)) {
+                    System.out.println("Click bên ngoài panel");
+                }
+            }
+        });        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelTrangChuMouseClicked
 
     private void jPanel5MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseEntered
         // TODO add your handling code here:
@@ -364,26 +355,6 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
     }// GEN-LAST:event_jPanel9MouseExited
 
-    private void jPanelTrangChuMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelTrangChuMouseClicked
-        // TODO add your handling code here:
-        jPanelTrangChu.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                // Kiểm tra xem sự kiện click có xảy ra bên ngoài panel hay không
-                if (!SwingUtilities.isDescendingFrom(e.getComponent(), jPanelTrangChu)) {
-                    System.out.println("Click bên ngoài panel");
-                }
-            }
-        });
-    }// GEN-LAST:event_jPanelTrangChuMouseClicked
-
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel1MouseClicked
-        // TODO add your handling code here:
-        if (!jPanelTrangChu.getBounds().contains(evt.getPoint())) {
-            System.out.println("Click bên ngoài panel");
-        }
-    }// GEN-LAST:event_jPanel1MouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -428,18 +399,17 @@ public class AdminHomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -449,7 +419,5 @@ public class AdminHomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelTrangChu;
-    private javax.swing.JTextField jTextField1;
-    private GUI.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

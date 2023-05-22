@@ -5,6 +5,7 @@
 package GUI;
 
 import BUS.SanPhamBUS;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,6 +20,10 @@ public class QLSanPham extends javax.swing.JPanel {
      */
     public QLSanPham() {
         initComponents();
+        jDialogAddSP.setLocationRelativeTo(null);
+        jDialogDeleteSP.setLocationRelativeTo(null);
+        jDialogDetailSP.setLocationRelativeTo(null);
+
         sanPhamBUS = new SanPhamBUS();
         for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
             Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i).getTenSPString(),
@@ -39,54 +44,725 @@ public class QLSanPham extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialogAddSP = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanelSave = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jDialogDeleteSP = new javax.swing.JDialog();
+        panelRound1 = new GUI.PanelRound();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jDialogDetailSP = new javax.swing.JDialog();
+        jLabel42 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelDel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanelAdd = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanelAdd1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
 
+        jDialogAddSP.setMaximumSize(new java.awt.Dimension(420, 570));
+        jDialogAddSP.setModal(true);
+        jDialogAddSP.setUndecorated(true);
+        jDialogAddSP.setPreferredSize(new java.awt.Dimension(420, 570));
+        jDialogAddSP.setResizable(false);
+        jDialogAddSP.setSize(new java.awt.Dimension(420, 570));
+        jDialogAddSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel6.setBackground(new java.awt.Color(45, 96, 151));
+        jPanel6.setMaximumSize(new java.awt.Dimension(420, 568));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(209, 202, 191)));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelSave.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelSaveMouseClicked(evt);
+            }
+        });
+        jPanelSave.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Lưu");
+        jPanelSave.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, -10, 40, 60));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/download.png"))); // NOI18N
+        jPanelSave.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 8, 24, 24));
+
+        jPanel8.add(jPanelSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 452, 135, 41));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 102, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 93, Short.MAX_VALUE)
+        );
+
+        jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 22, 104, 95));
+
+        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setBackground(new java.awt.Color(101, 77, 40));
+        jLabel7.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 10)); // NOI18N
+        jLabel7.setText("Chọn file");
+        jPanel10.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, -2, 48, 30));
+
+        jPanel8.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 124, 86, 26));
+
+        jLabel8.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel8.setText("Giá");
+        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 222, 135, 24));
+
+        jLabel9.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel9.setText("Mã sản phẩm");
+        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 157, 135, 24));
+
+        jLabel10.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel10.setText("Mô tả");
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 289, 135, 24));
+
+        jLabel11.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel11.setText("Thông tin chi tiết");
+        jLabel11.setToolTipText("");
+        jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 377, 135, 24));
+
+        jLabel12.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel12.setText("Tên sản phẩm");
+        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 22, 135, 24));
+
+        jLabel13.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel13.setText("Phân loại");
+        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 87, 135, 24));
+
+        jLabel14.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel14.setText("Số lượng");
+        jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 156, 135, 24));
+
+        jLabel15.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel15.setText("NSX");
+        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 223, 135, 24));
+
+        jLabel16.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel16.setText("HSD");
+        jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 301, 135, 24));
+
+        jTextField1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 181, 135, 24));
+
+        jTextField2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 246, 135, 24));
+
+        jTextField3.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 313, 135, 24));
+
+        jTextField4.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 46, 135, 24));
+
+        jTextField6.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 180, 135, 24));
+
+        jTextField7.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 247, 135, 24));
+
+        jTextField8.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 325, 135, 24));
+
+        jTextField9.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 401, 347, 24));
+
+        jComboBox1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PL1", "PL2", "PL3", "PL4", "PL5" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jComboBox1.setLightWeightPopupEnabled(false);
+        jComboBox1.setOpaque(true);
+        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 111, 135, 24));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 507));
+
+        jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 51, 420, 517));
+
+        jLabel17.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Thêm sản phẩm");
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 168, 60));
+
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/x.png"))); // NOI18N
+        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+        jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
+
+        jDialogAddSP.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
+
+        jDialogDeleteSP.setMaximumSize(new java.awt.Dimension(625, 210));
+        jDialogDeleteSP.setMinimumSize(new java.awt.Dimension(625, 210));
+        jDialogDeleteSP.setModal(true);
+        jDialogDeleteSP.setUndecorated(true);
+        jDialogDeleteSP.setResizable(false);
+        jDialogDeleteSP.setSize(new java.awt.Dimension(625, 210));
+        jDialogDeleteSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelRound1.setBackground(new java.awt.Color(143, 203, 253));
+        panelRound1.setMaximumSize(new java.awt.Dimension(625, 210));
+        panelRound1.setMinimumSize(new java.awt.Dimension(625, 210));
+        panelRound1.setRoundBottomLeft(20);
+        panelRound1.setRoundBottomRight(20);
+        panelRound1.setRoundTopLeft(20);
+        panelRound1.setRoundTopRight(20);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 22)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Xác nhận xóa sản phẩm đã chọn?");
+        panelRound1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 30, 610, -1));
+
+        jLabel20.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(102, 115, 130));
+        jLabel20.setText("Lưu ý sản phẩm sẽ bị xoá hoàn toàn và không thể khôi phục");
+        panelRound1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 80, 610, -1));
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 2));
+        jPanel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel11MouseClicked(evt);
+            }
+        });
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(45, 96, 151));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Hủy bỏ");
+        jPanel11.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 5, 104, 32));
+
+        panelRound1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 143, 170, 45));
+
+        jLabel22.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 19)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Xác nhận");
+        panelRound1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 104, 32));
+
+        jDialogDeleteSP.getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
+
+        jDialogDetailSP.setMaximumSize(new java.awt.Dimension(420, 520));
+        jDialogDetailSP.setMinimumSize(new java.awt.Dimension(420, 520));
+        jDialogDetailSP.setModal(true);
+        jDialogDetailSP.setUndecorated(true);
+        jDialogDetailSP.setResizable(false);
+        jDialogDetailSP.setSize(new java.awt.Dimension(420, 520));
+        jDialogDetailSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/x.png"))); // NOI18N
+        jLabel42.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel42.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel42.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel42MouseClicked(evt);
+            }
+        });
+        jDialogDetailSP.getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
+
+        jPanel2.setBackground(new java.awt.Color(45, 96, 151));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel12.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(209, 202, 191)));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("icon");
+        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel13.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 123, 123));
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Đây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text\nĐây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text\nĐây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text");
+        jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setBorder(null);
+        jTextArea1.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        jTextArea1.setMaximumSize(new java.awt.Dimension(125, 90));
+        jTextArea1.setMinimumSize(new java.awt.Dimension(125, 90));
+        jTextArea1.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jPanel13.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 250, 140));
+
+        jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel24.setText("Mã sản phẩm:");
+        jPanel13.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 90, 40));
+
+        jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel25.setText("Đây là một dòng mô tả thông tin sản phẩm");
+        jPanel13.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 320, 40));
+
+        jLabel26.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel26.setText("NSX:");
+        jPanel13.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 30, 40));
+
+        jLabel27.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel27.setText("HSD:");
+        jPanel13.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 199, 40));
+
+        jLabel28.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel28.setText("Số lượng:");
+        jPanel13.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 60, 40));
+
+        jLabel29.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel29.setText("Phân loại:");
+        jPanel13.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 60, 40));
+
+        jLabel30.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel30.setText("SP");
+        jPanel13.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 20, 110, 40));
+
+        jLabel31.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel31.setText("01/01/2023");
+        jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 160, 40));
+
+        jLabel32.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel32.setText("01/01/2023");
+        jPanel13.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 60, 160, 40));
+
+        jLabel33.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel33.setText("13");
+        jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 140, 140, 40));
+
+        jLabel34.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel34.setText("Loại j đó");
+        jPanel13.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 180, 130, 40));
+
+        jLabel35.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel35.setText("Mấy tỷ");
+        jPanel13.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 220, 170, 40));
+
+        jLabel36.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel36.setText("Giá:");
+        jPanel13.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 30, 40));
+
+        jLabel38.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel38.setText("Mô tả:");
+        jPanel13.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 40, 40));
+
+        jLabel39.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel39.setText("Thông tin chi tiết:");
+        jPanel13.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 110, 40));
+
+        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea2.setEditable(false);
+        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Tên SP nếu mà cái text này nó quá dài thì nó sẽ xuống dòng");
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setBorder(null);
+        jTextArea2.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        jTextArea2.setMaximumSize(new java.awt.Dimension(125, 90));
+        jTextArea2.setMinimumSize(new java.awt.Dimension(125, 90));
+        jTextArea2.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jScrollPane4.setViewportView(jTextArea2);
+
+        jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 140, -1));
+
+        jPanel14.setBackground(new java.awt.Color(45, 96, 151));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon _edit pencil_.png"))); // NOI18N
+        jLabel37.setToolTipText("");
+        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 10, -1, 19));
+
+        jLabel40.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Sửa");
+        jPanel14.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 0, 41, 41));
+
+        jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 400, 125, 40));
+
+        jPanel12.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 400, 462));
+
+        jPanel2.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 420, 470));
+
+        jLabel41.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setText("Chi tiết sản phẩm");
+        jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 50));
+
+        jDialogDetailSP.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
+
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1200, 810));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1198, 810));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1198, 810));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1198, 810));
         jPanel1.setLayout(new java.awt.GridLayout(2, 4));
         jScrollPane1.setViewportView(jPanel1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 810));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1070, 810));
 
-        jPanel2.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelDel.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelDel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelDel.setMaximumSize(new java.awt.Dimension(80, 80));
+        jPanelDel.setMinimumSize(new java.awt.Dimension(80, 80));
+        jPanelDel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelDelMouseClicked(evt);
+            }
+        });
+        jPanelDel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
+        jLabel2.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("x");
+        jPanelDel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 223, 80, 80));
+        add(jPanelDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 223, 80, 80));
 
-        jPanel3.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelAdd.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelAdd.setMaximumSize(new java.awt.Dimension(80, 80));
+        jPanelAdd.setMinimumSize(new java.awt.Dimension(80, 80));
+        jPanelAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelAddMouseClicked(evt);
+            }
+        });
+        jPanelAdd.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("+");
+        jPanelAdd.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 140, -1, -1));
+        add(jPanelAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 140, 80, 80));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setMaximumSize(new java.awt.Dimension(1200, 900));
+        jPanel3.setMinimumSize(new java.awt.Dimension(1200, 900));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1200, 900));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setLayout(new java.awt.GridLayout(2, 4));
+        jScrollPane2.setViewportView(jPanel4);
+
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1060, 810));
+
+        jPanel5.setBackground(new java.awt.Color(45, 96, 151));
+        jPanel5.setMaximumSize(new java.awt.Dimension(80, 80));
+        jPanel5.setMinimumSize(new java.awt.Dimension(80, 80));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("x");
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 223, 80, 80));
+
+        jPanelAdd1.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelAdd1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelAdd1.setMaximumSize(new java.awt.Dimension(80, 80));
+        jPanelAdd1.setMinimumSize(new java.awt.Dimension(80, 80));
+        jPanelAdd1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelAdd1MouseClicked(evt);
+            }
+        });
+        jPanelAdd1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("+");
+        jPanelAdd1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
+
+        jPanel3.add(jPanelAdd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 140, 80, 80));
+
+        jButton1.setText("Detail");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 330, -1, -1));
+
+        jPanel15.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel16.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search 1.png"))); // NOI18N
+        jPanel16.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 21, 48, 48));
+        jPanel16.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
+
+        jPanel15.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
+
+        jPanel3.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 90));
+
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jPanelAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAddMouseClicked
+        // TODO add your handling code here:
+//        JFrame frame = new ThemSP();
+//        frame.setVisible(true);
+//        System.out.println("GUI.QLSanPham.jPanelAddMouseClicked()");
+        jDialogAddSP.setVisible(true);
+    }//GEN-LAST:event_jPanelAddMouseClicked
+
+    private void jPanelAdd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAdd1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelAdd1MouseClicked
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+        for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
+            Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i).getTenSPString(),
+                    sanPhamBUS.getList_SanPhamDTOs().get(i).getGiaInt().toString(),
+                    sanPhamBUS.getList_SanPhamDTOs().get(i).getSoLuongSPInt().toString());
+            jPanel1.add(product_icon);
+        }
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_formFocusGained
+
+    private void jPanelSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSaveMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelSaveMouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        jDialogAddSP.dispose();
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jPanelDelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelDelMouseClicked
+        // TODO add your handling code here:
+        jDialogDeleteSP.setVisible(true);
+    }//GEN-LAST:event_jPanelDelMouseClicked
+
+    private void jPanel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseClicked
+        // TODO add your handling code here:
+        jDialogDeleteSP.dispose();
+    }//GEN-LAST:event_jPanel11MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jDialogDetailSP.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel42MouseClicked
+        // TODO add your handling code here:
+        jDialogDetailSP.dispose();
+    }//GEN-LAST:event_jLabel42MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JDialog jDialogAddSP;
+    private javax.swing.JDialog jDialogDeleteSP;
+    private javax.swing.JDialog jDialogDetailSP;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelAdd;
+    private javax.swing.JPanel jPanelAdd1;
+    private javax.swing.JPanel jPanelDel;
+    private javax.swing.JPanel jPanelSave;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private GUI.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

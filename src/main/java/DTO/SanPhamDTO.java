@@ -24,7 +24,7 @@ import javax.persistence.*;
 }, resultClasses = { SanPhamDTO.class })
 public class SanPhamDTO implements Serializable {
     @Id // @Id dùng để xác định thuộc tính nào là khóa chính dưới CSDL
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Tự động tạo khóa chính
+    // @GeneratedValue(strategy = GenerationType.IDENTITY) // Tự động tạo khóa chính
     @Column(name = "MASP") // Tên trường dưới CSDL
     private String maSPString;
 

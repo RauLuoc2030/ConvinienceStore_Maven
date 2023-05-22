@@ -321,7 +321,6 @@ public class BanHang extends javax.swing.JFrame {
         jPanel5.add(jButton_6);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("%CK");
         jPanel5.add(jButton1);
 
         jButton_1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -337,11 +336,9 @@ public class BanHang extends javax.swing.JFrame {
         jPanel5.add(jButton_3);
 
         jButton11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton11.setText("Giá");
         jPanel5.add(jButton11);
 
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton12.setText("+/-");
         jPanel5.add(jButton12);
 
         jButton_0.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N

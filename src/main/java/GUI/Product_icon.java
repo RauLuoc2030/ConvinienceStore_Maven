@@ -82,9 +82,10 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabelGia = new javax.swing.JLabel();
         jLabelSL = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(260, 376));
-        setMinimumSize(new java.awt.Dimension(260, 376));
-        setPreferredSize(new java.awt.Dimension(260, 376));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(250, 376));
+        setMinimumSize(new java.awt.Dimension(250, 376));
+        setPreferredSize(new java.awt.Dimension(250, 376));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
@@ -109,7 +110,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabelSL.setText("SL");
         jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 150, 25));
 
-        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 230, 326));
+        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 326));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
