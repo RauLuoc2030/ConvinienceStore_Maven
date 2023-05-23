@@ -23,7 +23,7 @@ public class KhoDAO {
         List<KhoDTO> khoDTOs = null;
 
         try {
-            String queryString = "from KhoVanDTO";
+            String queryString = "from KhoDTO";
 
             if (condition != null && !condition.isEmpty()) {
                 queryString += " where " + condition;
@@ -80,8 +80,8 @@ public class KhoDAO {
             KhoDTO newKhoVan = new KhoDTO();
             newKhoVan.setMaLoHangString(khoDTO.getMaLoHangString());
             newKhoVan.setNgayNhapDate(khoDTO.getNgayNhapDate());
-            newKhoVan.setNgayXuatDate(khoDTO.getNgayXuatDate());
-            newKhoVan.setTenCHXuatKhoString(khoDTO.getTenCHXuatKhoString());
+            // newKhoVan.setNgayXuatDate(khoDTO.getNgayXuatDate());
+            // newKhoVan.setTenCHXuatKhoString(khoDTO.getTenCHXuatKhoString());
 
             session.save(newKhoVan);
             session.getTransaction().commit();
@@ -116,7 +116,7 @@ public class KhoDAO {
             session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
-            session.delete(khoDTO); // xóa đối tượng KhoVanDTO khỏi database
+            session.delete(khoDTO); // xóa đối tượng KhoDTO khỏi database
 
             transaction.commit(); // commit transaction
             result = true;
@@ -148,7 +148,7 @@ public class KhoDAO {
             Session session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();
 
-            session.update(khoDTO); // sửa thông tin đối tượng KhoVanDTO trong database
+            session.update(khoDTO); // sửa thông tin đối tượng KhoDTO trong database
 
             transaction.commit(); // commit transaction
             result = true;
@@ -170,7 +170,7 @@ public class KhoDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Query<KhoDTO> query = session.createQuery("FROM KhoVanDTO WHERE MaLoHang = :keyword LIKE :searchKeyword",
+        Query<KhoDTO> query = session.createQuery("FROM KhoDTO WHERE MaLoHang = :keyword LIKE :searchKeyword",
                 KhoDTO.class);
         query.setParameter("keyword", keyword);
         query.setParameter("searchKeyword", "%" + keyword + "%");

@@ -4,8 +4,9 @@
  */
 package GUI.Staff;
 
-import GUI.QLKhoVan;
+import GUI.QLKho;
 import GUI.QLSanPham;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -47,6 +48,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -99,6 +101,9 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
         jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel4MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel4MouseEntered(evt);
             }
@@ -203,6 +208,10 @@ public class NhanVienHomePage extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Homepage.png"))); // NOI18N
+        jPanel11.add(jLabel1, java.awt.BorderLayout.CENTER);
+
         getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 1200, 900));
 
         pack();
@@ -222,7 +231,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
         jPanel11.removeAll();
-        jPanel11.add(new QLKhoVan());
+        jPanel11.add(new QLKho());
         jPanel11.validate();
         jPanel11.repaint();
     }//GEN-LAST:event_jPanel6MouseClicked
@@ -310,6 +319,14 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel9MouseExited
 
+    private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
+        // TODO add your handling code here:
+        System.out.println("Về trang chủ");
+        jPanel11.removeAll();
+        ImageIcon icon = new ImageIcon("Homepage.png");
+        jLabel1.setIcon(icon);
+    }//GEN-LAST:event_jPanel4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -347,6 +364,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

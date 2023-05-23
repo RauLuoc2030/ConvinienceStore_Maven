@@ -190,16 +190,47 @@ public class NguoiDungDAO {
      * @param maND
      * @return null nếu không tìm thấy
      */
-    public NguoiDungDTO findByID(String maND) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    public NguoiDungDTO findByUsername(String username) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Query<NguoiDungDTO> query = session.createQuery("FROM NguoiDungDTO WHERE maND = :maND", NguoiDungDTO.class);
-        query.setParameter("maND", maND);
+        Query<NguoiDungDTO> query = session.createQuery("FROM NguoiDungDTO WHERE MANV LIKE :searchKeyword", NguoiDungDTO.class);
+        query.setParameter("searchKeyword", "%" + username + "%");
 
         NguoiDungDTO nguoiDung = query.uniqueResult();
 
         session.getTransaction().commit();
         return nguoiDung;
+    }
+
+    public NguoiDungDTO findByMaNV(String MaNV) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        String hql = "FROM NguoiDungDTO WHERE NguoiDungDTO.maNV = :MaNV";
+        Query<NguoiDungDTO> query = session.createQuery(hql, NguoiDungDTO.class);
+        query.setParameter("MaNV", MaNV);
+        NguoiDungDTO nguoiDungDTO = query.uniqueResult();
+
+        session.getTransaction().commit();
+
+        return nguoiDungDTO;
+    }
+
+    public NguoiDungDTO tim(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<NguoiDungDTO> query = session
+                .createQuery("FROM NguoiDungDTO WHERE MaNV = :keyword", NguoiDungDTO.class);
+        query.setParameter("keyword", keyword);
+        // query.setParameter("searchKeyword", "%" + keyword + "%");
+
+        NguoiDungDTO nguoidung = query.uniqueResult();
+        
+
+        session.getTransaction().commit();
+        session.close();
+        return nguoidung;
     }
 }

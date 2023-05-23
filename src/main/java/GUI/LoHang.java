@@ -45,6 +45,7 @@ public class LoHang extends javax.swing.JPanel {
         jLabelNgayNhap = new javax.swing.JLabel();
         jLabelSLSP = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1200, 60));
         setMinimumSize(new java.awt.Dimension(1200, 60));
         setPreferredSize(new java.awt.Dimension(1200, 60));
@@ -56,12 +57,12 @@ public class LoHang extends javax.swing.JPanel {
 
         jLabelNgayNhap.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelNgayNhap.setText("Ngày nhập");
-        add(jLabelNgayNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 170, 60));
+        add(jLabelNgayNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 310, 60));
 
         jLabelSLSP.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelSLSP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSLSP.setText("SL SP trong LH");
-        add(jLabelSLSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 190, 60));
+        add(jLabelSLSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 180, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

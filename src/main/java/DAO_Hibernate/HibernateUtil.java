@@ -11,6 +11,7 @@ import org.hibernate.service.ServiceRegistry;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.KhoDTO;
+import DTO.NguoiDungDTO;
 import DTO.NhanVienDTO;
 import DTO.SanPhamDTO;
 
@@ -42,6 +43,7 @@ public class HibernateUtil {
         conf.addAnnotatedClass(KhoDTO.class);
         conf.addAnnotatedClass(KhachHangDTO.class);
         conf.addAnnotatedClass(HoaDonDTO.class);
+        conf.addAnnotatedClass(NguoiDungDTO.class);
 
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
         FACTORY = conf.buildSessionFactory(registry);

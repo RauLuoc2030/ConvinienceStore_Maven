@@ -132,7 +132,6 @@ public class QLSanPham extends javax.swing.JPanel {
         jDialogAddSP.setMaximumSize(new java.awt.Dimension(420, 570));
         jDialogAddSP.setModal(true);
         jDialogAddSP.setUndecorated(true);
-        jDialogAddSP.setPreferredSize(new java.awt.Dimension(420, 570));
         jDialogAddSP.setResizable(false);
         jDialogAddSP.setSize(new java.awt.Dimension(420, 570));
         jDialogAddSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -314,6 +313,7 @@ public class QLSanPham extends javax.swing.JPanel {
 
         jLabel20.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(102, 115, 130));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Lưu ý sản phẩm sẽ bị xoá hoàn toàn và không thể khôi phục");
         panelRound1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 80, 610, -1));
 
@@ -343,7 +343,6 @@ public class QLSanPham extends javax.swing.JPanel {
 
         jDialogDeleteSP.getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
 
-        jDialogDetailSP.setMaximumSize(new java.awt.Dimension(420, 520));
         jDialogDetailSP.setMinimumSize(new java.awt.Dimension(420, 520));
         jDialogDetailSP.setModal(true);
         jDialogDetailSP.setUndecorated(true);

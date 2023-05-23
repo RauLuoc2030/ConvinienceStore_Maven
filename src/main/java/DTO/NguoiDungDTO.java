@@ -1,14 +1,14 @@
 package DTO;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import java.io.Serializable;
 
-public class NguoiDungDTO {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "NGUOIDUNG")
+public class NguoiDungDTO implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MANV")
     private String maNVString;
 
@@ -18,7 +18,9 @@ public class NguoiDungDTO {
     @Column(name = "PASSWORD")
     private String passwordString;
 
-    @OneToOne
+    // Khai báo mối quan hệ One-to-One với NHANVIEN
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MaNV")
     private NhanVienDTO nhanVienDTO;
 
     /**

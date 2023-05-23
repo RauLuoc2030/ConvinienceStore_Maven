@@ -9,9 +9,6 @@
         </Property>
         <Property name="modal" type="boolean" value="true"/>
         <Property name="undecorated" type="boolean" value="true"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[420, 570]"/>
-        </Property>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[420, 570]"/>
@@ -606,6 +603,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="82" green="73" red="66" type="rgb"/>
                 </Property>
+                <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="L&#x1b0;u &#xfd; s&#x1ea3;n ph&#x1ea9;m s&#x1ebd; b&#x1ecb; xo&#xe1; ho&#xe0;n to&#xe0;n v&#xe0; kh&#xf4;ng th&#x1ec3; kh&#xf4;i ph&#x1ee5;c"/>
               </Properties>
               <Constraints>
@@ -685,9 +683,6 @@
     </Container>
     <Container class="javax.swing.JDialog" name="jDialogDetailSP">
       <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[420, 520]"/>
-        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[420, 520]"/>
         </Property>

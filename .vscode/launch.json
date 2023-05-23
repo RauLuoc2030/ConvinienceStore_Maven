@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NhanVienHomePage",
+            "request": "launch",
+            "mainClass": "GUI.Staff.NhanVienHomePage",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "TestTimUsername",
+            "request": "launch",
+            "mainClass": "TestTimUsername",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "CallProcedure",
             "request": "launch",
             "mainClass": "DAO_Hibernate.CallProcedure",

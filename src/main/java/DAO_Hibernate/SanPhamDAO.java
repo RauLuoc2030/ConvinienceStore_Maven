@@ -242,10 +242,11 @@ public class SanPhamDAO {
             // Đăng ký tham số đầu ra
             procedureCall.registerParameter("TOP10", Class.forName("OracleTypes.CURSOR"),
                     ParameterMode.OUT);
-                    
+
             // // Đăng ký tham số đầu ra
-            // procedureCall.registerParameter("TOP10", Class.forName("oracle.jdbc.OracleTypes$REF_CURSOR"),
-            //         ParameterMode.OUT);
+            // procedureCall.registerParameter("TOP10",
+            // Class.forName("oracle.jdbc.OracleTypes$REF_CURSOR"),
+            // ParameterMode.OUT);
 
             // Thực hiện stored procedure
             procedureCall.execute();

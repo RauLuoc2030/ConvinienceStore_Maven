@@ -93,8 +93,14 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
         // TODO add your handling code here:
-        if (jTextFieldUsername.getText().equals("") || jPasswordField.getPassword().equals("")) {
+        if (jTextFieldUsername.getText().equals("") && jPasswordField.getPassword().equals("")) {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ");
+        }
+        if (jTextFieldUsername.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập tài khoản");
+        }
+        if (jPasswordField.getPassword().equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập mật khẩu");
         }
     }//GEN-LAST:event_panelRound1MouseClicked
 
