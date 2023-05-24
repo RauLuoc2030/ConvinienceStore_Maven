@@ -54,7 +54,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Cái lá.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Caila.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 756, 110, 144));
 
         jPanel1.setBackground(new java.awt.Color(143, 203, 253));
@@ -323,8 +323,6 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("Về trang chủ");
         jPanel11.removeAll();
-        ImageIcon icon = new ImageIcon("Homepage.png");
-        jLabel1.setIcon(icon);
     }//GEN-LAST:event_jPanel4MouseClicked
 
     /**

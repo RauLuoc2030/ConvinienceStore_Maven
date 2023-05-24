@@ -194,7 +194,8 @@ public class NguoiDungDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Query<NguoiDungDTO> query = session.createQuery("FROM NguoiDungDTO WHERE MANV LIKE :searchKeyword", NguoiDungDTO.class);
+        Query<NguoiDungDTO> query = session.createQuery("FROM NguoiDungDTO WHERE MANV LIKE :searchKeyword",
+                NguoiDungDTO.class);
         query.setParameter("searchKeyword", "%" + username + "%");
 
         NguoiDungDTO nguoiDung = query.uniqueResult();
@@ -222,15 +223,14 @@ public class NguoiDungDAO {
         session.beginTransaction();
 
         Query<NguoiDungDTO> query = session
-                .createQuery("FROM NguoiDungDTO WHERE MaNV = :keyword", NguoiDungDTO.class);
+                .createQuery("FROM NguoiDungDTO WHERE MaNV = :keyword OR username = :searchKeyword",
+                        NguoiDungDTO.class);
         query.setParameter("keyword", keyword);
-        // query.setParameter("searchKeyword", "%" + keyword + "%");
+        query.setParameter("searchKeyword", keyword);
 
-        NguoiDungDTO nguoidung = query.uniqueResult();
-        
+        NguoiDungDTO sanPham = query.uniqueResult();
 
         session.getTransaction().commit();
-        session.close();
-        return nguoidung;
+        return sanPham;
     }
 }

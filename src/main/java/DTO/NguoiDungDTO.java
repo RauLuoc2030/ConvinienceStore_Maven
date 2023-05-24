@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "NGUOIDUNG")
-public class NguoiDungDTO implements Serializable{
+public class NguoiDungDTO implements Serializable {
     @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MANV")
@@ -101,6 +101,6 @@ public class NguoiDungDTO implements Serializable{
     @Override
     public String toString() {
         return "NguoiDungDTO [maNVString=" + maNVString + ", usernameString=" + usernameString + ", passwordString="
-                + passwordString + ", nhanVienDTO=" + nhanVienDTO + "]";
+                + passwordString + "]";
     }
 }

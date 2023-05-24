@@ -183,6 +183,7 @@ public class BanHang extends javax.swing.JFrame {
         jPanelGioHang = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jTextField_TimKiem = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jPanelSanPham = new javax.swing.JPanel();
 
         jPanelProduct.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -448,8 +449,10 @@ public class BanHang extends javax.swing.JFrame {
 
         jPanelSanPham.setMaximumSize(new java.awt.Dimension(1098, 798));
         jPanelSanPham.setPreferredSize(new java.awt.Dimension(1098, 798));
-        jPanelSanPham.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-        getContentPane().add(jPanelSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1098, 798));
+        jPanelSanPham.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+        jScrollPane3.setViewportView(jPanelSanPham);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1100, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -619,6 +622,7 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelProduct;
     private javax.swing.JPanel jPanelSanPham;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField_TimKiem;
     // End of variables declaration//GEN-END:variables
 }

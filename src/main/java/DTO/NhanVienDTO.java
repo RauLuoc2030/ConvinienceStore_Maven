@@ -3,12 +3,13 @@ package DTO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.io.Serializable;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "NHANVIEN")
-public class NhanVienDTO {
+public class NhanVienDTO implements Serializable {
 
     @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +33,9 @@ public class NhanVienDTO {
 
     @Column(name = "CHUCVU")
     private String chucVuNVString;
+    // One-to-one relationship with NGUOIDUNG entity, using MaNV as foreign key
+    @OneToOne(mappedBy = "nhanVienDTO", fetch = FetchType.LAZY)
+    private NguoiDungDTO nguoiDungDTO;
 
     /**
      *
@@ -181,5 +185,19 @@ public class NhanVienDTO {
 
     public void setNgaySinhNVDate(Date ngaySinhNVDate) {
         this.ngaySinhNVDate = ngaySinhNVDate;
+    }
+
+    /**
+     * @return the nguoiDungDTO
+     */
+    public NguoiDungDTO getNguoiDungDTO() {
+        return nguoiDungDTO;
+    }
+
+    /**
+     * @param nguoiDungDTO the nguoiDungDTO to set
+     */
+    public void setNguoiDungDTO(NguoiDungDTO nguoiDungDTO) {
+        this.nguoiDungDTO = nguoiDungDTO;
     }
 }

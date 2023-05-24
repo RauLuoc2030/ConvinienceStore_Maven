@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import DAO_Hibernate.NguoiDungDAO;
+import DTO.NguoiDungDTO;
 import java.awt.Cursor;
 import javax.swing.JOptionPane;
 
@@ -12,6 +14,8 @@ import javax.swing.JOptionPane;
  * @author Locc
  */
 public class DangNhap extends javax.swing.JFrame {
+
+    private NguoiDungDAO nguoiDungDAO;
 
     /**
      * Creates new form DangNhap
@@ -93,14 +97,21 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
         // TODO add your handling code here:
-        if (jTextFieldUsername.getText().equals("") && jPasswordField.getPassword().equals("")) {
+        nguoiDungDAO = new NguoiDungDAO();
+        String inputUsername = jTextFieldUsername.getText();
+        char[] inputPassword = jPasswordField.getPassword();
+        String inputPasswordText = new String(inputPassword);
+        NguoiDungDTO nguoiDungDTO = nguoiDungDAO.tim(inputUsername);
+        if (inputUsername.equals("") && inputPasswordText.equals("")) {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ");
-        }
-        if (jTextFieldUsername.getText().equals("")) {
+        } else if (inputUsername.equals("")) {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập tài khoản");
-        }
-        if (jPasswordField.getPassword().equals("")) {
+        } else if (inputPasswordText.equals("")) {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập mật khẩu");
+        } else if (nguoiDungDTO.getPasswordString().equals(inputPasswordText)) {
+            JOptionPane.showMessageDialog(null, "Đăng nhập thành công!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Đăng nhập thất bại!");
         }
     }//GEN-LAST:event_panelRound1MouseClicked
 

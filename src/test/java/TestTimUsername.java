@@ -7,22 +7,21 @@ import DTO.SanPhamDTO;
 
 public class TestTimUsername {
     public static void main(String[] args) {
-        // NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
-
-        // NguoiDungDTO nv = nguoiDungDAO.tim("NV001");
-        // if (nv == null) {
-        // System.out.println("Không tìm thấy");
-        // } else {
-        // System.out.println(nv.toString());
-        // }
-
-        NhanVienDAO nhanVienDAO = new NhanVienDAO();
-        NhanVienDTO nv = nhanVienDAO.tim("NV001");
+        NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
+        NguoiDungDTO nv = nguoiDungDAO.tim("admin");
         if (nv == null) {
         System.out.println("Không tìm thấy");
         } else {
         System.out.println(nv.toString());
         }
+
+        // NhanVienDAO nhanVienDAO = new NhanVienDAO();
+        // NhanVienDTO nv = nhanVienDAO.tim("NV001");
+        // if (nv == null) {
+        // System.out.println("Không tìm thấy");
+        // } else {
+        // System.out.println(nv.toString());
+        // }
 
 
         // SanPhamDAO sanPhamDAO = new SanPhamDAO();
