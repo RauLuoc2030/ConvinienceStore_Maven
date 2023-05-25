@@ -22,14 +22,11 @@ public class QLSanPham extends javax.swing.JPanel {
         initComponents();
         jDialogAddSP.setLocationRelativeTo(null);
         jDialogDeleteSP.setLocationRelativeTo(null);
-        jDialogDetailSP.setLocationRelativeTo(null);
 
         sanPhamBUS = new SanPhamBUS();
         for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
-            Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i).getTenSPString(),
-                    sanPhamBUS.getList_SanPhamDTOs().get(i).getGiaInt().toString(),
-                    sanPhamBUS.getList_SanPhamDTOs().get(i).getSoLuongSPInt().toString());
-            jPanel4.add(product_icon);
+            Product_icon product_icon1 = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
+            jPanel4.add(product_icon1);
         }
         jPanel4.revalidate();
         jPanel4.repaint();
@@ -81,35 +78,6 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanel11 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jDialogDetailSP = new javax.swing.JDialog();
-        jLabel42 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
         jPanelDel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanelAdd = new javax.swing.JPanel();
@@ -335,162 +303,6 @@ public class QLSanPham extends javax.swing.JPanel {
 
         jDialogDeleteSP.getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
 
-        jDialogDetailSP.setMinimumSize(new java.awt.Dimension(420, 520));
-        jDialogDetailSP.setModal(true);
-        jDialogDetailSP.setUndecorated(true);
-        jDialogDetailSP.setResizable(false);
-        jDialogDetailSP.setSize(new java.awt.Dimension(420, 520));
-        jDialogDetailSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/x.png"))); // NOI18N
-        jLabel42.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel42.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel42.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel42MouseClicked(evt);
-            }
-        });
-        jDialogDetailSP.getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
-
-        jPanel2.setBackground(new java.awt.Color(45, 96, 151));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel12.setBackground(new java.awt.Color(143, 203, 253));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(209, 202, 191)));
-        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("icon");
-        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel13.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 123, 123));
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Đây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text\nĐây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text\nĐây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text");
-        jTextArea1.setWrapStyleWord(true);
-        jTextArea1.setBorder(null);
-        jTextArea1.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        jTextArea1.setMaximumSize(new java.awt.Dimension(125, 90));
-        jTextArea1.setMinimumSize(new java.awt.Dimension(125, 90));
-        jTextArea1.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jScrollPane3.setViewportView(jTextArea1);
-
-        jPanel13.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 250, 140));
-
-        jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel24.setText("Mã sản phẩm:");
-        jPanel13.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 90, 40));
-
-        jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel25.setText("Đây là một dòng mô tả thông tin sản phẩm");
-        jPanel13.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 320, 40));
-
-        jLabel26.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel26.setText("NSX:");
-        jPanel13.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 30, 40));
-
-        jLabel27.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel27.setText("HSD:");
-        jPanel13.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 199, 40));
-
-        jLabel28.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel28.setText("Số lượng:");
-        jPanel13.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 60, 40));
-
-        jLabel29.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel29.setText("Phân loại:");
-        jPanel13.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 60, 40));
-
-        jLabel30.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel30.setText("SP");
-        jPanel13.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 20, 110, 40));
-
-        jLabel31.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel31.setText("01/01/2023");
-        jPanel13.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 160, 40));
-
-        jLabel32.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel32.setText("01/01/2023");
-        jPanel13.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 60, 160, 40));
-
-        jLabel33.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel33.setText("13");
-        jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 140, 140, 40));
-
-        jLabel34.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel34.setText("Loại j đó");
-        jPanel13.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 180, 130, 40));
-
-        jLabel35.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel35.setText("Mấy tỷ");
-        jPanel13.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 220, 170, 40));
-
-        jLabel36.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel36.setText("Giá:");
-        jPanel13.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 30, 40));
-
-        jLabel38.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel38.setText("Mô tả:");
-        jPanel13.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 40, 40));
-
-        jLabel39.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel39.setText("Thông tin chi tiết:");
-        jPanel13.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 110, 40));
-
-        jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-
-        jTextArea2.setEditable(false);
-        jTextArea2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("Tên SP nếu mà cái text này nó quá dài thì nó sẽ xuống dòng");
-        jTextArea2.setWrapStyleWord(true);
-        jTextArea2.setBorder(null);
-        jTextArea2.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        jTextArea2.setMaximumSize(new java.awt.Dimension(125, 90));
-        jTextArea2.setMinimumSize(new java.awt.Dimension(125, 90));
-        jTextArea2.setSelectionColor(new java.awt.Color(255, 255, 255));
-        jScrollPane4.setViewportView(jTextArea2);
-
-        jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 140, -1));
-
-        jPanel14.setBackground(new java.awt.Color(45, 96, 151));
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icon _edit pencil_.png"))); // NOI18N
-        jLabel37.setToolTipText("");
-        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 10, -1, 19));
-
-        jLabel40.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Sửa");
-        jPanel14.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 0, 41, 41));
-
-        jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 400, 125, 40));
-
-        jPanel12.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 400, 462));
-
-        jPanel2.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 420, 470));
-
-        jLabel41.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel41.setText("Chi tiết sản phẩm");
-        jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 50));
-
-        jDialogDetailSP.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
-
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1200, 810));
         addFocusListener(new java.awt.event.FocusAdapter() {
@@ -601,18 +413,12 @@ public class QLSanPham extends javax.swing.JPanel {
         jDialogDeleteSP.dispose();
     }//GEN-LAST:event_jPanel11MouseClicked
 
-    private void jLabel42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel42MouseClicked
-        // TODO add your handling code here:
-        jDialogDetailSP.dispose();
-    }//GEN-LAST:event_jLabel42MouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JDialog jDialogAddSP;
     private javax.swing.JDialog jDialogDeleteSP;
-    private javax.swing.JDialog jDialogDetailSP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -628,26 +434,6 @@ public class QLSanPham extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -656,10 +442,6 @@ public class QLSanPham extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -669,10 +451,6 @@ public class QLSanPham extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelDel;
     private javax.swing.JPanel jPanelSave;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestDoubleClick",
+            "request": "launch",
+            "mainClass": "TestDoubleClick",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "NhanVienHomePage",
             "request": "launch",
             "mainClass": "GUI.Staff.NhanVienHomePage",
