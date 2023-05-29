@@ -8,15 +8,14 @@ import javax.persistence.*;
 @Table(name = "NGUOIDUNG")
 public class NguoiDungDTO implements Serializable {
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "MANV")
-    private String maNVString;
-
     @Column(name = "USERNAME")
     private String usernameString;
 
     @Column(name = "PASSWORD")
     private String passwordString;
+
+    @Column(name = "MANV")
+    private String maNVString;
 
     // Khai báo mối quan hệ One-to-One với NHANVIEN
     @OneToOne(fetch = FetchType.LAZY)

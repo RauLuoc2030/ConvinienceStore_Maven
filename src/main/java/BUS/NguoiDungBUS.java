@@ -41,7 +41,7 @@ public class NguoiDungBUS {
      * @throws Exception
      */
     public Boolean them(NguoiDungDTO nguoiDungDTO) throws Exception {
-        if (nguoiDungDAO.them(nguoiDungDTO)) {
+        if (nguoiDungDAO.them_optimized(nguoiDungDTO)) {
             list_NguoiDungDTOs.add(nguoiDungDTO);
             return true;
         }

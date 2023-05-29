@@ -26,12 +26,14 @@ public class HoaDonDTO implements Serializable {
     @Column(name = "MANV")
     private String maNVString;
 
-    /**
-     * Chỉ cần SDT của khách hàng thì có thể biết được hóa đơn này do khách nào
-     * mua
-     */
     @Column(name = "MAKH")
     private String maKHString;
+
+    @Column(name = "HINHTHUC")
+    private String hinhThucThanhToanHDString;
+
+    @Column(name = "TRIGIA")
+    private Integer triGiaHDInteger;
 
     /**
      * @return the maKHString
@@ -47,9 +49,6 @@ public class HoaDonDTO implements Serializable {
         this.maKHString = maKHString;
     }
 
-    @Column(name = "HINHTHUC")
-    private String hinhThucThanhToanHDString;
-
     /**
      * Dùng để cấu hình mối quan hệ ManyToOne giữa Hóa đơn và Nhân viên: Nhiều
      * Hóa đơn có thể được tạo bởi một Nhân viên
@@ -64,15 +63,12 @@ public class HoaDonDTO implements Serializable {
      * nhiều hóa đơn
      */
     @ManyToMany
-    @JoinTable(
-            name = "CHITIETHOADON", // Tên của bảng trung gian dưới CSDL
+    @JoinTable(name = "CHITIETHOADON", // Tên của bảng trung gian dưới CSDL
             joinColumns = {
-                @JoinColumn(name = "MAHD") // Tên trường khóa ngoại trỏ đến HD
-            },
-            inverseJoinColumns = {
-                @JoinColumn(name = "MASP") // Tên trường khóa ngoại trỏ đến SP
-            }
-    )
+                    @JoinColumn(name = "MAHD") // Tên trường khóa ngoại trỏ đến HD
+            }, inverseJoinColumns = {
+                    @JoinColumn(name = "MASP") // Tên trường khóa ngoại trỏ đến SP
+            })
     private Set<SanPhamDTO> sanPhamDTOs;
 
     /**
@@ -167,19 +163,11 @@ public class HoaDonDTO implements Serializable {
         this.maNVString = maNVString;
     }
 
-
     /**
      * @return the hinhThucThanhToanHDString
      */
     public String getHinhThucThanhToanHDString() {
         return hinhThucThanhToanHDString;
-    }
-
-    @Override
-    public String toString() {
-        return "HoaDonDTO [maHDString=" + maHDString + ", ngayMuaHangHDDate=" + ngayMuaHangHDDate + ", maNVString="
-                + maNVString + ", maKHString=" + maKHString + ", hinhThucThanhToanHDString="
-                + hinhThucThanhToanHDString + "]";
     }
 
     /**
@@ -196,4 +184,39 @@ public class HoaDonDTO implements Serializable {
         this.nhanVienDTO = nhanVienDTO;
     }
 
+    /**
+     * @return the triGiaHDInteger
+     */
+    public Integer getTriGiaHDInteger() {
+        return triGiaHDInteger;
+    }
+
+    /**
+     * @param triGiaHDInteger the triGiaHDInteger to set
+     */
+    public void setTriGiaHDInteger(Integer triGiaHDInteger) {
+        this.triGiaHDInteger = triGiaHDInteger;
+    }
+
+    /**
+     * @return the sanPhamDTOs
+     */
+    public Set<SanPhamDTO> getSanPhamDTOs() {
+        return sanPhamDTOs;
+    }
+
+    /**
+     * @param sanPhamDTOs the sanPhamDTOs to set
+     */
+    public void setSanPhamDTOs(Set<SanPhamDTO> sanPhamDTOs) {
+        this.sanPhamDTOs = sanPhamDTOs;
+    }
+
+    @Override
+    public String toString() {
+        return "HoaDonDTO [maHDString=" + maHDString + ", ngayMuaHangHDDate=" + ngayMuaHangHDDate + ", maNVString="
+                + maNVString + ", maKHString=" + maKHString + ", hinhThucThanhToanHDString=" + hinhThucThanhToanHDString
+                + ", triGiaHDInteger=" + triGiaHDInteger + ", nhanVienDTO=" + nhanVienDTO + ", sanPhamDTOs="
+                + sanPhamDTOs + "]";
+    }
 }

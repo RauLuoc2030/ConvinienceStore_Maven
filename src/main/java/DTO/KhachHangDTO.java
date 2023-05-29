@@ -1,6 +1,9 @@
 package DTO;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -17,7 +20,8 @@ public class KhachHangDTO implements Serializable {
     @Column(name = "TENKH")
     private String tenKHString;
 
-
+    @Column(name = "NGAYDK")
+    private Date ngayDangKyDate;
 
     /**
      * @param maKHString
@@ -78,9 +82,52 @@ public class KhachHangDTO implements Serializable {
         this.tenKHString = tenKHString;
     }
 
+    /**
+     * @return the tenKHString
+     */
+    public String getTenKHString() {
+        return tenKHString;
+    }
+
+    /**
+     * @param tenKHString the tenKHString to set
+     */
+    public void setTenKHString(String tenKHString) {
+        this.tenKHString = tenKHString;
+    }
+
+    /**
+     * @param ngayDangKyDate "dd/MM/yyyy" the ngayDangKyDate to set
+     */
+    public void setNgayDangKyDate(String ngayDangKyDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            this.ngayDangKyDate = formatter.parse(ngayDangKyDate);
+        } catch (ParseException e) {
+            System.out.println("Cannot convert String to Date");
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public String toString() {
-        return "KhachHangDTO [SDTKHString=" + SDTKHString + ", tenKHString=" + tenKHString + "]";
+        return "KhachHangDTO [maKHString=" + maKHString + ", SDTKHString=" + SDTKHString + ", tenKHString="
+                + tenKHString + ", ngayDangKy=" + ngayDangKyDate + "]";
+    }
+
+    /**
+     * @return the ngayDangKyDate
+     */
+    public Date getNgayDangKyDate() {
+        return ngayDangKyDate;
+    }
+
+    /**
+     * @param ngayDangKyDate the ngayDangKyDate to set
+     */
+    public void setNgayDangKyDate(Date ngayDangKyDate) {
+        this.ngayDangKyDate = ngayDangKyDate;
     }
 
     // @Override

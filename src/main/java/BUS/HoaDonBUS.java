@@ -42,7 +42,7 @@ public class HoaDonBUS {
      * @throws Exception
      */
     public Boolean them(HoaDonDTO hoaDonDTO) throws Exception {
-        if (hoaDonDAO.them(hoaDonDTO)) {
+        if (hoaDonDAO.them_optimized(hoaDonDTO)) {
             list_HoaDonDTOs.add(hoaDonDTO);
             return true;
         }

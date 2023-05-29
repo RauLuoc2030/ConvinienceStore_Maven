@@ -468,7 +468,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         sanPhamDTO.setGiaInt(Integer.valueOf(Gia1.getText()));
         sanPhamDTO.setTenSPString(TenSP1.getText());
         sanPhamDTO.setMoTaString(MoTa1.getText());
-        sanPhamDTO.setThongTinChiTietString(TTCT1.getText());
+        
         try {
             sanPhamBUS.sua(sanPhamDTO);
         } catch (Exception e) {
@@ -494,7 +494,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         Gia1.setText(sanPhamDTO.getGiaInt().toString());
         TenSP1.setText(sanPhamDTO.getTenSPString());
         MoTa1.setText(sanPhamDTO.getMoTaString());
-        TTCT1.setText(sanPhamDTO.getThongTinChiTietString());
+        
 
     }// GEN-LAST:event_jPanelSaveMouseClicked
 
@@ -529,7 +529,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             Gia1.setText(sanPhamDTO.getGiaInt().toString());
             TenSP1.setText(sanPhamDTO.getTenSPString());
             MoTa1.setText(sanPhamDTO.getMoTaString());
-            TTCT1.setText(sanPhamDTO.getThongTinChiTietString());
+            
 
             jDialogDetailSP1.setVisible(true);
             System.out.println("Double clicked!");

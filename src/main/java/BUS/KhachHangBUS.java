@@ -42,7 +42,7 @@ public class KhachHangBUS {
      * @throws Exception
      */
     public Boolean them(KhachHangDTO khachHangDTO) throws Exception {
-        if (khachHangDAO.them(khachHangDTO)) {
+        if (khachHangDAO.them_optimized(khachHangDTO)) {
             list_KhachHangDTOs.add(khachHangDTO);
             return true;
         }

@@ -1,7 +1,8 @@
 package DTO;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +16,11 @@ public class KhoDTO {
     @Column(name = "NGAYNHAP")
     private Date ngayNhapDate;
 
+    @Column(name = "MANV")
+    private String maNhanVienString;
+
+    @Column(name = "TENNHACUNGCAP")
+    private String tenNhaCungCapString;
     // @Column(name = "NGAYXUAT")
     // private Date ngayXuatDate;
 
@@ -72,9 +78,46 @@ public class KhoDTO {
         this.ngayNhapDate = ngayNhapDate;
     }
 
-    @Override
-    public String toString() {
-        return "KhoVanDTO [maLoHangString=" + maLoHangString + ", ngayNhapDate=" + ngayNhapDate + "]";
+        /**
+     * @param ngayNhapDate "dd/MM/yyyy" the ngayNhapDate to set
+     */
+    public void setNgayNhapDate(String ngayNhapDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            this.ngayNhapDate = formatter.parse(ngayNhapDate);
+        } catch (ParseException e) {
+            System.out.println("Cannot convert String to Date");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * @return the maNhanVienString
+     */
+    public String getMaNhanVienString() {
+        return maNhanVienString;
+    }
+
+    /**
+     * @param maNhanVienString the maNhanVienString to set
+     */
+    public void setMaNhanVienString(String maNhanVienString) {
+        this.maNhanVienString = maNhanVienString;
+    }
+
+    /**
+     * @return the tenNhaCungCapString
+     */
+    public String getTenNhaCungCapString() {
+        return tenNhaCungCapString;
+    }
+
+    /**
+     * @param tenNhaCungCapString the tenNhaCungCapString to set
+     */
+    public void setTenNhaCungCapString(String tenNhaCungCapString) {
+        this.tenNhaCungCapString = tenNhaCungCapString;
     }
 
 }

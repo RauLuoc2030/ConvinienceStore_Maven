@@ -102,6 +102,24 @@ public class KhachHangDAO {
         return result;
     }
 
+        /**
+     * Thêm một Khách hàng mới đã có thông tin vào CSDL
+     * 
+     * @param khachhang
+     * @return True nếu thành công
+     * @throws Exception và rollback Transaction
+     */
+    public boolean them_optimized(KhachHangDTO khachhang) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.save(khachhang);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
     /**
      * Xóa một Khách hàng khỏi CSDL
      * 

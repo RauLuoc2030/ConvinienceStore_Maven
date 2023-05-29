@@ -41,7 +41,7 @@ public class KhoBUS {
      * @throws Exception
      */
     public Boolean them(KhoDTO khoDTO) throws Exception {
-        if (khoDAO.them(khoDTO)) {
+        if (khoDAO.them_optimized(khoDTO)) {
             list_KhoDTOs.add(khoDTO);
             return true;
         }

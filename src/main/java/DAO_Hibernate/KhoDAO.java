@@ -102,6 +102,25 @@ public class KhoDAO {
     }
 
     /**
+     * Thêm một lô hàng mới đã có thông tin vào CSDL
+     * 
+     * @param lohang
+     * @return True nếu thành công
+     * @throws Exception và rollback Transaction
+     */
+    public boolean them_optimized(KhoDTO lohang) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.save(lohang);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
      * Xóa một Lô hàng khỏi CSDL
      * 
      * @param khoDTO

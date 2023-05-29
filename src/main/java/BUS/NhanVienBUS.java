@@ -41,7 +41,7 @@ public class NhanVienBUS {
      * @throws Exception
      */
     public Boolean them(NhanVienDTO nhanVienDTO) throws Exception {
-        if (nhanVienDAO.them(nhanVienDTO)) {
+        if (nhanVienDAO.them_optimized(nhanVienDTO)) {
             list_NhanVienDTOs.add(nhanVienDTO);
             return true;
         }

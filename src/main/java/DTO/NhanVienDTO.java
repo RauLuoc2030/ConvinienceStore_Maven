@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "NHANVIEN")
 public class NhanVienDTO implements Serializable {
-
     @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MANV")
@@ -33,6 +32,13 @@ public class NhanVienDTO implements Serializable {
 
     @Column(name = "CHUCVU")
     private String chucVuNVString;
+
+    @Column(name = "LUONG")
+    private Integer luongInteger;
+
+    @Column(name = "NGAYVL")
+    private Date ngayVaoLamDate;
+
     // One-to-one relationship with NGUOIDUNG entity, using MaNV as foreign key
     @OneToOne(mappedBy = "nhanVienDTO", fetch = FetchType.LAZY)
     private NguoiDungDTO nguoiDungDTO;
@@ -68,14 +74,6 @@ public class NhanVienDTO implements Serializable {
             System.out.println("Cannot convert String to Date");
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public String toString() {
-        return "NhanVienDTO [maNVString=" + maNVString + ", hoTenNVString=" + hoTenNVString + ", SDTNVString="
-                + SDTNVString + ", CCCDNVString=" + CCCDNVString + ", diaChiNVString=" + diaChiNVString
-                + ", chucVuNVString=" + chucVuNVString + ", ngaySinhNVDate=" + ngaySinhNVDate + ", heSoLuongNVDouble="
-                + ", luongNVInt=" + "]";
     }
 
     /**
@@ -199,5 +197,55 @@ public class NhanVienDTO implements Serializable {
      */
     public void setNguoiDungDTO(NguoiDungDTO nguoiDungDTO) {
         this.nguoiDungDTO = nguoiDungDTO;
+    }
+
+    /**
+     * @return the luongInteger
+     */
+    public Integer getLuongInteger() {
+        return luongInteger;
+    }
+
+    /**
+     * @param luongInteger the luongInteger to set
+     */
+    public void setLuongInteger(Integer luongInteger) {
+        this.luongInteger = luongInteger;
+    }
+
+    /**
+     * @return the ngayVaoLamDate
+     */
+    public Date getNgayVaoLamDate() {
+        return ngayVaoLamDate;
+    }
+
+    /**
+     * @param ngayVaoLamDate the ngayVaoLamDate to set
+     */
+    public void setNgayVaoLamDate(Date ngayVaoLamDate) {
+        this.ngayVaoLamDate = ngayVaoLamDate;
+    }
+
+    /**
+     * @param ngaySinhNVDate "dd/MM/yyyy" the ngaySinhNVDate to set
+     */
+    public void setNgayVaoLamDate(String ngayVaoLamNVDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            this.ngayVaoLamDate = formatter.parse(ngayVaoLamNVDate);
+        } catch (ParseException e) {
+            System.out.println("Cannot convert String to Date");
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "NhanVienDTO [maNVString=" + maNVString + ", hoTenNVString=" + hoTenNVString + ", SDTNVString="
+                + SDTNVString + ", ngaySinhNVDate=" + ngaySinhNVDate + ", CCCDNVString=" + CCCDNVString
+                + ", diaChiNVString=" + diaChiNVString + ", chucVuNVString=" + chucVuNVString + ", luongInteger="
+                + luongInteger + ", ngayVaoLamDate=" + ngayVaoLamDate + ", nguoiDungDTO=" + nguoiDungDTO + "]";
     }
 }

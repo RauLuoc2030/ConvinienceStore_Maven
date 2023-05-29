@@ -41,7 +41,7 @@ public class SanPhamBUS {
      * @throws Exception
      */
     public Boolean them(SanPhamDTO sanPhamDTO) throws Exception {
-        if (sanPhamDAO.them(sanPhamDTO)) {
+        if (sanPhamDAO.them_optimized(sanPhamDTO)) {
             list_SanPhamDTOs.add(sanPhamDTO);
             return true;
         }

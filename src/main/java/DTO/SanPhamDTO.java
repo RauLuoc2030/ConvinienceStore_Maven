@@ -13,15 +13,6 @@ import javax.persistence.*;
 // -> Chỉ định lớp SanPhamDTO chính là lớp đại diện cho bảng SANPHAM trong CSDL
 @Entity
 @Table(name = "SANPHAM")
-@NamedStoredProcedureQuery(name = "truSLSPKhiBan", procedureName = "TRU_SLSP_KHIBAN", parameters = {
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "SLSP", type = Integer.class),
-        @StoredProcedureParameter(mode = ParameterMode.IN, name = "MASPV", type = String.class)
-})
-@javax.persistence.NamedStoredProcedureQuery(name = "Top10Results", procedureName = "TOP10SP_BANCHAY", parameters = {
-        @javax.persistence.StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class),
-        @javax.persistence.StoredProcedureParameter(mode = ParameterMode.IN, type = Date.class),
-        @javax.persistence.StoredProcedureParameter(mode = ParameterMode.OUT, type = void.class, name = "top10")
-}, resultClasses = { SanPhamDTO.class })
 public class SanPhamDTO implements Serializable {
     @Id // @Id dùng để xác định thuộc tính nào là khóa chính dưới CSDL
     // @GeneratedValue(strategy = GenerationType.IDENTITY) // Tự động tạo khóa chính
@@ -49,9 +40,6 @@ public class SanPhamDTO implements Serializable {
     @Column(name = "MOTA")
     private String moTaString;
 
-    @Column(name = "TTCT")
-    private String thongTinChiTietString;
-
     @Column(name = "GIAGIAM")
     private Integer giaGiamInt;
 
@@ -74,16 +62,14 @@ public class SanPhamDTO implements Serializable {
      * @param giaGiamInt
      */
     public SanPhamDTO(String maSPString, String tenSPString, int giaInt, int soLuongSPInt,
-            String phanLoaiString, String nSXDate, String hSDDate, String moTaString, String thongTinChiTietString,
-            int giaGiamInt) {
+            String phanLoaiString, String nSXDate, String hSDDate, String moTaString, int giaGiamInt) {
         this.maSPString = maSPString;
         this.tenSPString = tenSPString;
         this.phanLoaiString = phanLoaiString;
         this.moTaString = moTaString;
-        this.thongTinChiTietString = thongTinChiTietString;
         this.giaInt = giaInt;
         this.giaGiamInt = giaGiamInt;
-        // this.giaGiamInt = giaGiamInt;
+        this.giaGiamInt = giaGiamInt;
         this.soLuongSPInt = soLuongSPInt;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -168,20 +154,6 @@ public class SanPhamDTO implements Serializable {
      */
     public void setMoTaString(String moTaString) {
         this.moTaString = moTaString;
-    }
-
-    /**
-     * @return the thongTinChiTietString
-     */
-    public String getThongTinChiTietString() {
-        return thongTinChiTietString;
-    }
-
-    /**
-     * @param thongTinChiTietString the thongTinChiTietString to set
-     */
-    public void setThongTinChiTietString(String thongTinChiTietString) {
-        this.thongTinChiTietString = thongTinChiTietString;
     }
 
     /**
@@ -271,37 +243,37 @@ public class SanPhamDTO implements Serializable {
     public String toString() {
         return "SanPhamDTO [maSPString=" + maSPString + ", tenSPString=" + tenSPString + ", giaInt=" + giaInt
                 + ", soLuongSPInt=" + soLuongSPInt + ", phanLoaiString=" + phanLoaiString + ", NSXDate=" + NSXDate
-                + ", HSDDate=" + HSDDate + ", moTaString=" + moTaString + ", thongTinChiTietString="
-                + thongTinChiTietString + ", giaGiamInt=" + giaGiamInt + "]";
+                + ", HSDDate=" + HSDDate + ", moTaString=" + moTaString + ", giaGiamInt=" + giaGiamInt + "]";
     }
 
 }
-
-CREATE OR REPLACE TRIGGER TRG_GENERATE_MASP
-BEFORE INSERT ON SANPHAM
-FOR EACH ROW
-DECLARE
-    V_LAST_MASP VARCHAR(20);
-    V_NEXT_MASP VARCHAR(20);
-BEGIN
-    BEGIN
-        -- Lấy mã sản phẩm cuối cùng từ bảng SANPHAM
-        SELECT MaSP INTO V_LAST_MASP
-        FROM SANPHAM
-        ORDER BY MaSP DESC
-        FETCH FIRST 1 ROW ONLY;
-    EXCEPTION
-        WHEN NO_DATA_FOUND THEN
-            V_LAST_MASP := NULL;
-    END;
-    
-    -- Tạo mã sản phẩm tiếp theo
-    IF V_LAST_MASP IS NULL THEN
-        V_NEXT_MASP := 'SP1';
-    ELSE
-        V_NEXT_MASP := 'SP' || TO_CHAR(TO_NUMBER(SUBSTR(V_LAST_MASP, 3)) + 1);
-    END IF;
-    
-    -- Gán mã sản phẩm mới vào cột MaSP
-    :NEW.MaSP := V_NEXT_MASP;
-END;
+/*
+ * CREATE OR REPLACE TRIGGER TRG_GENERATE_MASP
+ * BEFORE INSERT ON SANPHAM
+ * FOR EACH ROW
+ * DECLARE
+ * V_LAST_MASP VARCHAR(20);
+ * V_NEXT_MASP VARCHAR(20);
+ * BEGIN
+ * BEGIN
+ * -- Lấy mã sản phẩm cuối cùng từ bảng SANPHAM
+ * SELECT MaSP INTO V_LAST_MASP
+ * FROM SANPHAM
+ * ORDER BY MaSP DESC
+ * FETCH FIRST 1 ROW ONLY;
+ * EXCEPTION
+ * WHEN NO_DATA_FOUND THEN
+ * V_LAST_MASP := NULL;
+ * END;
+ * 
+ * -- Tạo mã sản phẩm tiếp theo
+ * IF V_LAST_MASP IS NULL THEN
+ * V_NEXT_MASP := 'SP1';
+ * ELSE
+ * V_NEXT_MASP := 'SP' || TO_CHAR(TO_NUMBER(SUBSTR(V_LAST_MASP, 3)) + 1);
+ * END IF;
+ * 
+ * -- Gán mã sản phẩm mới vào cột MaSP
+ * :NEW.MaSP := V_NEXT_MASP;
+ * END;
+ */

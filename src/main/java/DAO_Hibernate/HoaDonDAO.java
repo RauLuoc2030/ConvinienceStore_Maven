@@ -104,6 +104,25 @@ public class HoaDonDAO {
     }
 
     /**
+     * Thêm một Hóa đơn mới đã có thông tin vào CSDL
+     * 
+     * @param hoadon
+     * @return True nếu thành công
+     * @throws Exception và rollback Transaction
+     */
+    public boolean them_optimized(HoaDonDTO hoadon) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.save(hoadon);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
      * Xóa một Hóa đơn khỏi CSDL
      * 
      * @param hoaDonDTO

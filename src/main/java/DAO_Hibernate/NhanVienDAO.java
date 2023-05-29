@@ -107,6 +107,25 @@ public class NhanVienDAO {
     }
 
     /**
+     * Thêm một Nhân viên mới đã có thông tin vào CSDL
+     * 
+     * @param nhanvien
+     * @return True nếu thành công
+     * @throws Exception và rollback Transaction
+     */
+    public boolean them_optimized(NhanVienDTO nhanvien) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.save(nhanvien);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
      * Xóa một Nhân viên khỏi CSDL
      * 
      * @param nhanVienDTO
