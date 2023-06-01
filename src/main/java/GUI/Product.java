@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import java.awt.Color;
 import static java.lang.Integer.*;
 
 /**
@@ -72,6 +73,14 @@ public class Product extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(479, 60));
         setMinimumSize(new java.awt.Dimension(479, 60));
         setPreferredSize(new java.awt.Dimension(479, 60));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                formFocusLost(evt);
+            }
+        });
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -109,7 +118,7 @@ public class Product extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        isSelect = true;
+        requestFocus();
     }//GEN-LAST:event_formMouseClicked
 
     private void jLabelSoLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSoLuongMouseClicked
@@ -128,6 +137,18 @@ public class Product extends javax.swing.JPanel {
         isSelect = true;
 
     }//GEN-LAST:event_jLabelThanhTienMouseClicked
+
+    private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
+        // TODO add your handling code here:
+        setBackground(Color.WHITE);
+        isSelect = false;
+    }//GEN-LAST:event_formFocusLost
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+        setBackground(Color.red);
+        isSelect = true;
+    }//GEN-LAST:event_formFocusGained
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelSoLuong;

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FocusExample",
+            "request": "launch",
+            "mainClass": "GUI.FocusExample",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "TestgetListSP",
             "request": "launch",
             "mainClass": "DAO_JDBC.TestgetListSP",

@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 public class SQLConnectUnit {
 
     private SQLConnection connect;
-    // PreparedStatement ps = null;
 
     // hàm khởi tạo kết nối mặc định
     public SQLConnectUnit() {

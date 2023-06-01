@@ -5,6 +5,7 @@
 package GUI.Admin;
 
 import BUS.SanPhamBUS;
+import GUI.DangNhap;
 import GUI.Product_icon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -71,8 +72,8 @@ public class AdminHomePage extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Cái lá.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 756, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Caila.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 756, 110, 144));
 
         jPanel1.setBackground(new java.awt.Color(143, 203, 253));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -216,6 +217,9 @@ public class AdminHomePage extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(234, 105, 95), 3));
         jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel9MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel9MouseEntered(evt);
             }
@@ -283,6 +287,13 @@ public class AdminHomePage extends javax.swing.JFrame {
             }
         });        // TODO add your handling code here:
     }//GEN-LAST:event_jPanelTrangChuMouseClicked
+
+    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+        // TODO add your handling code here:
+        DangNhap dangNhap = new DangNhap();
+        dangNhap.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jPanel9MouseClicked
 
     private void jPanel5MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseEntered
         // TODO add your handling code here:

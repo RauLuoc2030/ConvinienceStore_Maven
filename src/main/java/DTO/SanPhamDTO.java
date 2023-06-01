@@ -43,9 +43,6 @@ public class SanPhamDTO implements Serializable {
     @Column(name = "GIAGIAM")
     private Integer giaGiamInt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "MaLoHang")
-    private KhoDTO kho;
     /**
      * Constructor
      */
@@ -250,33 +247,3 @@ public class SanPhamDTO implements Serializable {
     }
 
 }
-/*
- * CREATE OR REPLACE TRIGGER TRG_GENERATE_MASP
- * BEFORE INSERT ON SANPHAM
- * FOR EACH ROW
- * DECLARE
- * V_LAST_MASP VARCHAR(20);
- * V_NEXT_MASP VARCHAR(20);
- * BEGIN
- * BEGIN
- * -- Lấy mã sản phẩm cuối cùng từ bảng SANPHAM
- * SELECT MaSP INTO V_LAST_MASP
- * FROM SANPHAM
- * ORDER BY MaSP DESC
- * FETCH FIRST 1 ROW ONLY;
- * EXCEPTION
- * WHEN NO_DATA_FOUND THEN
- * V_LAST_MASP := NULL;
- * END;
- * 
- * -- Tạo mã sản phẩm tiếp theo
- * IF V_LAST_MASP IS NULL THEN
- * V_NEXT_MASP := 'SP1';
- * ELSE
- * V_NEXT_MASP := 'SP' || TO_CHAR(TO_NUMBER(SUBSTR(V_LAST_MASP, 3)) + 1);
- * END IF;
- * 
- * -- Gán mã sản phẩm mới vào cột MaSP
- * :NEW.MaSP := V_NEXT_MASP;
- * END;
- */

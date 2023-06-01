@@ -6,12 +6,15 @@ package GUI;
 
 import BUS.SanPhamBUS;
 import DTO.SanPhamDTO;
+
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -21,8 +24,10 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
     private int clickCount;
     private long lastClickTime;
+    private boolean isSelect;
 
     private SanPhamDTO sanPhamDTO;
+
     private SanPhamBUS sanPhamBUS;
 
     private String ten;
@@ -52,6 +57,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         this.sl = sanPhamDTO.getSoLuongSPInt().toString();
 
         jLabelTen.setText(ten);
+        jLabelTen.setToolTipText(ten);
         jLabelGia.setText(gia);
         jLabelSL.setText(sl);
 
@@ -73,7 +79,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
         jLabelIcon.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e) { // double clicked
                 long currentTime = System.currentTimeMillis();
 
                 if (clickCount == 1 && (currentTime - lastClickTime) <= 200) {
@@ -123,7 +129,8 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jDialogDetailSP1 = new javax.swing.JDialog();
@@ -132,8 +139,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        TTCT1 = new javax.swing.JTextArea();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -141,7 +146,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabel34 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         TenSP1 = new javax.swing.JTextArea();
         jPanelSua = new javax.swing.JPanel();
@@ -164,7 +168,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabelGia = new javax.swing.JLabel();
         jLabelSL = new javax.swing.JLabel();
 
-        jDialogDetailSP1.setMaximumSize(new java.awt.Dimension(420, 520));
         jDialogDetailSP1.setModal(true);
         jDialogDetailSP1.setUndecorated(true);
         jDialogDetailSP1.setResizable(false);
@@ -180,7 +183,8 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
                 jLabel43MouseClicked(evt);
             }
         });
-        jDialogDetailSP1.getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
+        jDialogDetailSP1.getContentPane().add(jLabel43,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
 
         jPanel3.setBackground(new java.awt.Color(45, 96, 151));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -201,22 +205,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             }
         });
         jPanel16.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 12, 123, 123));
-
-        TTCT1.setEditable(false);
-        TTCT1.setBackground(new java.awt.Color(255, 255, 255));
-        TTCT1.setColumns(20);
-        TTCT1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        TTCT1.setLineWrap(true);
-        TTCT1.setRows(5);
-        TTCT1.setText("Đây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text\nĐây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text\nĐây là dòng mô tả thông tin chi tiết của sản phẩm. Nếu mà cái text này quá dài thì hên xui nó sẽ hiện lên cái scrollbar để hiển thị hết toàn bộ text");
-        TTCT1.setWrapStyleWord(true);
-        TTCT1.setBorder(null);
-        TTCT1.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        TTCT1.setMaximumSize(new java.awt.Dimension(125, 90));
-        TTCT1.setMinimumSize(new java.awt.Dimension(125, 90));
-        jScrollPane5.setViewportView(TTCT1);
-
-        jPanel16.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 250, 140));
 
         jLabel30.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel30.setText("Mã sản phẩm:");
@@ -245,10 +233,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabel45.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel45.setText("Mô tả:");
         jPanel16.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 40, 40));
-
-        jLabel46.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel46.setText("Thông tin chi tiết:");
-        jPanel16.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 110, 40));
 
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -377,7 +361,8 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabel49.setText("Chi tiết sản phẩm");
         jPanel3.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 50));
 
-        jDialogDetailSP1.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
+        jDialogDetailSP1.getContentPane().add(jPanel3,
+                new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(250, 376));
@@ -388,6 +373,15 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel11.setPreferredSize(new java.awt.Dimension(230, 315));
+        jPanel11.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel11FocusGained(evt);
+            }
+
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel11FocusLost(evt);
+            }
+        });
         jPanel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel11MouseClicked(evt);
@@ -416,6 +410,22 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 326));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jPanel11FocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusGained
+        // TODO add your handling code here:
+        isSelect = true;
+        jPanel11.setBorder(new LineBorder(Color.BLACK, 2));
+
+        System.out.println("Focus gained");
+    }// GEN-LAST:event_jPanel11FocusGained
+
+    private void jPanel11FocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusLost
+        // TODO add your handling code here:
+        isSelect = false;
+        jPanel11.setBorder(new LineBorder(Color.WHITE, 2));
+
+        System.out.println("Focus lost");
+    }// GEN-LAST:event_jPanel11FocusLost
+
     private void jLabel43MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel43MouseClicked
         // TODO add your handling code here:
         jDialogDetailSP1.dispose();
@@ -436,7 +446,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         Gia1.setEditable(true);
         TenSP1.setEditable(true);
         MoTa1.setEditable(true);
-        TTCT1.setEditable(true);
 
     }// GEN-LAST:event_jPanelSuaMouseClicked
 
@@ -456,7 +465,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         Gia1.setEditable(false);
         TenSP1.setEditable(false);
         MoTa1.setEditable(false);
-        TTCT1.setEditable(false);
 
         // Sửa sản phẩm trong CSDL
         sanPhamBUS = new SanPhamBUS();
@@ -468,7 +476,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         sanPhamDTO.setGiaInt(Integer.valueOf(Gia1.getText()));
         sanPhamDTO.setTenSPString(TenSP1.getText());
         sanPhamDTO.setMoTaString(MoTa1.getText());
-        
+
         try {
             sanPhamBUS.sua(sanPhamDTO);
         } catch (Exception e) {
@@ -494,7 +502,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         Gia1.setText(sanPhamDTO.getGiaInt().toString());
         TenSP1.setText(sanPhamDTO.getTenSPString());
         MoTa1.setText(sanPhamDTO.getMoTaString());
-        
 
     }// GEN-LAST:event_jPanelSaveMouseClicked
 
@@ -508,7 +515,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
     private void jPanel11MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel11MouseClicked
         // TODO add your handling code here:
-
+        // double clicked
         long currentTime = System.currentTimeMillis();
 
         if (clickCount == 1 && (currentTime - lastClickTime) <= 200) {
@@ -529,7 +536,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             Gia1.setText(sanPhamDTO.getGiaInt().toString());
             TenSP1.setText(sanPhamDTO.getTenSPString());
             MoTa1.setText(sanPhamDTO.getMoTaString());
-            
+            MoTa1.setToolTipText(sanPhamDTO.getMoTaString());
 
             jDialogDetailSP1.setVisible(true);
             System.out.println("Double clicked!");
@@ -539,6 +546,8 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             lastClickTime = 0;
         } else {
             // Lưu số lần click và thời gian hiện tại
+            jPanel11.requestFocus();
+
             clickCount = 1;
             lastClickTime = currentTime;
         }
@@ -552,7 +561,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     private javax.swing.JTextField NSX1;
     private javax.swing.JTextField PL1;
     private javax.swing.JTextField SL1;
-    private javax.swing.JTextArea TTCT1;
     private javax.swing.JTextArea TenSP1;
     private javax.swing.JDialog jDialogDetailSP1;
     private javax.swing.JLabel jLabel25;
@@ -564,7 +572,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
@@ -580,7 +587,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelSave;
     private javax.swing.JPanel jPanelSua;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     // End of variables declaration//GEN-END:variables
 
@@ -694,5 +700,23 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
      */
     public void setjPanel11(javax.swing.JPanel jPanel11) {
         this.jPanel11 = jPanel11;
+    }
+
+    public boolean isSelect() {
+        return isSelect;
+    }
+
+    /**
+     * @return the sanPhamDTO
+     */
+    public SanPhamDTO getSanPhamDTO() {
+        return sanPhamDTO;
+    }
+
+    /**
+     * @param sanPhamDTO the sanPhamDTO to set
+     */
+    public void setSanPhamDTO(SanPhamDTO sanPhamDTO) {
+        this.sanPhamDTO = sanPhamDTO;
     }
 }
