@@ -43,6 +43,9 @@ public class SanPhamDTO implements Serializable {
     @Column(name = "GIAGIAM")
     private Integer giaGiamInt;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MaLoHang")
+    private KhoDTO kho;
     /**
      * Constructor
      */

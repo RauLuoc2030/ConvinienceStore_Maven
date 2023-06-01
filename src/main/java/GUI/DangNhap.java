@@ -100,9 +100,11 @@ public class DangNhap extends javax.swing.JFrame {
     private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseClicked
         // TODO add your handling code here:
         nguoiDungDAO = new NguoiDungDAO();
+
         String inputUsername = jTextFieldUsername.getText();
         char[] inputPassword = jPasswordField.getPassword();
         String inputPasswordText = new String(inputPassword);
+
         NguoiDungDTO nguoiDungDTO = nguoiDungDAO.tim(inputUsername);
         if (inputUsername.equals("") && inputPasswordText.equals("")) {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ");

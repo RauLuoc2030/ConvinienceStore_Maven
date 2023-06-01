@@ -9,11 +9,12 @@ import org.hibernate.query.Query;
 import DTO.NguoiDungDTO;
 
 public class NguoiDungDAO {
+
     Session session;
 
     /**
      * Lấy thông tin từ Database
-     * 
+     *
      * @param condition
      * @param orderBy
      * @return Danh sách Người dùng
@@ -46,7 +47,7 @@ public class NguoiDungDAO {
 
     /**
      * Override lại phương thức readDB() cho TH truyền vào một tham số Condition
-     * 
+     *
      * @param condition
      * @return readDB(condition, null)
      */
@@ -56,7 +57,7 @@ public class NguoiDungDAO {
 
     /**
      * Override lại phương thức readDB() cho TH không truyền vào tham số
-     * 
+     *
      * @return readDB(null, null)
      */
     public List<NguoiDungDTO> readDB() {
@@ -65,7 +66,7 @@ public class NguoiDungDAO {
 
     /**
      * Thêm một Người dùng mới đã có thông tin vào CSDL
-     * 
+     *
      * @param nguoidung
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -102,7 +103,7 @@ public class NguoiDungDAO {
 
     /**
      * Thêm một Người dùng mới đã có thông tin vào CSDL
-     * 
+     *
      * @param nguoidung
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -121,7 +122,7 @@ public class NguoiDungDAO {
 
     /**
      * Xóa một Người dùng khỏi CSDL
-     * 
+     *
      * @param nguoidung
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -154,7 +155,7 @@ public class NguoiDungDAO {
 
     /**
      * Sửa một Người dùng có trong CSDL
-     * 
+     *
      * @param nguoidung
      * @return
      * @throws Exception
@@ -186,7 +187,7 @@ public class NguoiDungDAO {
 
     /**
      * Tìm kiếm một người dùng dựa trên maND cho trước
-     * 
+     *
      * @param maND
      * @return null nếu không tìm thấy
      */
@@ -194,7 +195,7 @@ public class NguoiDungDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
-        Query<NguoiDungDTO> query = session.createQuery("FROM NguoiDungDTO WHERE MANV LIKE :searchKeyword",
+        Query<NguoiDungDTO> query = session.createQuery("FROM NguoiDungDTO WHERE maNVString LIKE :searchKeyword",
                 NguoiDungDTO.class);
         query.setParameter("searchKeyword", "%" + username + "%");
 
@@ -228,9 +229,9 @@ public class NguoiDungDAO {
         query.setParameter("keyword", keyword);
         query.setParameter("searchKeyword", keyword);
 
-        NguoiDungDTO sanPham = query.uniqueResult();
+        NguoiDungDTO nguoiDung = query.uniqueResult();
 
         session.getTransaction().commit();
-        return sanPham;
+        return nguoiDung;
     }
 }

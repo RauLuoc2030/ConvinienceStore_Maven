@@ -3,6 +3,8 @@ package DTO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,7 +25,9 @@ public class KhoDTO {
     private String tenNhaCungCapString;
     // @Column(name = "NGAYXUAT")
     // private Date ngayXuatDate;
-
+    
+    // @OneToMany(mappedBy = "kho", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<ChiTietKhoDTO> chiTietKhoList;
     /**
      * Lưu trữ thông tin tên của cửa hàng được nhận sản phẩm từ kho (có nhiều cửa
      * hàng tiện lợi)
@@ -78,7 +82,7 @@ public class KhoDTO {
         this.ngayNhapDate = ngayNhapDate;
     }
 
-        /**
+    /**
      * @param ngayNhapDate "dd/MM/yyyy" the ngayNhapDate to set
      */
     public void setNgayNhapDate(String ngayNhapDate) {
@@ -119,5 +123,4 @@ public class KhoDTO {
     public void setTenNhaCungCapString(String tenNhaCungCapString) {
         this.tenNhaCungCapString = tenNhaCungCapString;
     }
-
 }

@@ -1,16 +1,35 @@
 package DAO_Hibernate;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import DTO.ChiTietKhoDTO;
 import DTO.KhoDTO;
+import DTO.SanPhamDTO;
 
 public class KhoDAO {
     Session session;
 
+    public List<SanPhamDTO> getSanPhamListByMaLoHang(String maLoHang) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+    
+        KhoDTO kho = session.get(KhoDTO.class, maLoHang);
+        List<SanPhamDTO> sanPhamList = kho.getChiTietKhoList()
+                                          .stream()
+                                          .map(ChiTietKhoDTO::getSanPham)
+                                          .collect(Collectors.toList());
+    
+        session.getTransaction().commit();
+    
+        return sanPhamList;
+    }
+    
+    
     /**
      * Lấy thông tin từ Database
      * 

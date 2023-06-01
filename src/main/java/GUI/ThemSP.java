@@ -258,7 +258,6 @@ public class ThemSP extends javax.swing.JFrame {
         sanPhamDTO.setSoLuongSPInt(Integer.valueOf(jTextField6.getText()));
         sanPhamDTO.setNSXDate(jTextField7.getText());
         sanPhamDTO.setHSDDate(jTextField8.getText());
-        
 
         try {
             if (sanPhamBUS.them(sanPhamDTO)) {
