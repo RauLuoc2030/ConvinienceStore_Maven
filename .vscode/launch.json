@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestProcedure",
+            "request": "launch",
+            "mainClass": "DAO_JDBC.TestProcedure",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "TESTTOP10",
+            "request": "launch",
+            "mainClass": "DAO_JDBC.TESTTOP10",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "Test_AddSP_proc",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.Test_AddSP_proc",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "FocusExample",
             "request": "launch",
             "mainClass": "GUI.FocusExample",
@@ -30,7 +51,10 @@
             "name": "NhanVienHomePage",
             "request": "launch",
             "mainClass": "GUI.Staff.NhanVienHomePage",
-            "projectName": "ConvinienceStore_Maven"
+            "projectName": "ConvinienceStore_Maven",
+            "noDebug": false,
+            "__progressId": "757d65a7-5e70-4f07-9bab-6de97b809f5e",
+            "__origin": "internal"
         },
         {
             "type": "java",

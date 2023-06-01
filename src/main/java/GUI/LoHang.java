@@ -14,7 +14,7 @@ import DTO.KhoDTO;
  */
 public class LoHang extends javax.swing.JPanel {
 
-    public static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    public static final SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy"); 
 
     private KhoDTO khoDTO;
 

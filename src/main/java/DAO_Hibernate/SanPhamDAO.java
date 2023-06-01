@@ -1,10 +1,17 @@
 package DAO_Hibernate;
 
+import java.sql.ResultSet;
 import java.util.List;
+
+import javax.persistence.ParameterMode;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.procedure.ProcedureCall;
+import org.hibernate.procedure.ProcedureOutputs;
 import org.hibernate.query.Query;
+import org.hibernate.result.ResultSetOutput;
+
 import DTO.SanPhamDTO;
 
 public class SanPhamDAO {
@@ -204,6 +211,119 @@ public class SanPhamDAO {
         session.getTransaction().commit();
         session.close();
         return sanPham;
+    }
+
+    public void insertSanPham(String ma, String ten, double gia, int sl, String pl, String nsx, String hsd, String mt) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("INSERT_SANPHAM");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MA", String.class, ParameterMode.IN).bindValue(ma);
+        procedureCall.registerParameter("TEN", String.class, ParameterMode.IN).bindValue(ten);
+        procedureCall.registerParameter("GIA", Double.class, ParameterMode.IN).bindValue(gia);
+        procedureCall.registerParameter("SL", Integer.class, ParameterMode.IN).bindValue(sl);
+        procedureCall.registerParameter("PL", String.class, ParameterMode.IN).bindValue(pl);
+        procedureCall.registerParameter("NSX", String.class, ParameterMode.IN).bindValue(nsx);
+        procedureCall.registerParameter("HSD", String.class, ParameterMode.IN).bindValue(hsd);
+        procedureCall.registerParameter("MT", String.class, ParameterMode.IN).bindValue(mt);
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
+    public void updateSanPham(String ma, String ten, double gia, int sl, String pl, String nsx, String hsd, String mt) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("UPDATE_SANPHAM");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MA", String.class, ParameterMode.IN).bindValue(ma);
+        procedureCall.registerParameter("TEN", String.class, ParameterMode.IN).bindValue(ten);
+        procedureCall.registerParameter("GIA", Double.class, ParameterMode.IN).bindValue(gia);
+        procedureCall.registerParameter("SL", Integer.class, ParameterMode.IN).bindValue(sl);
+        procedureCall.registerParameter("PL", String.class, ParameterMode.IN).bindValue(pl);
+        procedureCall.registerParameter("NSXUAT", String.class, ParameterMode.IN).bindValue(nsx);
+        procedureCall.registerParameter("HSDUNG", String.class, ParameterMode.IN).bindValue(hsd);
+        procedureCall.registerParameter("MT", String.class, ParameterMode.IN).bindValue(mt);
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
+    public void deleteSanPham(String ma) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("DELETE_SANPHAM");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MA", String.class, ParameterMode.IN).bindValue(ma);
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
+    public ResultSet searchSanPham(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("SEARCH_SANPHAM");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("TEXT_SEARCH", String.class, ParameterMode.IN).bindValue(keyword);
+        procedureCall.registerParameter("DSSP", ResultSet.class, ParameterMode.REF_CURSOR);
+
+        // Thực hiện stored procedure
+        ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+        ResultSet resultSet = (ResultSet) procedureOutputs.getOutputParameterValue("DSSP");
+
+        session.getTransaction().commit();
+
+        return resultSet;
+    }
+    
+    public Integer DOANHTHU(String from, String to){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        ProcedureCall procedureCall = session.createStoredProcedureCall("DOANHTHU");
+        
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("FR_DATE", String.class, ParameterMode.IN).bindValue(from);
+        procedureCall.registerParameter("END_DATE", String.class, ParameterMode.IN).bindValue(to);
+        procedureCall.registerParameter("TONG", Integer.class, ParameterMode.OUT);
+        
+        // Thực hiện procedure
+        procedureCall.execute();
+        
+        // Lấy giá trị từ tham số đầu ra
+        Integer totalRevenue = (Integer) procedureCall.getOutputParameterValue("TONG");
+        
+        session.getTransaction().commit();
+        
+        return totalRevenue;
+    
     }
 }
 

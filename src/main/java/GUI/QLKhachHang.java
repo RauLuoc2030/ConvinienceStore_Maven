@@ -4,17 +4,29 @@
  */
 package GUI;
 
+import BUS.KhachHangBUS;
+import DTO.KhachHangDTO;
+
 /**
  *
  * @author Locc
  */
 public class QLKhachHang extends javax.swing.JPanel {
 
+    private KhachHangBUS khachHangBUS;
+
     /**
      * Creates new form QLKhachHang
      */
     public QLKhachHang() {
         initComponents();
+        khachHangBUS = new KhachHangBUS();
+        for (int i = 0; i < khachHangBUS.getlist_KhachHangDTOs().size(); i++) {
+            KhachHang khachHang = new KhachHang(khachHangBUS.getlist_KhachHangDTOs().get(i));
+            jPanel4.add(khachHang);
+        }
+        jPanel4.revalidate();
+        jPanel4.repaint();
     }
 
     /**
@@ -35,12 +47,16 @@ public class QLKhachHang extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelTenKH = new javax.swing.JLabel();
+        jLabelSDT = new javax.swing.JLabel();
+        jLabelNgayDK = new javax.swing.JLabel();
+        jLabelMaKH = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel4 = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(1200, 900));
         setMinimumSize(new java.awt.Dimension(1200, 900));
+        setPreferredSize(new java.awt.Dimension(1200, 900));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(143, 203, 253));
@@ -82,37 +98,51 @@ public class QLKhachHang extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(45, 96, 151));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("SL SP trong LH");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 190, 60));
+        jLabelTenKH.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabelTenKH.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelTenKH.setText("Tên");
+        jPanel2.add(jLabelTenKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 190, 60));
 
-        jLabel2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ngày nhập");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 170, 60));
+        jLabelSDT.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabelSDT.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelSDT.setText("SDT");
+        jPanel2.add(jLabelSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 190, 60));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Mã KH");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 60));
+        jLabelNgayDK.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabelNgayDK.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNgayDK.setText("Ngày đăng ký");
+        jPanel2.add(jLabelNgayDK, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 0, 170, 60));
+
+        jLabelMaKH.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelMaKH.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabelMaKH.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMaKH.setText("Mã KH");
+        jPanel2.add(jLabelMaKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 160, 60));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1200, 60));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
+        jScrollPane1.setViewportView(jPanel4);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1200, 750));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelMaKH;
+    private javax.swing.JLabel jLabelNgayDK;
+    private javax.swing.JLabel jLabelSDT;
+    private javax.swing.JLabel jLabelTenKH;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
