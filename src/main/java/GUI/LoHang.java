@@ -4,11 +4,19 @@
  */
 package GUI;
 
+import java.text.SimpleDateFormat;
+
+import DTO.KhoDTO;
+
 /**
  *
  * @author Locc
  */
 public class LoHang extends javax.swing.JPanel {
+
+    public static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
+    private KhoDTO khoDTO;
 
     private String maLH;
     private String ngayNhap;
@@ -19,6 +27,18 @@ public class LoHang extends javax.swing.JPanel {
      */
     public LoHang() {
         initComponents();
+    }
+
+    public LoHang(KhoDTO khoDTO) {
+        initComponents();
+        this.khoDTO = new KhoDTO();
+        this.khoDTO = khoDTO;
+
+        jLabelMaLH.setText(khoDTO.getMaLoHangString());
+        jLabelNgayNhap.setText(formatter.format(khoDTO.getNgayNhapDate()));
+        jLabelSLSP.setText("1");
+        jLabelMaNV.setText(khoDTO.getMaNhanVienString());
+        jLabelSuplier.setText(khoDTO.getTenNhaCungCapString());
     }
 
     public LoHang(String maLH, String ngayNhap, Integer SLSP) {
@@ -42,7 +62,9 @@ public class LoHang extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabelMaLH = new javax.swing.JLabel();
+        jLabelMaNV = new javax.swing.JLabel();
         jLabelNgayNhap = new javax.swing.JLabel();
+        jLabelSuplier = new javax.swing.JLabel();
         jLabelSLSP = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -53,11 +75,22 @@ public class LoHang extends javax.swing.JPanel {
 
         jLabelMaLH.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaLH.setText("Mã LH");
-        add(jLabelMaLH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 300, 60));
+        add(jLabelMaLH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 110, 60));
+
+        jLabelMaNV.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
+        jLabelMaNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMaNV.setText("Mã NV");
+        add(jLabelMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 130, 60));
 
         jLabelNgayNhap.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
+        jLabelNgayNhap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNgayNhap.setText("Ngày nhập");
-        add(jLabelNgayNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 310, 60));
+        add(jLabelNgayNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 150, 60));
+
+        jLabelSuplier.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
+        jLabelSuplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSuplier.setText("Suplier");
+        add(jLabelSuplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 180, 60));
 
         jLabelSLSP.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelSLSP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,7 +100,9 @@ public class LoHang extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelMaLH;
+    private javax.swing.JLabel jLabelMaNV;
     private javax.swing.JLabel jLabelNgayNhap;
     private javax.swing.JLabel jLabelSLSP;
+    private javax.swing.JLabel jLabelSuplier;
     // End of variables declaration//GEN-END:variables
 }

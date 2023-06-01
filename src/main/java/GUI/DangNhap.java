@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author Locc
  */
 public class DangNhap extends javax.swing.JFrame {
-
+    
     private NguoiDungDAO nguoiDungDAO;
 
     public static String tenDangNhap;

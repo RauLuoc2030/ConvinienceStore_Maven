@@ -21,7 +21,7 @@ public class QLKho extends javax.swing.JPanel {
         initComponents();
         khoVanBUS = new KhoBUS();
         for (int i = 0; i < khoVanBUS.getList_KhoVanDTOs().size(); i++) {
-            LoHang loHang = new LoHang(khoVanBUS.getList_KhoVanDTOs().get(i).getMaLoHangString(), khoVanBUS.getList_KhoVanDTOs().get(i).getNgayNhapDate().toString(), i);
+            LoHang loHang = new LoHang(khoVanBUS.getList_KhoVanDTOs().get(i));
             jPanel4.add(loHang);
         }
         jPanel4.revalidate();
@@ -86,10 +86,11 @@ public class QLKho extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
 
-        jDialogAddSP.setMaximumSize(new java.awt.Dimension(420, 570));
         jDialogAddSP.setModal(true);
         jDialogAddSP.setUndecorated(true);
         jDialogAddSP.setResizable(false);
@@ -249,7 +250,6 @@ public class QLKho extends javax.swing.JPanel {
 
         jDialogAddSP.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
 
-        jDialogDeleteSP.setMaximumSize(new java.awt.Dimension(625, 210));
         jDialogDeleteSP.setModal(true);
         jDialogDeleteSP.setUndecorated(true);
         jDialogDeleteSP.setResizable(false);
@@ -347,18 +347,28 @@ public class QLKho extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("SL SP trong LH");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 190, 60));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 190, 60));
 
         jLabel2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ngày nhập");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 170, 60));
+        jLabel2.setText("Tên nhà cung cấp");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, 260, 60));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Mã lô hàng");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 60));
+
+        jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Ngày nhập");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 170, 60));
+
+        jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Mã NV");
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 170, 60));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1200, 60));
 
@@ -405,6 +415,8 @@ public class QLKho extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel43;
