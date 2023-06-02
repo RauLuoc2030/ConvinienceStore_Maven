@@ -11,9 +11,6 @@ import GUI.Product_icon;
 
 import java.awt.Component;
 import java.awt.event.*;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
@@ -32,18 +29,18 @@ public class BanHang extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         sanPhamBUS = new SanPhamBUS();
         for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
-            Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i).getTenSPString(),
-                    sanPhamBUS.getList_SanPhamDTOs().get(i).getGiaInt().toString(),
-                    sanPhamBUS.getList_SanPhamDTOs().get(i).getSoLuongSPInt().toString());
+            Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
 
             product_icon.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
+                    System.out.println("Click");
                     Component[] components = jPanelGioHang.getComponents();
                     if (components.length == 0) {
 
                         Product p = new Product(product_icon.getTen(), product_icon.getGia());
                         jPanelGioHang.add(p);
+                        updateTongGia();
                         jPanelGioHang.revalidate();
                         jPanelGioHang.repaint();
                     } else {
@@ -58,6 +55,7 @@ public class BanHang extends javax.swing.JFrame {
                                         && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
                                     // Tăng số lượng lên
                                     product.tangSoLuong();
+                                    updateTongGia();
                                     jPanelGioHang.revalidate();
                                     jPanelGioHang.repaint();
                                     isExist = true;
@@ -69,6 +67,7 @@ public class BanHang extends javax.swing.JFrame {
                         if (!isExist) { // Chưa tồn tại
                             Product p = new Product(product_icon.getTen(), product_icon.getGia());
                             jPanelGioHang.add(p);
+                            updateTongGia();
                             jPanelGioHang.revalidate();
                             jPanelGioHang.repaint();
                             System.out.println("Sản phẩm chưa tồn tại");
@@ -77,7 +76,7 @@ public class BanHang extends javax.swing.JFrame {
                 }
             });
 
-            product_icon.getjLabelIcon().addMouseListener(new MouseAdapter() {
+            product_icon.getjPanel11().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     Component[] components = jPanelGioHang.getComponents();
@@ -85,6 +84,7 @@ public class BanHang extends javax.swing.JFrame {
 
                         Product p = new Product(product_icon.getTen(), product_icon.getGia());
                         jPanelGioHang.add(p);
+                        updateTongGia();
                         jPanelGioHang.revalidate();
                         jPanelGioHang.repaint();
                     } else {
@@ -97,6 +97,7 @@ public class BanHang extends javax.swing.JFrame {
                                         && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
                                     // Tăng số lượng lên
                                     product.tangSoLuong();
+                                    updateTongGia();
                                     jPanelGioHang.revalidate();
                                     jPanelGioHang.repaint();
                                     isExist = true;
@@ -109,6 +110,7 @@ public class BanHang extends javax.swing.JFrame {
                         if (!isExist) { // Chưa tồn tại
                             Product p = new Product(product_icon.getTen(), product_icon.getGia());
                             jPanelGioHang.add(p);
+                            updateTongGia();
                             jPanelGioHang.revalidate();
                             jPanelGioHang.repaint();
                             System.out.println("Sản phẩm chưa tồn tại");
@@ -117,8 +119,136 @@ public class BanHang extends javax.swing.JFrame {
                 }
             });
 
+            product_icon.getjLabelTen().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    Component[] components = jPanelGioHang.getComponents();
+                    if (components.length == 0) {
+
+                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        jPanelGioHang.add(p);
+                        updateTongGia();
+                        jPanelGioHang.revalidate();
+                        jPanelGioHang.repaint();
+                    } else {
+                        boolean isExist = false;
+                        for (Component component : components) {
+                            if (component instanceof Product) {
+                                Product product = (Product) component;
+                                // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                if (product.getTen().equals(product_icon.getTen())
+                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                    // Tăng số lượng lên
+                                    product.tangSoLuong();
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    isExist = true;
+                                    System.out.println("Sản phẩm đã tồn tại");
+
+                                }
+                            }
+                        }
+
+                        if (!isExist) { // Chưa tồn tại
+                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                            System.out.println("Sản phẩm chưa tồn tại");
+                        }
+                    }
+                }
+            });
+
+            product_icon.getjLabelGia().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    Component[] components = jPanelGioHang.getComponents();
+                    if (components.length == 0) {
+
+                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        jPanelGioHang.add(p);
+                        updateTongGia();
+                        jPanelGioHang.revalidate();
+                        jPanelGioHang.repaint();
+                    } else {
+                        boolean isExist = false;
+                        for (Component component : components) {
+                            if (component instanceof Product) {
+                                Product product = (Product) component;
+                                // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                if (product.getTen().equals(product_icon.getTen())
+                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                    // Tăng số lượng lên
+                                    product.tangSoLuong();
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    isExist = true;
+                                    System.out.println("Sản phẩm đã tồn tại");
+
+                                }
+                            }
+                        }
+
+                        if (!isExist) { // Chưa tồn tại
+                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                            System.out.println("Sản phẩm chưa tồn tại");
+                        }
+                    }
+                }
+            });
+
+            product_icon.getjLabelSL().addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    Component[] components = jPanelGioHang.getComponents();
+                    if (components.length == 0) {
+
+                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        jPanelGioHang.add(p);
+                        updateTongGia();
+                        jPanelGioHang.revalidate();
+                        jPanelGioHang.repaint();
+                    } else {
+                        boolean isExist = false;
+                        for (Component component : components) {
+                            if (component instanceof Product) {
+                                Product product = (Product) component;
+                                // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                if (product.getTen().equals(product_icon.getTen())
+                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                    // Tăng số lượng lên
+                                    product.tangSoLuong();
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    isExist = true;
+                                    System.out.println("Sản phẩm đã tồn tại");
+
+                                }
+                            }
+                        }
+
+                        if (!isExist) { // Chưa tồn tại
+                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                            System.out.println("Sản phẩm chưa tồn tại");
+                        }
+                    }
+                }
+            });
             jPanelSanPham.add(product_icon);
-            // product_icon.addMouseListener(product_icon);
+            product_icon.addMouseListener(product_icon);
 
         }
         jPanelSanPham.revalidate();
@@ -151,6 +281,7 @@ public class BanHang extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jTextField_TimKiem = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -185,7 +316,9 @@ public class BanHang extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelGioHang = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jTextField_TimKiem = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanelSanPham = new javax.swing.JPanel();
 
@@ -259,6 +392,20 @@ public class BanHang extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        jTextField_TimKiem.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField_TimKiem.setText("Tìm kiếm");
+        jTextField_TimKiem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_TimKiemMouseClicked(evt);
+            }
+        });
+        jTextField_TimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_TimKiemActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 200, 50));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 50));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -280,6 +427,11 @@ public class BanHang extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 204, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -418,7 +570,7 @@ public class BanHang extends javax.swing.JFrame {
         jPanel10.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 180, 60));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel7.setText("1.200.000");
+        jLabel7.setText("0");
         jPanel10.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 230, 60));
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 500, 60));
@@ -433,23 +585,23 @@ public class BanHang extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_TimKiem.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField_TimKiem.setText("Tìm kiếm");
-        jTextField_TimKiem.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField_TimKiemMouseClicked(evt);
-            }
-        });
-        jTextField_TimKiem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_TimKiemActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jTextField_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 200, 50));
+        jLabel12.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel12.setText("Tên sản phẩm");
+        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 490, 40));
+
+        jLabel13.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel13.setText("Giá");
+        jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 5, 60, 40));
+
+        jLabel14.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel14.setText("Số lượng");
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 5, 150, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 1100, 50));
 
-        jPanelSanPham.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        jPanelSanPham.setLayout(new javax.swing.BoxLayout(jPanelSanPham, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(jPanelSanPham);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1100, 800));
@@ -463,6 +615,11 @@ public class BanHang extends javax.swing.JFrame {
         nhanVienHomePage.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jButtonXoaMouseClicked(java.awt.event.MouseEvent evt) {
         Component[] components = jPanelGioHang.getComponents();
@@ -479,6 +636,7 @@ public class BanHang extends javax.swing.JFrame {
                 if (product.isSelect()) {
                     // Remove the product from the panel and update the UI
                     jPanelGioHang.remove(product);
+                    updateTongGia();
                 }
             }
         }
@@ -494,8 +652,7 @@ public class BanHang extends javax.swing.JFrame {
             sanPhamBUS = new SanPhamBUS();
             SanPhamDTO sp = sanPhamBUS.tim(text);
             if (sp != null) {
-                Product_icon p = new Product_icon(sp.getTenSPString(), sp.getGiaInt().toString(),
-                        sp.getSoLuongSPInt().toString());
+                Product_icon p = new Product_icon(sp);
                 jPanelSanPham.removeAll();
                 jPanelSanPham.add(p);
 
@@ -509,9 +666,7 @@ public class BanHang extends javax.swing.JFrame {
             jPanelSanPham.removeAll();
             sanPhamBUS = new SanPhamBUS();
             for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
-                Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i).getTenSPString(),
-                        sanPhamBUS.getList_SanPhamDTOs().get(i).getGiaInt().toString(),
-                        sanPhamBUS.getList_SanPhamDTOs().get(i).getSoLuongSPInt().toString());
+                Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
                 jPanelSanPham.add(product_icon);
             }
             jPanelSanPham.revalidate();
@@ -543,6 +698,26 @@ public class BanHang extends javax.swing.JFrame {
         jPanelSanPham.revalidate();
         jPanelSanPham.repaint();
     }// GEN-LAST:event_jPanel8MouseClicked
+
+    public void updateTongGia() {
+        Integer tongGia = 0;
+        Component[] components = jPanelGioHang.getComponents();
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                tongGia += product.getSl() * Integer.valueOf(product.getGia());
+            }
+        }
+        jLabel7.setText(tongGia.toString());
+        // Update the UI after all products have been removed
+        jPanelGioHang.revalidate();
+        jPanelGioHang.repaint();
+    }
 
     /**
      * @param args the command line arguments
@@ -604,6 +779,9 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

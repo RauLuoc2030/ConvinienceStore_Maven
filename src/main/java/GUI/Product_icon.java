@@ -63,41 +63,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
     }
 
-    public Product_icon(String ten, String gia, String sl) {
-        initComponents();
-        jDialogDetailSP1.setLocationRelativeTo(null);
-
-        this.ten = ten;
-        this.gia = gia;
-        this.sl = sl;
-
-        jLabelTen.setText(ten);
-        jLabelGia.setText(gia);
-        jLabelSL.setText(sl);
-
-        addMouseListener(this);
-
-        jLabelIcon.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) { // double clicked
-                long currentTime = System.currentTimeMillis();
-
-                if (clickCount == 1 && (currentTime - lastClickTime) <= 200) {
-                    // Xử lý sự kiện double click
-                    System.out.println("Double clicked!");
-
-                    // Reset lại số lần click và thời gian sau khi xử lý xong
-                    clickCount = 0;
-                    lastClickTime = 0;
-                } else {
-                    // Lưu số lần click và thời gian hiện tại
-                    clickCount = 1;
-                    lastClickTime = currentTime;
-                }
-            }
-        });
-    }
-
     @Override
     public void mouseClicked(MouseEvent e) {
         // Xử lý hành động khi panel được click
@@ -362,14 +327,15 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jDialogDetailSP1.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(250, 376));
-        setMinimumSize(new java.awt.Dimension(250, 376));
-        setPreferredSize(new java.awt.Dimension(250, 376));
+        setMaximumSize(new java.awt.Dimension(1100, 70));
+        setMinimumSize(new java.awt.Dimension(1100, 70));
+        setPreferredSize(new java.awt.Dimension(1100, 70));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel11.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel11.setPreferredSize(new java.awt.Dimension(230, 315));
+        jPanel11.setMaximumSize(new java.awt.Dimension(1100, 70));
+        jPanel11.setPreferredSize(new java.awt.Dimension(1100, 70));
         jPanel11.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jPanel11FocusGained(evt);
@@ -387,18 +353,18 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
         jLabelTen.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelTen.setText("Tên ");
-        jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 590, 60));
+        jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 450, 60));
 
         jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelGia.setText("Giá");
-        jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 200, 60));
+        jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 5, 200, 60));
 
         jLabelSL.setBackground(new java.awt.Color(255, 255, 255));
         jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelSL.setText("SL");
         jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 5, 200, 60));
 
-        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1118, 70));
+        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel11FocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusGained
@@ -620,20 +586,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
      */
     public void setSl(String sl) {
         this.sl = sl;
-    }
-
-    /**
-     * @return the jLabel4
-     */
-    public javax.swing.JLabel getjLabelIcon() {
-        return jLabelIcon;
-    }
-
-    /**
-     * @param jLabel4 the jLabel4 to set
-     */
-    public void setjLabelIcon(javax.swing.JLabel jLabel4) {
-        this.jLabelIcon = jLabel4;
     }
 
     /**

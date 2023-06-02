@@ -262,8 +262,7 @@ public class ThemSP extends javax.swing.JFrame {
         try {
             if (sanPhamBUS.them(sanPhamDTO)) {
                 dispose();
-                Product_icon product_icon = new Product_icon(sanPhamDTO.getTenSPString(),
-                        sanPhamDTO.getGiaInt().toString(), sanPhamDTO.getSoLuongSPInt().toString());
+                Product_icon product_icon = new Product_icon(sanPhamDTO);
 
             }
         } catch (Exception e) {

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BanHang",
+            "request": "launch",
+            "mainClass": "GUI.Staff.BanHang",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "TestKhachHang",
             "request": "launch",
             "mainClass": "BUS.TestKhachHang",
@@ -60,7 +67,7 @@
             "mainClass": "GUI.Staff.NhanVienHomePage",
             "projectName": "ConvinienceStore_Maven",
             "noDebug": false,
-            "__progressId": "bf62a0da-7a6d-41a3-bdbd-fea4efe832f0",
+            "__progressId": "cbf65f75-6cb6-46fe-9bfa-3fd28cc14a9b",
             "__origin": "internal"
         },
         {
