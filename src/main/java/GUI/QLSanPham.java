@@ -342,9 +342,10 @@ public class QLSanPham extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 90));
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jPanelDanhSachSP.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelDanhSachSP.setLayout(new java.awt.GridLayout(2, 4));
+        jPanelDanhSachSP.setLayout(new javax.swing.BoxLayout(jPanelDanhSachSP, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanelDanhSachSP);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1020, 810));
@@ -431,6 +432,7 @@ public class QLSanPham extends javax.swing.JPanel {
                     } catch (Exception e) {
                         // TODO Auto-generated catch block
                         // e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Lỗi ràng buộc khóa ngoại");
                         System.out.println("Lỗi ràng buộc khóa ngoại");
                     }
                 }

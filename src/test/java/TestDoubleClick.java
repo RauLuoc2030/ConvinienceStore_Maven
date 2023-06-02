@@ -6,6 +6,7 @@ public class TestDoubleClick {
     private JFrame frame;
     private JPanel panel;
     private JLabel label;
+    
     private int clickCount;
     private long lastClickTime;
 

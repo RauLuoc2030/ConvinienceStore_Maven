@@ -240,7 +240,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         MoTa1.setEditable(false);
         MoTa1.setBackground(new java.awt.Color(255, 255, 255));
         MoTa1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        MoTa1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         MoTa1.setText("jTextField1");
         MoTa1.setBorder(null);
         jPanel16.add(MoTa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 260, 330, 40));
@@ -370,7 +369,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     private void jPanel11FocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusGained
         // TODO add your handling code here:
         isSelect = true;
-        jPanel11.setBorder(new LineBorder(Color.BLACK, 2));
+        setBorder(new LineBorder(Color.BLACK, 2));
 
         System.out.println("Focus gained");
     }// GEN-LAST:event_jPanel11FocusGained
@@ -378,7 +377,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     private void jPanel11FocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusLost
         // TODO add your handling code here:
         isSelect = false;
-        jPanel11.setBorder(new LineBorder(Color.WHITE, 2));
+        setBorder(new LineBorder(Color.WHITE, 2));
 
         System.out.println("Focus lost");
     }// GEN-LAST:event_jPanel11FocusLost

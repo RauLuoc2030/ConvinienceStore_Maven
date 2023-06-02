@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DoubleClickExample",
+            "request": "launch",
+            "mainClass": "GUI.DoubleClickExample",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "BanHang",
             "request": "launch",
             "mainClass": "GUI.Staff.BanHang",
@@ -67,7 +74,7 @@
             "mainClass": "GUI.Staff.NhanVienHomePage",
             "projectName": "ConvinienceStore_Maven",
             "noDebug": false,
-            "__progressId": "cbf65f75-6cb6-46fe-9bfa-3fd28cc14a9b",
+            "__progressId": "e3a49cd9-94b7-4dd2-8f78-adb8a24a14e7",
             "__origin": "internal"
         },
         {
