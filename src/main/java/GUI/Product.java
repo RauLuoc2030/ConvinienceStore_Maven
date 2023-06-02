@@ -146,7 +146,7 @@ public class Product extends javax.swing.JPanel {
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
         // TODO add your handling code here:
-        setBackground(Color.red);
+        setBackground(new java.awt.Color(234, 105, 95));
         isSelect = true;
     }//GEN-LAST:event_formFocusGained
 

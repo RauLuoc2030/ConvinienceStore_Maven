@@ -130,7 +130,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jDialogDetailSP1 = new javax.swing.JDialog();
@@ -163,7 +163,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabel51 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jLabelIcon = new javax.swing.JLabel();
         jLabelTen = new javax.swing.JLabel();
         jLabelGia = new javax.swing.JLabel();
         jLabelSL = new javax.swing.JLabel();
@@ -183,8 +182,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
                 jLabel43MouseClicked(evt);
             }
         });
-        jDialogDetailSP1.getContentPane().add(jLabel43,
-                new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
+        jDialogDetailSP1.getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
 
         jPanel3.setBackground(new java.awt.Color(45, 96, 151));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -361,8 +359,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabel49.setText("Chi tiết sản phẩm");
         jPanel3.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 190, 50));
 
-        jDialogDetailSP1.getContentPane().add(jPanel3,
-                new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
+        jDialogDetailSP1.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(250, 376));
@@ -370,14 +367,13 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         setPreferredSize(new java.awt.Dimension(250, 376));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBackground(new java.awt.Color(204, 255, 255));
         jPanel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel11.setPreferredSize(new java.awt.Dimension(230, 315));
         jPanel11.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jPanel11FocusGained(evt);
             }
-
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jPanel11FocusLost(evt);
             }
@@ -389,25 +385,20 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         });
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelIcon.setText("icon");
-        jLabelIcon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel11.add(jLabelIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 210, 210));
-
         jLabelTen.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelTen.setText("Tên ");
-        jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 25));
+        jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 590, 60));
 
         jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelGia.setText("Giá");
-        jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 150, 25));
+        jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 200, 60));
 
         jLabelSL.setBackground(new java.awt.Color(255, 255, 255));
         jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelSL.setText("SL");
-        jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 150, 25));
+        jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 5, 200, 60));
 
-        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 326));
+        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1118, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel11FocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusGained
@@ -578,7 +569,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabelGia;
-    private javax.swing.JLabel jLabelIcon;
     private javax.swing.JLabel jLabelSL;
     private javax.swing.JLabel jLabelTen;
     private javax.swing.JPanel jPanel11;

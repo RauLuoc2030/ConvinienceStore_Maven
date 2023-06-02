@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestKhachHang",
+            "request": "launch",
+            "mainClass": "BUS.TestKhachHang",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "TestProcedure",
             "request": "launch",
             "mainClass": "DAO_JDBC.TestProcedure",
@@ -53,7 +60,7 @@
             "mainClass": "GUI.Staff.NhanVienHomePage",
             "projectName": "ConvinienceStore_Maven",
             "noDebug": false,
-            "__progressId": "757d65a7-5e70-4f07-9bab-6de97b809f5e",
+            "__progressId": "bf62a0da-7a6d-41a3-bdbd-fea4efe832f0",
             "__origin": "internal"
         },
         {

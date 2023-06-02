@@ -106,7 +106,7 @@ public class QLKhachHang extends javax.swing.JPanel {
         jLabelSDT.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabelSDT.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSDT.setText("SDT");
-        jPanel2.add(jLabelSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 190, 60));
+        jPanel2.add(jLabelSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 190, 60));
 
         jLabelNgayDK.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabelNgayDK.setForeground(new java.awt.Color(255, 255, 255));

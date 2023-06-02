@@ -40,9 +40,6 @@ public class SanPhamDTO implements Serializable {
     @Column(name = "MOTA")
     private String moTaString;
 
-    @Column(name = "GIAGIAM")
-    private Integer giaGiamInt;
-
     /**
      * Constructor
      */
@@ -62,14 +59,13 @@ public class SanPhamDTO implements Serializable {
      * @param giaGiamInt
      */
     public SanPhamDTO(String maSPString, String tenSPString, int giaInt, int soLuongSPInt,
-            String phanLoaiString, String nSXDate, String hSDDate, String moTaString, int giaGiamInt) {
+            String phanLoaiString, String nSXDate, String hSDDate, String moTaString) {
         this.maSPString = maSPString;
         this.tenSPString = tenSPString;
         this.phanLoaiString = phanLoaiString;
         this.moTaString = moTaString;
         this.giaInt = giaInt;
-        this.giaGiamInt = giaGiamInt;
-        this.giaGiamInt = giaGiamInt;
+
         this.soLuongSPInt = soLuongSPInt;
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -225,25 +221,11 @@ public class SanPhamDTO implements Serializable {
         HSDDate = hSDDate;
     }
 
-    /**
-     * @return the giaGiamInt
-     */
-    public Integer getGiaGiamInt() {
-        return giaGiamInt;
-    }
-
-    /**
-     * @param giaGiamInt the giaGiamInt to set
-     */
-    public void setGiaGiamInt(Integer giaGiamInt) {
-        this.giaGiamInt = giaGiamInt;
-    }
-
     @Override
     public String toString() {
         return "SanPhamDTO [maSPString=" + maSPString + ", tenSPString=" + tenSPString + ", giaInt=" + giaInt
                 + ", soLuongSPInt=" + soLuongSPInt + ", phanLoaiString=" + phanLoaiString + ", NSXDate=" + NSXDate
-                + ", HSDDate=" + HSDDate + ", moTaString=" + moTaString + ", giaGiamInt=" + giaGiamInt + "]";
+                + ", HSDDate=" + HSDDate + ", moTaString=" + moTaString + "]";
     }
 
 }

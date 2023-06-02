@@ -22,7 +22,8 @@ public class KhachHang extends javax.swing.JPanel {
     }
 
     public KhachHang(KhachHangDTO khachHangDTO) {
-        jLabelMaKH.setText(khachHangDTO.getMaKHString());
+        initComponents();
+        jLabelMaKH.setText(khachHangDTO.getMaKHString().toString());
         jLabelTenKH.setText(khachHangDTO.getTenKHString());
         jLabelSDT.setText(khachHangDTO.getSDTKHString());
         jLabelNgayDK.setText(formatter.format(khachHangDTO.getNgayDangKyDate()));
@@ -42,6 +43,7 @@ public class KhachHang extends javax.swing.JPanel {
         jLabelSDT = new javax.swing.JLabel();
         jLabelNgayDK = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1200, 60));
         setPreferredSize(new java.awt.Dimension(1200, 60));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,19 +53,17 @@ public class KhachHang extends javax.swing.JPanel {
         add(jLabelMaKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 110, 60));
 
         jLabelTenKH.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
-        jLabelTenKH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTenKH.setText("Tên");
-        add(jLabelTenKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 130, 60));
+        add(jLabelTenKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 370, 60));
 
         jLabelSDT.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
-        jLabelSDT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSDT.setText("SDT");
-        add(jLabelSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 150, 60));
+        add(jLabelSDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 180, 60));
 
         jLabelNgayDK.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelNgayDK.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNgayDK.setText("NgayDK");
-        add(jLabelNgayDK, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 180, 60));
+        add(jLabelNgayDK, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 0, 180, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

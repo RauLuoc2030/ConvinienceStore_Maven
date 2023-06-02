@@ -94,7 +94,7 @@ public class SanPhamDAO {
             newSanPham.setHSDDate(sanpham.getHSDDate());
             newSanPham.setMoTaString(sanpham.getMoTaString());
             // newSanPham.setThongTinChiTietString(sanpham.getThongTinChiTietString());
-            newSanPham.setGiaGiamInt(sanpham.getGiaGiamInt());
+            // newSanPham.setGiaGiamInt(sanpham.getGiaGiamInt());
 
             session.save(newSanPham);
             session.getTransaction().commit();
