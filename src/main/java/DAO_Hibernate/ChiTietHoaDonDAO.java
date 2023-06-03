@@ -1,5 +1,6 @@
 package DAO_Hibernate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -43,6 +44,31 @@ public class ChiTietHoaDonDAO {
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
+        }
+    }
+
+    public List<ChiTietHoaDonDTO> tim(String keyword) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<ChiTietHoaDonDTO> query = session
+                .createQuery("FROM ChiTietHoaDonDTO WHERE maHoaDon = :keyword", ChiTietHoaDonDTO.class);
+        query.setParameter("keyword", keyword);
+        // query.setParameter("searchKeyword", "%" + keyword + "%");
+
+        List<ChiTietHoaDonDTO> chiTietHoaDonDTOList = query.getResultList();
+
+        session.getTransaction().commit();
+        session.close();
+        return chiTietHoaDonDTOList;
+    }
+
+    public static void main(String[] args) {
+        ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
+        List<ChiTietHoaDonDTO> chiTietHoaDonDTOs = new ArrayList<>();
+        chiTietHoaDonDTOs = chiTietHoaDonDAO.tim("HD8");
+        for (int i = 0; i < chiTietHoaDonDTOs.size(); i++){
+            System.out.println(chiTietHoaDonDTOs.get(i).toString()); 
         }
     }
 }

@@ -5,6 +5,7 @@
 package GUI;
 
 import BUS.SanPhamBUS;
+import DAO_Hibernate.SanPhamDAO;
 import DTO.SanPhamDTO;
 import java.awt.Component;
 import java.util.logging.Level;
@@ -83,8 +84,16 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanelAdd = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        panelRound2 = new GUI.PanelRound();
+        jTextField5 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelDanhSachSP = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
 
         jDialogAddSP.setModal(true);
         jDialogAddSP.setUndecorated(true);
@@ -154,11 +163,13 @@ public class QLSanPham extends javax.swing.JPanel {
         jLabel16.setText("HSD");
         jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 223, 135, 24));
 
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 46, 135, 24));
 
         jTextField2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField2.setText("0");
         jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jPanel8.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 111, 135, 24));
 
@@ -171,6 +182,7 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanel8.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 46, 135, 24));
 
         jTextField6.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField6.setText("0");
         jTextField6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jPanel8.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 180, 135, 24));
 
@@ -284,6 +296,9 @@ public class QLSanPham extends javax.swing.JPanel {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                formFocusLost(evt);
+            }
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -327,17 +342,30 @@ public class QLSanPham extends javax.swing.JPanel {
         add(jPanelAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 140, 80, 80));
 
         jPanel1.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
-        );
+        jPanel16.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search 1.png"))); // NOI18N
+        jPanel16.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 21, 48, 48));
+
+        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setMaximumSize(new java.awt.Dimension(330, 50));
+        panelRound2.setMinimumSize(new java.awt.Dimension(330, 50));
+        panelRound2.setPreferredSize(new java.awt.Dimension(330, 50));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField5.setBorder(null);
+        panelRound2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 0, 280, 50));
+
+        jPanel16.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
+
+        jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 90));
 
@@ -348,7 +376,24 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanelDanhSachSP.setLayout(new javax.swing.BoxLayout(jPanelDanhSachSP, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanelDanhSachSP);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1020, 810));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1020, 750));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel23.setText("Tên sản phẩm");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 240, 40));
+
+        jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel24.setText("Giá");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 5, 60, 40));
+
+        jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel25.setText("Số lượng");
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 5, 150, 40));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1020, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanelSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSaveMouseClicked
@@ -372,22 +417,38 @@ public class QLSanPham extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jPanelSaveMouseClicked
 
+    private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
+        // TODO add your handling code here:
+        jPanelDanhSachSP.removeAll();
+        for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
+            Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
+            jPanelDanhSachSP.add(product_icon);
+        }
+        jPanelDanhSachSP.revalidate();
+        jPanelDanhSachSP.repaint();
+    }//GEN-LAST:event_formFocusLost
+
     private void jPanelAddMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelAddMouseClicked
         // TODO add your handling code here:
         // JFrame frame = new ThemSP();
         // frame.setVisible(true);
         // System.out.println("GUI.QLSanPham.jPanelAddMouseClicked()");
+        SanPhamDAO sanPhamDAO = new SanPhamDAO();
+        jTextField1.setText(sanPhamDAO.AutoGenerateMaSP());
         jDialogAddSP.setVisible(true);
     }// GEN-LAST:event_jPanelAddMouseClicked
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_formFocusGained
         // TODO add your handling code here:
+        jPanelDanhSachSP.removeAll();
+        sanPhamBUS = new SanPhamBUS();
+
         for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
             Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
-            jPanel1.add(product_icon);
+            jPanelDanhSachSP.add(product_icon);
         }
-        jPanel1.revalidate();
-        jPanel1.repaint();
+        jPanelDanhSachSP.revalidate();
+        jPanelDanhSachSP.repaint();
     }// GEN-LAST:event_formFocusGained
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel18MouseClicked
@@ -465,12 +526,18 @@ public class QLSanPham extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -483,7 +550,9 @@ public class QLSanPham extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private GUI.PanelRound panelRound1;
+    private GUI.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

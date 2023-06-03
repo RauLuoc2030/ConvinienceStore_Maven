@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ChiTietHoaDonDAO",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.ChiTietHoaDonDAO",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "TestAutoGenerateMaSP",
             "request": "launch",
             "mainClass": "DAO_Hibernate.TestAutoGenerateMaSP",

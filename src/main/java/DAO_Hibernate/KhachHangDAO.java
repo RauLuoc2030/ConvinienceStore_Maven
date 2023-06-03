@@ -192,7 +192,7 @@ public class KhachHangDAO {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         
-        Query<KhachHangDTO> query = session.createQuery("FROM KhachHangDTO WHERE MaKH = :keyword OR TenSP LIKE :searchKeyword", KhachHangDTO.class);
+        Query<KhachHangDTO> query = session.createQuery("FROM KhachHangDTO WHERE MaKH = :keyword OR SDTKHString LIKE :searchKeyword", KhachHangDTO.class);
         query.setParameter("keyword", keyword);
         query.setParameter("searchKeyword", "%" + keyword + "%");
         

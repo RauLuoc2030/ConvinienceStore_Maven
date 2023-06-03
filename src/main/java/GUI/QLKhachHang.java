@@ -41,6 +41,7 @@ public class QLKhachHang extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
+        panelRound1 = new GUI.PanelRound();
         jTextField5 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -67,7 +68,21 @@ public class QLKhachHang extends javax.swing.JPanel {
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search 1.png"))); // NOI18N
         jPanel16.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 21, 48, 48));
-        jPanel16.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
+
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setMaximumSize(new java.awt.Dimension(330, 50));
+        panelRound1.setMinimumSize(new java.awt.Dimension(330, 50));
+        panelRound1.setPreferredSize(new java.awt.Dimension(330, 50));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField5.setBorder(null);
+        panelRound1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 0, 280, 50));
+
+        jPanel16.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
 
         jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
 
@@ -144,5 +159,6 @@ public class QLKhachHang extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField5;
+    private GUI.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

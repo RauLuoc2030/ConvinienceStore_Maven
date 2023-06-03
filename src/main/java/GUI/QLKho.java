@@ -77,6 +77,7 @@ public class QLKho extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
+        panelRound2 = new GUI.PanelRound();
         jTextField5 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -313,7 +314,21 @@ public class QLKho extends javax.swing.JPanel {
 
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search 1.png"))); // NOI18N
         jPanel16.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 21, 48, 48));
-        jPanel16.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
+
+        panelRound2.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound2.setMaximumSize(new java.awt.Dimension(330, 50));
+        panelRound2.setMinimumSize(new java.awt.Dimension(330, 50));
+        panelRound2.setPreferredSize(new java.awt.Dimension(330, 50));
+        panelRound2.setRoundBottomLeft(50);
+        panelRound2.setRoundBottomRight(50);
+        panelRound2.setRoundTopLeft(50);
+        panelRound2.setRoundTopRight(50);
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField5.setBorder(null);
+        panelRound2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 0, 280, 50));
+
+        jPanel16.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
 
         jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
 
@@ -449,5 +464,6 @@ public class QLKho extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private GUI.PanelRound panelRound1;
+    private GUI.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
 package GUI.Staff;
 
 import GUI.DangNhap;
+import GUI.QLHoaDon;
 import GUI.QLKhachHang;
 import GUI.QLKho;
 import GUI.QLSanPham;
@@ -65,6 +66,9 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel2MouseEntered(evt);
             }
@@ -359,6 +363,14 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jPanel11.validate();
         jPanel11.repaint();
     }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        // TODO add your handling code here:
+        jPanel11.removeAll();
+        jPanel11.add(new QLHoaDon());
+        jPanel11.validate();
+        jPanel11.repaint();
+    }//GEN-LAST:event_jPanel2MouseClicked
 
     /**
      * @param args the command line arguments

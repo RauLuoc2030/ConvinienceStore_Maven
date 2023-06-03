@@ -472,7 +472,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanelSave.setEnabled(true);
         jPanelSave.setVisible(true);
 
-        MaSP1.setEditable(true);
         NSX1.setEditable(true);
         HSD1.setEditable(true);
         SL1.setEditable(true);

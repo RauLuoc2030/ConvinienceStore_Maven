@@ -83,4 +83,10 @@ public class ChiTietHoaDonDTO implements Serializable {
     public void setGia(Integer gia) {
         this.gia = gia;
     }
+
+    @Override
+    public String toString() {
+        return "ChiTietHoaDonDTO [maHoaDon=" + maHoaDon + ", maSP=" + maSP + ", soLuong=" + soLuong + ", gia=" + gia
+                + "]";
+    }
 }
