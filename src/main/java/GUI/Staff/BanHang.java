@@ -5,12 +5,21 @@
 package GUI.Staff;
 
 import BUS.SanPhamBUS;
+import DAO_Hibernate.ChiTietHoaDonDAO;
+import DAO_Hibernate.HoaDonDAO;
+import DTO.ChiTietHoaDonDTO;
+import DTO.HoaDonDTO;
 import DTO.SanPhamDTO;
 import GUI.Product;
 import GUI.Product_icon;
+import static GUI.DangNhap.nhanVien;
 
 import java.awt.Component;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +47,7 @@ public class BanHang extends javax.swing.JFrame {
                     Component[] components = jPanelGioHang.getComponents();
                     if (components.length == 0) {
 
-                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        Product p = new Product(product_icon.getSanPhamDTO());
                         jPanelGioHang.add(p);
                         updateTongGia();
                         jPanelGioHang.revalidate();
@@ -51,8 +60,7 @@ public class BanHang extends javax.swing.JFrame {
                             if (component instanceof Product) {
                                 Product product = (Product) component;
                                 // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
-                                if (product.getTen().equals(product_icon.getTen())
-                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
                                     // Tăng số lượng lên
                                     product.tangSoLuong();
                                     updateTongGia();
@@ -65,7 +73,7 @@ public class BanHang extends javax.swing.JFrame {
                         }
 
                         if (!isExist) { // Chưa tồn tại
-                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            Product p = new Product(product_icon.getSanPhamDTO());
                             jPanelGioHang.add(p);
                             updateTongGia();
                             jPanelGioHang.revalidate();
@@ -82,7 +90,7 @@ public class BanHang extends javax.swing.JFrame {
                     Component[] components = jPanelGioHang.getComponents();
                     if (components.length == 0) {
 
-                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        Product p = new Product(product_icon.getSanPhamDTO());
                         jPanelGioHang.add(p);
                         updateTongGia();
                         jPanelGioHang.revalidate();
@@ -93,8 +101,7 @@ public class BanHang extends javax.swing.JFrame {
                             if (component instanceof Product) {
                                 Product product = (Product) component;
                                 // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
-                                if (product.getTen().equals(product_icon.getTen())
-                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
                                     // Tăng số lượng lên
                                     product.tangSoLuong();
                                     updateTongGia();
@@ -108,7 +115,7 @@ public class BanHang extends javax.swing.JFrame {
                         }
 
                         if (!isExist) { // Chưa tồn tại
-                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            Product p = new Product(product_icon.getSanPhamDTO());
                             jPanelGioHang.add(p);
                             updateTongGia();
                             jPanelGioHang.revalidate();
@@ -125,7 +132,7 @@ public class BanHang extends javax.swing.JFrame {
                     Component[] components = jPanelGioHang.getComponents();
                     if (components.length == 0) {
 
-                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        Product p = new Product(product_icon.getSanPhamDTO());
                         jPanelGioHang.add(p);
                         updateTongGia();
                         jPanelGioHang.revalidate();
@@ -136,8 +143,7 @@ public class BanHang extends javax.swing.JFrame {
                             if (component instanceof Product) {
                                 Product product = (Product) component;
                                 // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
-                                if (product.getTen().equals(product_icon.getTen())
-                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
                                     // Tăng số lượng lên
                                     product.tangSoLuong();
                                     updateTongGia();
@@ -151,7 +157,7 @@ public class BanHang extends javax.swing.JFrame {
                         }
 
                         if (!isExist) { // Chưa tồn tại
-                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            Product p = new Product(product_icon.getSanPhamDTO());
                             jPanelGioHang.add(p);
                             updateTongGia();
                             jPanelGioHang.revalidate();
@@ -168,7 +174,7 @@ public class BanHang extends javax.swing.JFrame {
                     Component[] components = jPanelGioHang.getComponents();
                     if (components.length == 0) {
 
-                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        Product p = new Product(product_icon.getSanPhamDTO());
                         jPanelGioHang.add(p);
                         updateTongGia();
                         jPanelGioHang.revalidate();
@@ -179,8 +185,7 @@ public class BanHang extends javax.swing.JFrame {
                             if (component instanceof Product) {
                                 Product product = (Product) component;
                                 // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
-                                if (product.getTen().equals(product_icon.getTen())
-                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
                                     // Tăng số lượng lên
                                     product.tangSoLuong();
                                     updateTongGia();
@@ -194,7 +199,7 @@ public class BanHang extends javax.swing.JFrame {
                         }
 
                         if (!isExist) { // Chưa tồn tại
-                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            Product p = new Product(product_icon.getSanPhamDTO());
                             jPanelGioHang.add(p);
                             updateTongGia();
                             jPanelGioHang.revalidate();
@@ -211,7 +216,7 @@ public class BanHang extends javax.swing.JFrame {
                     Component[] components = jPanelGioHang.getComponents();
                     if (components.length == 0) {
 
-                        Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                        Product p = new Product(product_icon.getSanPhamDTO());
                         jPanelGioHang.add(p);
                         updateTongGia();
                         jPanelGioHang.revalidate();
@@ -222,8 +227,7 @@ public class BanHang extends javax.swing.JFrame {
                             if (component instanceof Product) {
                                 Product product = (Product) component;
                                 // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
-                                if (product.getTen().equals(product_icon.getTen())
-                                        && product.getGia().equals(product_icon.getGia())) { // Đã tồn tại
+                                if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
                                     // Tăng số lượng lên
                                     product.tangSoLuong();
                                     updateTongGia();
@@ -237,7 +241,7 @@ public class BanHang extends javax.swing.JFrame {
                         }
 
                         if (!isExist) { // Chưa tồn tại
-                            Product p = new Product(product_icon.getTen(), product_icon.getGia());
+                            Product p = new Product(product_icon.getSanPhamDTO());
                             jPanelGioHang.add(p);
                             updateTongGia();
                             jPanelGioHang.revalidate();
@@ -286,7 +290,7 @@ public class BanHang extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelThanhToan = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton_7 = new javax.swing.JButton();
@@ -379,6 +383,7 @@ public class BanHang extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
@@ -424,21 +429,21 @@ public class BanHang extends javax.swing.JFrame {
 
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 60));
 
-        jPanel3.setBackground(new java.awt.Color(0, 204, 204));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelThanhToan.setBackground(new java.awt.Color(0, 204, 204));
+        jPanelThanhToan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelThanhToan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelThanhToan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
+                jPanelThanhToanMouseClicked(evt);
             }
         });
-        jPanel3.setLayout(new java.awt.GridBagLayout());
+        jPanelThanhToan.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Thanh Toán");
-        jPanel3.add(jLabel2, new java.awt.GridBagConstraints());
+        jPanelThanhToan.add(jLabel2, new java.awt.GridBagConstraints());
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 250, 190));
+        jPanel2.add(jPanelThanhToan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 250, 190));
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 250, 250));
 
@@ -616,10 +621,50 @@ public class BanHang extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+    private void jPanelThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelThanhToanMouseClicked
         // TODO add your handling code here:
+        // Tạo mới một hóa đơn
+        HoaDonDTO hoaDonDTO = new HoaDonDTO();
+        HoaDonDAO hoaDonDAO = new HoaDonDAO();
+        hoaDonDTO.setMaHDString(hoaDonDAO.AutoGenerateMaHD());
+        hoaDonDTO.setMaKHString("KH1");
+        hoaDonDTO.setNgayMuaHangHDDate(new Date());
+        hoaDonDTO.setMaNVString(nhanVien.getMaNVString());
+        hoaDonDTO.setHinhThucThanhToanHDString("Tiền mặt");
+        hoaDonDTO.setTriGiaHDInteger(Integer.valueOf(jLabel7.getText()));
 
-    }//GEN-LAST:event_jPanel3MouseClicked
+        hoaDonDAO.them_optimized(hoaDonDTO);
+
+        Component[] components = jPanelGioHang.getComponents();
+        List<SanPhamDTO> sanPhamGioHangList = new ArrayList<>();
+        int index = 0;
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+                sanPhamGioHangList.add(index, product.getSanPhamDTO());
+
+                // Thêm sản phẩm vào chi tiết hóa đơn
+                ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();
+                chiTietHoaDonDTO.setMaHoaDon(hoaDonDTO.getMaHDString());
+                chiTietHoaDonDTO.setMaSP(sanPhamGioHangList.get(index).getMaSPString());
+                chiTietHoaDonDTO.setSoLuong(product.getSl());
+                chiTietHoaDonDTO.setGia(Integer.valueOf(product.getjLabelThanhTien().getText()));
+                // Thêm chi tiết hóa đơn vào CSDL
+                ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
+                chiTietHoaDonDAO.them_optimized(chiTietHoaDonDTO);
+                index++;
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Thanh toán thành công!");
+        jPanelGioHang.removeAll();
+        jLabel7.setText("0");
+        revalidate();
+        repaint();
+    }//GEN-LAST:event_jPanelThanhToanMouseClicked
 
     private void jButtonXoaMouseClicked(java.awt.event.MouseEvent evt) {
         Component[] components = jPanelGioHang.getComponents();
@@ -710,7 +755,7 @@ public class BanHang extends javax.swing.JFrame {
             if (component instanceof Product) {
                 Product product = (Product) component;
 
-                tongGia += product.getSl() * Integer.valueOf(product.getGia());
+                tongGia += product.getSl() * Integer.valueOf(product.getSanPhamDTO().getGiaInt());
             }
         }
         jLabel7.setText(tongGia.toString());
@@ -797,7 +842,6 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -807,6 +851,7 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelGioHang;
     private javax.swing.JPanel jPanelProduct;
     private javax.swing.JPanel jPanelSanPham;
+    private javax.swing.JPanel jPanelThanhToan;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField_TimKiem;

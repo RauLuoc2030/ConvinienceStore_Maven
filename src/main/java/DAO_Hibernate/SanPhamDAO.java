@@ -1,17 +1,19 @@
 package DAO_Hibernate;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.ParameterMode;
+import javax.persistence.criteria.CriteriaBuilder.In;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.procedure.ProcedureOutputs;
 import org.hibernate.query.Query;
-import org.hibernate.result.ResultSetOutput;
-
 import DTO.SanPhamDTO;
 
 public class SanPhamDAO {
@@ -123,6 +125,7 @@ public class SanPhamDAO {
     public boolean them_optimized(SanPhamDTO sanpham) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.beginTransaction();
+            // sanpham.setMaSPString(AutoGenerateMaSP());
             session.save(sanpham);
             session.getTransaction().commit();
             return true;
@@ -324,6 +327,34 @@ public class SanPhamDAO {
         
         return totalRevenue;
     
+    }
+
+    public List<String> getMaSPList() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        
+        Query<String> query = session.createQuery("SELECT s.maSPString FROM SanPhamDTO s", String.class);
+        List<String> maSPList = query.getResultList();
+
+        session.getTransaction().commit();
+
+        return maSPList;
+    }
+
+    public String AutoGenerateMaSP(){
+        // Lấy danh sách MaSP trong CSDL
+        List<String> maSPList = new ArrayList<>();
+        maSPList = getMaSPList();
+        List<Integer> numberList = new ArrayList<>();
+        // Tách riêng phần số trong MaSP ra
+        for (String maSP : maSPList){
+            // Xóa tất cả các ký tự không phải số từ chuỗi
+            String numberString = maSP.replaceAll("[^\\d]", "");
+            numberList.add(Integer.parseInt(numberString));
+        }
+        // Tạo MaSP mới theo định dạng "SPxxxxxx"
+        String MaSP = "SP" + String.format("%06d", Collections.max(numberList) + 1);
+        return MaSP;
     }
 }
 

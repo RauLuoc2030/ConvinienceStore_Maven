@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestAutoGenerateMaSP",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.TestAutoGenerateMaSP",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "DoubleClickExample",
             "request": "launch",
             "mainClass": "GUI.DoubleClickExample",
@@ -16,7 +23,10 @@
             "name": "BanHang",
             "request": "launch",
             "mainClass": "GUI.Staff.BanHang",
-            "projectName": "ConvinienceStore_Maven"
+            "projectName": "ConvinienceStore_Maven",
+            "noDebug": false,
+            "__progressId": "d9f965eb-00de-4722-a7dc-a29fa2971632",
+            "__origin": "internal"
         },
         {
             "type": "java",

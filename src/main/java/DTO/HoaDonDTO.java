@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class HoaDonDTO implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MAHD")
     private String maHDString;
 

@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import DTO.SanPhamDTO;
 import java.awt.Color;
 import static java.lang.Integer.*;
 
@@ -13,8 +14,10 @@ import static java.lang.Integer.*;
  */
 public class Product extends javax.swing.JPanel {
 
-    private String ten;
-    private String gia;
+    private SanPhamDTO sanPhamDTO;
+
+//    private String ten;
+//    private String gia;
     private Integer sl;
 
     private boolean isSelect;
@@ -26,21 +29,33 @@ public class Product extends javax.swing.JPanel {
         initComponents();
     }
 
-    public Product(String ten, String gia) {
+    public Product(SanPhamDTO sanPhamDTO) {
         initComponents();
-        this.ten = ten;
-        this.gia = gia;
+        this.sanPhamDTO = new SanPhamDTO();
+        this.sanPhamDTO = sanPhamDTO;
         this.sl = 1;
-
-        jLabelTenSP.setText(ten);
+        jLabelTenSP.setText(sanPhamDTO.getTenSPString());
         jLabelSoLuong.setText(sl.toString());
-        Integer tt = valueOf(gia) * sl;
+        Integer tt = sanPhamDTO.getGiaInt() * sl;
         jLabelThanhTien.setText(tt.toString());
     }
 
+//    public Product(String ten, String gia) {
+//        initComponents();
+//        this.ten = ten;
+//        this.gia = gia;
+//        this.sl = 1;
+//
+//        jLabelTenSP.setText(ten);
+//        jLabelSoLuong.setText(sl.toString());
+//        Integer tt = valueOf(gia) * sl;
+//        jLabelThanhTien.setText(tt.toString());
+//    }
     public void tangSoLuong() {
         sl++;
         jLabelSoLuong.setText(sl.toString());
+        Integer tt = sanPhamDTO.getGiaInt() * sl;
+        jLabelThanhTien.setText(tt.toString());
     }
 
     public void giamSoLuong() {
@@ -155,33 +170,6 @@ public class Product extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelTenSP;
     private javax.swing.JLabel jLabelThanhTien;
     // End of variables declaration//GEN-END:variables
-    /**
-     * @return the ten
-     */
-    public String getTen() {
-        return ten;
-    }
-
-    /**
-     * @param ten the ten to set
-     */
-    public void setTen(String ten) {
-        this.ten = ten;
-    }
-
-    /**
-     * @return the gia
-     */
-    public String getGia() {
-        return gia;
-    }
-
-    /**
-     * @param gia the gia to set
-     */
-    public void setGia(String gia) {
-        this.gia = gia;
-    }
 
     /**
      * @return the sl
@@ -251,5 +239,19 @@ public class Product extends javax.swing.JPanel {
      */
     public void setSelect(boolean isSelect) {
         this.isSelect = isSelect;
+    }
+
+    /**
+     * @return the sanPhamDTO
+     */
+    public SanPhamDTO getSanPhamDTO() {
+        return sanPhamDTO;
+    }
+
+    /**
+     * @param sanPhamDTO the sanPhamDTO to set
+     */
+    public void setSanPhamDTO(SanPhamDTO sanPhamDTO) {
+        this.sanPhamDTO = sanPhamDTO;
     }
 }

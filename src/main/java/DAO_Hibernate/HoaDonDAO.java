@@ -1,5 +1,7 @@
 package DAO_Hibernate;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -200,5 +202,33 @@ public class HoaDonDAO {
 
         session.getTransaction().commit();
         return sanPham;
+    }
+
+    public List<String> getMaHDList() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<String> query = session.createQuery("SELECT s.maHDString FROM HoaDonDTO s", String.class);
+        List<String> maHDList = query.getResultList();
+
+        session.getTransaction().commit();
+
+        return maHDList;
+    }
+
+    public String AutoGenerateMaHD() {
+        // Lấy danh sách MaHD trong CSDL
+        List<String> maHDList = new ArrayList<>();
+        maHDList = getMaHDList();
+        List<Integer> numberList = new ArrayList<>();
+        // Tách riêng phần số trong MaHD ra
+        for (String maHD : maHDList) {
+            // Xóa tất cả các ký tự HDông phải số từ chuỗi
+            String numberString = maHD.replaceAll("[^\\d]", "");
+            numberList.add(Integer.parseInt(numberString));
+        }
+        // Tạo MaHD mới theo định dạng "HDxxxxxx"
+        String MaHD = "HD" + String.format("%06d", Collections.max(numberList) + 1);
+        return MaHD;
     }
 }

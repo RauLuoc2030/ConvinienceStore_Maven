@@ -10,6 +10,7 @@ import DTO.NguoiDungDTO;
 import DTO.NhanVienDTO;
 import GUI.Admin.AdminHomePage;
 import GUI.Staff.NhanVienHomePage;
+
 import java.awt.Cursor;
 import javax.swing.JOptionPane;
 
@@ -18,8 +19,10 @@ import javax.swing.JOptionPane;
  * @author Locc
  */
 public class DangNhap extends javax.swing.JFrame {
-    
+
     private NguoiDungDAO nguoiDungDAO;
+
+    public static NhanVienDTO nhanVien;
 
     public static String tenDangNhap;
 
@@ -40,7 +43,8 @@ public class DangNhap extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
@@ -71,9 +75,19 @@ public class DangNhap extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(899, 170, 238, 31));
 
         jTextFieldUsername.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 20)); // NOI18N
+        jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsernameActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 209, 604, 69));
 
         jPasswordField.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 20)); // NOI18N
+        jPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 352, 604, 68));
 
         panelRound1.setBackground(new java.awt.Color(45, 96, 151));
@@ -102,17 +116,16 @@ public class DangNhap extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_panelRound1MouseClicked
+    private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
         // TODO add your handling code here:
+
         nguoiDungDAO = new NguoiDungDAO();
 
         String inputUsername = jTextFieldUsername.getText();
         char[] inputPassword = jPasswordField.getPassword();
         String inputPasswordText = new String(inputPassword);
 
-
         // System.out.println(nhanVienDTO.toString());
-        
         if (inputUsername.equals("") && inputPasswordText.equals("")) {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ");
         } else if (inputUsername.equals("")) {
@@ -121,12 +134,103 @@ public class DangNhap extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Vui lòng nhập mật khẩu");
         } else {
             NguoiDungDTO nguoiDungDTO = nguoiDungDAO.tim(inputUsername);
+            if (nguoiDungDTO == null) {
+                JOptionPane.showMessageDialog(null, "Đăng nhập không thành công!");
+                return;
+            }
             NhanVienDAO nhanVienDAO = new NhanVienDAO();
-            NhanVienDTO nhanVienDTO = nhanVienDAO.tim(nguoiDungDTO.getMaNVString());
+            this.nhanVien = new NhanVienDTO();
+            nhanVien = nhanVienDAO.tim(nguoiDungDTO.getMaNVString());
 
             if (nguoiDungDTO.getPasswordString().equals(inputPasswordText)) { // Đăng nhập thành công
                 // Kiểm tra role
-                if (nhanVienDTO.getChucVuNVString().equals("quan ly")) {
+                if (nhanVien.getChucVuNVString().equals("quan ly")) {
+                    AdminHomePage adminHomePage = new AdminHomePage();
+                    adminHomePage.setVisible(true);
+                    System.out.println("quan ly");
+                } else {
+                    NhanVienHomePage nhanVienHomePage = new NhanVienHomePage();
+                    nhanVienHomePage.setVisible(true);
+                    System.out.println("nhan vien");
+                }
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Đăng nhập thất bại!");
+            }
+        }
+    }//GEN-LAST:event_jTextFieldUsernameActionPerformed
+
+    private void jPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jPasswordFieldActionPerformed
+        // TODO add your handling code here:
+        nguoiDungDAO = new NguoiDungDAO();
+
+        String inputUsername = jTextFieldUsername.getText();
+        char[] inputPassword = jPasswordField.getPassword();
+        String inputPasswordText = new String(inputPassword);
+
+        // System.out.println(nhanVienDTO.toString());
+        if (inputUsername.equals("") && inputPasswordText.equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ");
+        } else if (inputUsername.equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập tài khoản");
+        } else if (inputPasswordText.equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập mật khẩu");
+        } else {
+            NguoiDungDTO nguoiDungDTO = nguoiDungDAO.tim(inputUsername);
+            if (nguoiDungDTO == null) {
+                JOptionPane.showMessageDialog(null, "Đăng nhập không thành công!");
+                return;
+            }
+            NhanVienDAO nhanVienDAO = new NhanVienDAO();
+            this.nhanVien = new NhanVienDTO();
+            nhanVien = nhanVienDAO.tim(nguoiDungDTO.getMaNVString());
+
+            if (nguoiDungDTO.getPasswordString().equals(inputPasswordText)) { // Đăng nhập thành công
+                // Kiểm tra role
+                if (nhanVien.getChucVuNVString().equals("quan ly")) {
+                    AdminHomePage adminHomePage = new AdminHomePage();
+                    adminHomePage.setVisible(true);
+                    System.out.println("quan ly");
+                } else {
+                    NhanVienHomePage nhanVienHomePage = new NhanVienHomePage();
+                    nhanVienHomePage.setVisible(true);
+                    System.out.println("nhan vien");
+                }
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Đăng nhập thất bại!");
+            }
+        }
+    }// GEN-LAST:event_jPasswordFieldActionPerformed
+
+    private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_panelRound1MouseClicked
+        // TODO add your handling code here:
+        nguoiDungDAO = new NguoiDungDAO();
+
+        String inputUsername = jTextFieldUsername.getText();
+        char[] inputPassword = jPasswordField.getPassword();
+        String inputPasswordText = new String(inputPassword);
+
+        // System.out.println(nhanVienDTO.toString());
+        if (inputUsername.equals("") && inputPasswordText.equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập đủ");
+        } else if (inputUsername.equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập tài khoản");
+        } else if (inputPasswordText.equals("")) {
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập mật khẩu");
+        } else {
+            NguoiDungDTO nguoiDungDTO = nguoiDungDAO.tim(inputUsername);
+            if (nguoiDungDTO == null) {
+                JOptionPane.showMessageDialog(null, "Đăng nhập không thành công!");
+                return;
+            }
+            NhanVienDAO nhanVienDAO = new NhanVienDAO();
+            this.nhanVien = new NhanVienDTO();
+            nhanVien = nhanVienDAO.tim(nguoiDungDTO.getMaNVString());
+
+            if (nguoiDungDTO.getPasswordString().equals(inputPasswordText)) { // Đăng nhập thành công
+                // Kiểm tra role
+                if (nhanVien.getChucVuNVString().equals("quan ly")) {
                     AdminHomePage adminHomePage = new AdminHomePage();
                     adminHomePage.setVisible(true);
                     System.out.println("quan ly");

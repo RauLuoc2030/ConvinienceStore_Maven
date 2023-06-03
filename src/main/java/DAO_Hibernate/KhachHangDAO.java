@@ -1,5 +1,7 @@
 package DAO_Hibernate;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -198,5 +200,33 @@ public class KhachHangDAO {
         
         session.getTransaction().commit();
         return sanPham;
+    }
+
+    public List<String> getMaKHList() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<String> query = session.createQuery("SELECT s.maKHString FROM KhachHangDTO s", String.class);
+        List<String> maKHList = query.getResultList();
+
+        session.getTransaction().commit();
+
+        return maKHList;
+    }
+
+    public String AutoGenerateMaKH() {
+        // Lấy danh sách MaKH trong CSDL
+        List<String> maKHList = new ArrayList<>();
+        maKHList = getMaKHList();
+        List<Integer> numberList = new ArrayList<>();
+        // Tách riêng phần số trong MaKH ra
+        for (String maKH : maKHList) {
+            // Xóa tất cả các ký tự không phải số từ chuỗi
+            String numberString = maKH.replaceAll("[^\\d]", "");
+            numberList.add(Integer.parseInt(numberString));
+        }
+        // Tạo MaKH mới theo định dạng "KHxxxxxx"
+        String MaKH = "KH" + String.format("%06d", Collections.max(numberList) + 1);
+        return MaKH;
     }
 }

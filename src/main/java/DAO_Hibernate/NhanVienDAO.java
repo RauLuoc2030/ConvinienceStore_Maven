@@ -1,5 +1,7 @@
 package DAO_Hibernate;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -203,5 +205,33 @@ public class NhanVienDAO {
 
         session.getTransaction().commit();
         return sanPham;
+    }
+
+    public List<String> getMaNVList() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<String> query = session.createQuery("SELECT s.maNVString FROM NhanVienDTO s", String.class);
+        List<String> maNVList = query.getResultList();
+
+        session.getTransaction().commit();
+
+        return maNVList;
+    }
+
+    public String AutoGenerateMaNV() {
+        // Lấy danh sách MaNV trong CSDL
+        List<String> maNVList = new ArrayList<>();
+        maNVList = getMaNVList();
+        List<Integer> numberList = new ArrayList<>();
+        // Tách riêng phần số trong MaNV ra
+        for (String maNV : maNVList) {
+            // Xóa tất cả các ký tự không phải số từ chuỗi
+            String numberString = maNV.replaceAll("[^\\d]", "");
+            numberList.add(Integer.parseInt(numberString));
+        }
+        // Tạo MaNV mới theo định dạng "NVxxxxxx"
+        String MaNV = "NV" + String.format("%06d", Collections.max(numberList) + 1);
+        return MaNV;
     }
 }

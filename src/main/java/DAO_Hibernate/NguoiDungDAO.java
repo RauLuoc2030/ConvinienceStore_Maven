@@ -234,4 +234,6 @@ public class NguoiDungDAO {
         session.getTransaction().commit();
         return nguoiDung;
     }
+
+    
 }
