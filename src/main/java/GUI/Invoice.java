@@ -10,6 +10,7 @@ import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import static GUI.LoHang.formatter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class Invoice extends javax.swing.JPanel {
     private long lastClickTime;
 
     private HoaDonDTO hoaDonDTO;
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 
     /**
      * Creates new form Invoice
@@ -37,7 +39,8 @@ public class Invoice extends javax.swing.JPanel {
         this.hoaDonDTO = new HoaDonDTO();
         this.hoaDonDTO = hoaDonDTO;
         jLabelMaHD.setText(hoaDonDTO.getMaHDString());
-        jLabelNgayLap.setText(formatter.format(hoaDonDTO.getNgayMuaHangHDDate()));
+
+        jLabelNgayLap.setText(dateFormat.format(hoaDonDTO.getNgayMuaHangHDDate()));
         jLabelMaNV.setText(hoaDonDTO.getMaNVString());
         jLabelMaKH.setText(hoaDonDTO.getMaKHString());
         jLabelHTTT.setText(hoaDonDTO.getHinhThucThanhToanHDString());
@@ -56,6 +59,7 @@ public class Invoice extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -70,6 +74,9 @@ public class Invoice extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel5 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabelMaHD = new javax.swing.JLabel();
@@ -79,44 +86,51 @@ public class Invoice extends javax.swing.JPanel {
         jLabelHTTT = new javax.swing.JLabel();
 
         jDialog1.setBackground(new java.awt.Color(45, 96, 151));
-        jDialog1.setMaximumSize(new java.awt.Dimension(580, 800));
-        jDialog1.setMinimumSize(new java.awt.Dimension(580, 800));
+        jDialog1.setMaximumSize(new java.awt.Dimension(700, 800));
+        jDialog1.setMinimumSize(new java.awt.Dimension(700, 800));
         jDialog1.setModal(true);
         jDialog1.setUndecorated(true);
-        jDialog1.setPreferredSize(new java.awt.Dimension(580, 800));
+        jDialog1.setPreferredSize(new java.awt.Dimension(700, 800));
         jDialog1.setResizable(false);
         jDialog1.setSize(new java.awt.Dimension(580, 800));
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(45, 96, 151));
-        jPanel1.setMaximumSize(new java.awt.Dimension(580, 800));
-        jPanel1.setMinimumSize(new java.awt.Dimension(580, 800));
-        jPanel1.setPreferredSize(new java.awt.Dimension(580, 800));
+        jPanel1.setMaximumSize(new java.awt.Dimension(700, 800));
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 800));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 800));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel2.setMaximumSize(new java.awt.Dimension(700, 734));
+        jPanel2.setMinimumSize(new java.awt.Dimension(700, 734));
+        jPanel2.setPreferredSize(new java.awt.Dimension(700, 734));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel2.setText("Mã đơn hàng:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, 545, 30));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 11, 130, 30));
+
+        jLabel13.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
+        jLabel13.setText("01/01/2023");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 41, 410, 30));
 
         jLabel3.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel3.setText("Ngày:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 41, 545, 30));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 41, 60, 30));
 
         jLabel4.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel4.setText("Nhân viên:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 71, 545, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 71, 100, 30));
 
         jLabel5.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel5.setText("Khách hàng:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 101, 545, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 101, 120, 30));
 
         jLabel6.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel6.setText("Tổng Tiền:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 694, 110, 40));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 694, 110, 40));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(40);
@@ -130,9 +144,12 @@ public class Invoice extends javax.swing.JPanel {
         jLabel7.setText("0");
         panelRound1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 0, 160, 40));
 
-        jPanel2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 694, 190, 40));
+        jPanel2.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 694, 190, 40));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setMaximumSize(new java.awt.Dimension(670, 540));
+        jPanel3.setMinimumSize(new java.awt.Dimension(670, 540));
+        jPanel3.setPreferredSize(new java.awt.Dimension(670, 540));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -145,19 +162,19 @@ public class Invoice extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Giá");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 0, 120, 40));
+        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 120, 40));
 
         jLabel10.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("SL");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 0, 60, 40));
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 60, 40));
 
         jLabel11.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Thành Tiền");
-        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 0, 140, 40));
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 140, 40));
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 40));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 40));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -165,11 +182,23 @@ public class Invoice extends javax.swing.JPanel {
         jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanel5);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 550, 490));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 670, 500));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 140, 550, 540));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 140, 670, 540));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 580, 750));
+        jLabel14.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
+        jLabel14.setText("NV000x");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 71, 390, 30));
+
+        jLabel15.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
+        jLabel15.setText("XXX");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 101, 520, 30));
+
+        jLabel12.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
+        jLabel12.setText("HDxxx");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 11, 360, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 700, 750));
 
         jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/x.png"))); // NOI18N
@@ -180,15 +209,15 @@ public class Invoice extends javax.swing.JPanel {
                 jLabel43MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(531, 13, 24, 24));
+        jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 13, 24, 24));
 
         jLabel1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Chi tiết hóa đơn");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 565, 50));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 50));
 
-        jDialog1.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 800));
+        jDialog1.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 800));
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
@@ -207,19 +236,17 @@ public class Invoice extends javax.swing.JPanel {
         add(jLabelMaHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 160, 50));
 
         jLabelNgayLap.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
-        jLabelNgayLap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNgayLap.setText("01/01/2023");
-        add(jLabelNgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 5, 160, 50));
+        add(jLabelNgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 5, 290, 50));
 
         jLabelMaNV.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
-        jLabelMaNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelMaNV.setText("NV00000X");
-        add(jLabelMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 5, 190, 50));
+        add(jLabelMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 5, 140, 50));
 
         jLabelMaKH.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaKH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelMaKH.setText("KH000001");
-        add(jLabelMaKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 5, 200, 50));
+        add(jLabelMaKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 5, 170, 50));
 
         jLabelHTTT.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelHTTT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -242,16 +269,22 @@ public class Invoice extends javax.swing.JPanel {
             ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
             List<ChiTietHoaDonDTO> chiTietHoaDonDTOs = new ArrayList<>();
             chiTietHoaDonDTOs = chiTietHoaDonDAO.tim(hoaDonDTO.getMaHDString());
+            jPanel5.removeAll();
             for (int i = 0; i < chiTietHoaDonDTOs.size(); i++) {
                 CTHD cthd = new CTHD(chiTietHoaDonDTOs.get(i));
                 jPanel5.add(cthd);
             }
-            jLabel2.setText(jLabel2.getText() + " " + hoaDonDTO.getMaHDString());
-            jLabel3.setText(jLabel3.getText() + " " + hoaDonDTO.getNgayMuaHangHDDate());
-            jLabel4.setText(jLabel4.getText() + " " + hoaDonDTO.getMaNVString());
+            jLabel12.setText(hoaDonDTO.getMaHDString());
+            jLabel13.setText(dateFormat.format(hoaDonDTO.getNgayMuaHangHDDate()));
+            jLabel14.setText(hoaDonDTO.getMaNVString());
             // Tìm tên khách hàng
             KhachHangDAO khachHangDAO = new KhachHangDAO();
-            jLabel5.setText(jLabel5.getText() + " " + khachHangDAO.tim(hoaDonDTO.getMaKHString()).getTenKHString());
+            KhachHangDTO khachHangDTO = new KhachHangDTO();
+            khachHangDTO = khachHangDAO.tim(hoaDonDTO.getMaKHString());
+            if (khachHangDTO != null) {
+                jLabel15.setText(khachHangDTO.gettenKHString());
+            }
+
             jLabel7.setText(hoaDonDTO.getTriGiaHDInteger().toString());
             jPanel5.revalidate();
             jPanel5.repaint();
@@ -275,6 +308,10 @@ public class Invoice extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

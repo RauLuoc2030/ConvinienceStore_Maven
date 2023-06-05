@@ -69,6 +69,19 @@ public class KhachHangBUS {
         return false;
     }
 
+    public Boolean xoa_proc(KhachHangDTO khachHangDTO) throws Exception {
+        if (khachHangDAO.deleteKhachHang(khachHangDTO.getMaKHString())) {
+            // Duyệt từng phần tử của list_KhachHangDTOs
+            for (KhachHangDTO nv : list_KhachHangDTOs) {
+                if (nv.getSDTKHString().equals(khachHangDTO.getSDTKHString())) {
+                    list_KhachHangDTOs.remove(nv);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     /**
      * Sửa thông tin của 1 Khách hàng trong danh sách và database
      * 

@@ -63,6 +63,12 @@ public class Product extends javax.swing.JPanel {
         jLabelSoLuong.setText(sl.toString());
     }
 
+    public void updateSoLuong() {
+        sl = Integer.valueOf(jLabelSoLuong.getText());
+        Integer tt = sanPhamDTO.getGiaInt() * sl;
+        jLabelThanhTien.setText(tt.toString());
+    }
+
     public void resetSoLuong() {
         sl = 0;
         jLabelSoLuong.setText(sl.toString());

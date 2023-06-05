@@ -291,31 +291,50 @@ public class BanHang extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        panelRound1 = new GUI.PanelRound();
         jTextField_TimKiem = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanelThanhToan = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jButton_7 = new javax.swing.JButton();
-        jButton_8 = new javax.swing.JButton();
-        jButton_9 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton_4 = new javax.swing.JButton();
-        jButton_5 = new javax.swing.JButton();
-        jButton_6 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton_1 = new javax.swing.JButton();
-        jButton_2 = new javax.swing.JButton();
-        jButton_3 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton_0 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButtonXoa = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jPanel27 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jPanel28 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -395,16 +414,25 @@ public class BanHang extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setLabel("Thoát");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel16.setBackground(new java.awt.Color(143, 203, 253));
+        jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField_TimKiem.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/search 1.png"))); // NOI18N
+        jPanel16.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 21, 48, 48));
+
+        panelRound1.setBackground(new java.awt.Color(255, 255, 255));
+        panelRound1.setMaximumSize(new java.awt.Dimension(330, 50));
+        panelRound1.setMinimumSize(new java.awt.Dimension(330, 50));
+        panelRound1.setPreferredSize(new java.awt.Dimension(330, 50));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField_TimKiem.setFont(new java.awt.Font("Be Vietnam Pro", 0, 24)); // NOI18N
         jTextField_TimKiem.setText("Tìm kiếm");
+        jTextField_TimKiem.setBorder(null);
         jTextField_TimKiem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField_TimKiemMouseClicked(evt);
@@ -415,120 +443,313 @@ public class BanHang extends javax.swing.JFrame {
                 jTextField_TimKiemActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 0, 200, 50));
+        panelRound1.add(jTextField_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 280, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 50));
+        jPanel16.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
+
+        jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 0, 430, 90));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
+        });
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("Thoát");
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 50));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 90));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel7.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel7.setLayout(new java.awt.GridBagLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jPanel7.add(jLabel1, new java.awt.GridBagConstraints());
-
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 60));
-
-        jPanelThanhToan.setBackground(new java.awt.Color(0, 204, 204));
-        jPanelThanhToan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelThanhToan.setBackground(new java.awt.Color(143, 203, 253));
+        jPanelThanhToan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
         jPanelThanhToan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanelThanhToan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanelThanhToanMouseClicked(evt);
             }
         });
-        jPanelThanhToan.setLayout(new java.awt.GridBagLayout());
+        jPanelThanhToan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Thanh Toán");
-        jPanelThanhToan.add(jLabel2, new java.awt.GridBagConstraints());
+        jPanelThanhToan.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 18, 174, 60));
 
-        jPanel2.add(jPanelThanhToan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 250, 190));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/ThanhToan.png"))); // NOI18N
+        jPanelThanhToan.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 57, 201, 201));
+
+        jPanel2.add(jPanelThanhToan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 250));
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 600, 250, 250));
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
         jPanel5.setLayout(new java.awt.GridLayout(4, 4));
 
-        jButton_7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_7.setText("7");
-        jPanel5.add(jButton_7);
-        jButton_7.getAccessibleContext().setAccessibleName("jButton1");
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton_8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_8.setText("8");
-        jPanel5.add(jButton_8);
-
-        jButton_9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_9.setText("9");
-        jPanel5.add(jButton_9);
-
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton8.setText("SL");
-        jPanel5.add(jButton8);
-
-        jButton_4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_4.setText("4");
-        jPanel5.add(jButton_4);
-
-        jButton_5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_5.setText("5");
-        jPanel5.add(jButton_5);
-
-        jButton_6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_6.setText("6");
-        jPanel5.add(jButton_6);
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel5.add(jButton1);
-
-        jButton_1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_1.setText("1");
-        jPanel5.add(jButton_1);
-
-        jButton_2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_2.setText("2");
-        jPanel5.add(jButton_2);
-
-        jButton_3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_3.setText("3");
-        jPanel5.add(jButton_3);
-
-        jButton11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPanel5.add(jButton11);
-
-        jButton12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPanel5.add(jButton12);
-
-        jButton_0.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton_0.setText("0");
-        jPanel5.add(jButton_0);
-
-        jButton15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton15.setText(",");
-        jPanel5.add(jButton15);
-
-        jButtonXoa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonXoa.setText("Xóa");
-        jButtonXoa.setFocusable(false);
-        jButtonXoa.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel16.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("7");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonXoaMouseClicked(evt);
+                jLabel16MouseClicked(evt);
             }
         });
-        jPanel5.add(jButtonXoa);
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel7);
+
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("8");
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel12.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel12);
+
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("9");
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+        jPanel13.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel13);
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setToolTipText("");
+        jPanel14.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel14);
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("4");
+        jLabel20.setToolTipText("");
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
+        jPanel17.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel17);
+
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("5");
+        jLabel21.setToolTipText("");
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
+        jPanel18.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel18);
+
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("6");
+        jLabel22.setToolTipText("");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
+        jPanel19.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel19);
+
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setToolTipText("");
+        jPanel20.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel20);
+
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel21.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("1");
+        jLabel24.setToolTipText("");
+        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel24MouseClicked(evt);
+            }
+        });
+        jPanel21.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel21);
+
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("2");
+        jLabel25.setToolTipText("");
+        jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel25MouseClicked(evt);
+            }
+        });
+        jPanel22.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel22);
+
+        jPanel23.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("3");
+        jLabel26.setToolTipText("");
+        jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel26MouseClicked(evt);
+            }
+        });
+        jPanel23.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel23);
+
+        jPanel24.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setToolTipText("");
+        jPanel24.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel24);
+
+        jPanel25.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel25.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel28.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("C");
+        jLabel28.setToolTipText("");
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
+        jPanel25.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel25);
+
+        jPanel26.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel26.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel29.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("0");
+        jLabel29.setToolTipText("");
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+        jPanel26.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel26);
+
+        jPanel27.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel27.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel30.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setToolTipText("");
+        jPanel27.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel27);
+
+        jPanel28.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
+        jPanel28.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel31.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("Del");
+        jLabel31.setToolTipText("");
+        jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel31MouseClicked(evt);
+            }
+        });
+        jPanel28.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+
+        jPanel5.add(jPanel28);
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 600, 250, 250));
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setFont(new java.awt.Font("Be Vietnam Pro", 0, 24)); // NOI18N
@@ -537,7 +758,6 @@ public class BanHang extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 24)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jTextField1.setText("0988123456");
         jTextField1.setBorder(null);
         jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 1, 170, 38));
@@ -547,7 +767,7 @@ public class BanHang extends javax.swing.JFrame {
         jPanel4.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 500, 40));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151)));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -563,7 +783,7 @@ public class BanHang extends javax.swing.JFrame {
         jPanelGioHang.setLayout(new javax.swing.BoxLayout(jPanelGioHang, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanelGioHang);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 500, 460));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 500, 850));
 
@@ -582,24 +802,17 @@ public class BanHang extends javax.swing.JFrame {
         jLabel14.setText("Số lượng");
         jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 5, 150, 40));
 
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 1100, 50));
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 1100, 50));
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jPanelSanPham.setLayout(new javax.swing.BoxLayout(jPanelSanPham, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(jPanelSanPham);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 1100, 800));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 1100, 760));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        NhanVienHomePage nhanVienHomePage = new NhanVienHomePage();
-        nhanVienHomePage.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jPanelThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelThanhToanMouseClicked
         // TODO add your handling code here:
@@ -622,8 +835,8 @@ public class BanHang extends javax.swing.JFrame {
         hoaDonDTO.setNgayMuaHangHDDate(new Date());
         hoaDonDTO.setMaNVString(nhanVien.getMaNVString());
         hoaDonDTO.setHinhThucThanhToanHDString("Tiền mặt");
-        hoaDonDTO.setTriGiaHDInteger(Integer.valueOf(jLabel7.getText()));
-
+//        hoaDonDTO.setTriGiaHDInteger(Integer.valueOf(jLabel7.getText()));
+        hoaDonDTO.setTriGiaHDInteger(0);
         hoaDonDAO.them_optimized(hoaDonDTO);
 
         Component[] components = jPanelGioHang.getComponents();
@@ -881,6 +1094,390 @@ public class BanHang extends javax.swing.JFrame {
         repaint();
     }//GEN-LAST:event_jPanelThanhToanMouseClicked
 
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        NhanVienHomePage nhanVienHomePage = new NhanVienHomePage();
+        nhanVienHomePage.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    // Remove the product from the panel and update the UI
+                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                }
+            }
+        }
+
+        // Update the UI after all products have been removed
+        jPanelGioHang.revalidate();
+        jPanelGioHang.repaint();
+    }//GEN-LAST:event_jLabel31MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel16.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel17.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel18.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel20.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel21.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel22.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel24.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel24MouseClicked
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel25.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel25MouseClicked
+
+    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel26.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel26MouseClicked
+
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        // TODO add your handling code here:
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+                        if (gtri.equals("0")) {
+                            gtri = "";
+                        }
+                        product.getjLabelSoLuong().setText(gtri + jLabel29.getText());
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel29MouseClicked
+
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        // TODO add your handling code here:
+
+        Component[] components = jPanelGioHang.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product) {
+                Product product = (Product) component;
+
+                // Check if the product needs to be deleted
+                if (product.isSelect()) {
+                    String gtri = product.getjLabelSoLuong().getText();
+
+                    if (gtri.length() < 10) {
+
+                        product.getjLabelSoLuong().setText("0");
+                        product.updateSoLuong();
+                    }
+//                    jPanelGioHang.remove(product);
+                    updateTongGia();
+                    jPanel10.revalidate();
+                    jPanel10.repaint();
+                }
+            }
+        }
+    }//GEN-LAST:event_jLabel28MouseClicked
+
     private void jButtonXoaMouseClicked(java.awt.event.MouseEvent evt) {
         Component[] components = jPanelGioHang.getComponents();
 
@@ -1019,32 +1616,33 @@ public class BanHang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButtonXoa;
-    private javax.swing.JButton jButton_0;
-    private javax.swing.JButton jButton_1;
-    private javax.swing.JButton jButton_2;
-    private javax.swing.JButton jButton_3;
-    private javax.swing.JButton jButton_4;
-    private javax.swing.JButton jButton_5;
-    private javax.swing.JButton jButton_6;
-    private javax.swing.JButton jButton_7;
-    private javax.swing.JButton jButton_8;
-    private javax.swing.JButton jButton_9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1053,8 +1651,25 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1069,5 +1684,6 @@ public class BanHang extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField_TimKiem;
+    private GUI.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

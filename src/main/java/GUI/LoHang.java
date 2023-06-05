@@ -204,12 +204,12 @@ public class LoHang extends javax.swing.JPanel {
 
         jLabelMaLH.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaLH.setText("Mã LH");
-        add(jLabelMaLH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 110, 60));
+        add(jLabelMaLH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, 60));
 
         jLabelMaNV.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
-        jLabelMaNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMaNV.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelMaNV.setText("Mã NV");
-        add(jLabelMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 130, 60));
+        add(jLabelMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 170, 60));
 
         jLabelNgayNhap.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelNgayNhap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -250,7 +250,8 @@ public class LoHang extends javax.swing.JPanel {
             //     CTKho ctKho = new CTKho(sanPhamDAO.tim(sanPhamList.get(i)));
             //     jPanel17.add(ctKho);
             // }
-            for (int i = sanPhamList.size() - 1; i >=0; i--){
+            jPanel17.removeAll();
+            for (int i = sanPhamList.size() - 1; i >= 0; i--) {
                 sanPhamDAO = new SanPhamDAO();
                 CTKho ctKho = new CTKho(sanPhamDAO.tim(sanPhamList.get(i)));
                 jPanel17.add(ctKho);

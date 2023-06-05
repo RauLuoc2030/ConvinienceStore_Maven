@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestProcedure",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.TestProcedure",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "ChiTietHoaDonDAO",
             "request": "launch",
             "mainClass": "DAO_Hibernate.ChiTietHoaDonDAO",

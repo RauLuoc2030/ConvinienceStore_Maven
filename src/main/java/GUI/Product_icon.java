@@ -345,109 +345,40 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel11MouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel11MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel11MouseExited(evt);
-            }
         });
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTen.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelTen.setText("Tên ");
-        jLabelTen.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelTenMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelTenMouseExited(evt);
-            }
-        });
         jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 450, 60));
 
         jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelGia.setText("Giá");
-        jLabelGia.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelGiaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelGiaMouseExited(evt);
-            }
-        });
         jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 5, 200, 60));
 
         jLabelSL.setBackground(new java.awt.Color(255, 255, 255));
         jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelSL.setText("SL");
-        jLabelSL.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabelSLMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabelSLMouseExited(evt);
-            }
-        });
         jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 5, 200, 60));
 
         add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 70));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseEntered
-        // TODO add your handling code here:
-        jPanel11.setBackground(new java.awt.Color(245, 181, 189));
-    }//GEN-LAST:event_jPanel11MouseEntered
-
-    private void jPanel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseExited
-        // TODO add your handling code here:
-        jPanel11.setBackground(Color.WHITE);
-    }//GEN-LAST:event_jPanel11MouseExited
-
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
         // TODO add your handling code here:
-//        setBackground(new java.awt.Color(245, 181, 189));
+//
     }//GEN-LAST:event_formMouseEntered
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
         // TODO add your handling code here:
-//        setBackground(Color.WHITE);
+//
     }//GEN-LAST:event_formMouseExited
-
-    private void jLabelTenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTenMouseEntered
-        // TODO add your handling code here:
-        jLabelTen.setBackground(new java.awt.Color(245, 181, 189));
-    }//GEN-LAST:event_jLabelTenMouseEntered
-
-    private void jLabelTenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTenMouseExited
-        // TODO add your handling code here:
-        jLabelTen.setBackground(Color.WHITE);
-    }//GEN-LAST:event_jLabelTenMouseExited
-
-    private void jLabelGiaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGiaMouseEntered
-        // TODO add your handling code here:
-        jLabelGia.setBackground(new java.awt.Color(245, 181, 189));
-    }//GEN-LAST:event_jLabelGiaMouseEntered
-
-    private void jLabelGiaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGiaMouseExited
-        // TODO add your handling code here:
-        jLabelGia.setBackground(Color.WHITE);
-    }//GEN-LAST:event_jLabelGiaMouseExited
-
-    private void jLabelSLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSLMouseEntered
-        // TODO add your handling code here:
-        jLabelSL.setBackground(new java.awt.Color(245, 181, 189));
-    }//GEN-LAST:event_jLabelSLMouseEntered
-
-    private void jLabelSLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSLMouseExited
-        // TODO add your handling code here:
-        jLabelSL.setBackground(Color.WHITE);
-    }//GEN-LAST:event_jLabelSLMouseExited
 
     private void jPanel11FocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusGained
         // TODO add your handling code here:
         isSelect = true;
-        setBorder(new LineBorder(Color.BLACK, 2));
+        jPanel11.setBackground(new java.awt.Color(245, 181, 189));
+//        setBorder(new LineBorder(Color.BLACK, 2));
 
         System.out.println("Focus gained");
     }// GEN-LAST:event_jPanel11FocusGained
@@ -455,7 +386,8 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
     private void jPanel11FocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusLost
         // TODO add your handling code here:
         isSelect = false;
-        setBorder(new LineBorder(Color.WHITE, 2));
+        jPanel11.setBackground(Color.WHITE);
+//        setBorder(new LineBorder(Color.WHITE, 2));
 
         System.out.println("Focus lost");
     }// GEN-LAST:event_jPanel11FocusLost

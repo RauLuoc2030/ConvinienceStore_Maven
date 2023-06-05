@@ -6,11 +6,14 @@ package GUI;
 
 import BUS.SanPhamBUS;
 import DAO_Hibernate.SanPhamDAO;
+import DAO_Hibernate.TestProcedure;
 import DTO.SanPhamDTO;
 import java.awt.Component;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -79,15 +82,15 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanel11 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jPanelDel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanelAdd = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         panelRound2 = new GUI.PanelRound();
         jTextField5 = new javax.swing.JTextField();
+        jPanelAdd = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanelDel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelDanhSachSP = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -302,45 +305,6 @@ public class QLSanPham extends javax.swing.JPanel {
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelDel.setBackground(new java.awt.Color(45, 96, 151));
-        jPanelDel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelDel.setFocusable(false);
-        jPanelDel.setMaximumSize(new java.awt.Dimension(80, 80));
-        jPanelDel.setMinimumSize(new java.awt.Dimension(80, 80));
-        jPanelDel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelDelMouseClicked(evt);
-            }
-        });
-        jPanelDel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel2.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("x");
-        jPanelDel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
-
-        add(jPanelDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 223, 80, 80));
-
-        jPanelAdd.setBackground(new java.awt.Color(45, 96, 151));
-        jPanelAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelAdd.setMaximumSize(new java.awt.Dimension(80, 80));
-        jPanelAdd.setMinimumSize(new java.awt.Dimension(80, 80));
-        jPanelAdd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelAddMouseClicked(evt);
-            }
-        });
-        jPanelAdd.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("+");
-        jPanelAdd.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
-
-        add(jPanelAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 140, 80, 80));
-
         jPanel1.setBackground(new java.awt.Color(143, 203, 253));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -360,12 +324,57 @@ public class QLSanPham extends javax.swing.JPanel {
         panelRound2.setRoundTopRight(50);
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextField5.setFont(new java.awt.Font("Be Vietnam Pro", 0, 24)); // NOI18N
         jTextField5.setBorder(null);
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
         panelRound2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 0, 280, 50));
 
         jPanel16.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
 
         jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
+
+        jPanelAdd.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelAdd.setMaximumSize(new java.awt.Dimension(80, 80));
+        jPanelAdd.setMinimumSize(new java.awt.Dimension(80, 80));
+        jPanelAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelAddMouseClicked(evt);
+            }
+        });
+        jPanelAdd.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Thêm SP");
+        jPanelAdd.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 70));
+
+        jPanel1.add(jPanelAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(545, 10, 220, 70));
+
+        jPanelDel.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelDel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelDel.setFocusable(false);
+        jPanelDel.setMaximumSize(new java.awt.Dimension(80, 80));
+        jPanelDel.setMinimumSize(new java.awt.Dimension(80, 80));
+        jPanelDel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelDelMouseClicked(evt);
+            }
+        });
+        jPanelDel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 28)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Xóa SP");
+        jPanelDel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 210, 70));
+
+        jPanel1.add(jPanelDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 10, 230, 70));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 90));
 
@@ -376,24 +385,27 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanelDanhSachSP.setLayout(new javax.swing.BoxLayout(jPanelDanhSachSP, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanelDanhSachSP);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1020, 750));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1200, 750));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(45, 96, 151));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Tên sản phẩm");
-        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 240, 40));
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 240, 40));
 
         jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Giá");
-        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 5, 60, 40));
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 60, 40));
 
         jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Số lượng");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 5, 150, 40));
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 150, 40));
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1020, 60));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1200, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanelSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSaveMouseClicked
@@ -410,7 +422,11 @@ public class QLSanPham extends javax.swing.JPanel {
 
         try {
             if (sanPhamBUS.them(sanPhamDTO)) {
+                Product_icon product_icon = new Product_icon(sanPhamDTO);
+                jPanelDanhSachSP.add(product_icon);
                 jDialogAddSP.dispose();
+                jPanelDanhSachSP.revalidate();
+                jPanelDanhSachSP.repaint();
             }
         } catch (Exception ex) {
             Logger.getLogger(QLSanPham.class.getName()).log(Level.SEVERE, null, ex);
@@ -428,6 +444,30 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanelDanhSachSP.repaint();
     }//GEN-LAST:event_formFocusLost
 
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+        String keyword = jTextField5.getText();
+        TestProcedure testProcedure = new TestProcedure();
+        jPanelDanhSachSP.removeAll();
+        if (keyword.length() != 0) {
+            List<SanPhamDTO> sanPhamDTOs = testProcedure.SEARCH_SANPHAM(keyword);
+            if (!sanPhamDTOs.isEmpty()) {
+                for (SanPhamDTO sanPhamDTO : sanPhamDTOs) {
+                    Product_icon product_icon = new Product_icon(sanPhamDTO);
+                    jPanelDanhSachSP.add(product_icon);
+                }
+            }
+        } else {
+            for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
+                Product_icon product_icon1 = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
+                jPanelDanhSachSP.add(product_icon1);
+            }
+
+        }
+        jPanelDanhSachSP.revalidate();
+        jPanelDanhSachSP.repaint();
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
     private void jPanelAddMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelAddMouseClicked
         // TODO add your handling code here:
         // JFrame frame = new ThemSP();
@@ -435,6 +475,10 @@ public class QLSanPham extends javax.swing.JPanel {
         // System.out.println("GUI.QLSanPham.jPanelAddMouseClicked()");
         SanPhamDAO sanPhamDAO = new SanPhamDAO();
         jTextField1.setText(sanPhamDAO.AutoGenerateMaSP());
+        AbstractDocument doc2 = (AbstractDocument) jTextField2.getDocument();
+        doc2.setDocumentFilter(new LimitDigitsDocumentFilter(9));
+        AbstractDocument doc6 = (AbstractDocument) jTextField6.getDocument();
+        doc6.setDocumentFilter(new LimitDigitsDocumentFilter(4));
         jDialogAddSP.setVisible(true);
     }// GEN-LAST:event_jPanelAddMouseClicked
 
@@ -458,7 +502,22 @@ public class QLSanPham extends javax.swing.JPanel {
 
     private void jPanelDelMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelDelMouseClicked
         // TODO add your handling code here:
-        jDialogDeleteSP.setVisible(true);
+        Component[] components = jPanelDanhSachSP.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof Product_icon) {
+                Product_icon product_icon = (Product_icon) component;
+
+                // Check if the product needs to be deleted
+                if (product_icon.isSelect()) {
+                    jDialogDeleteSP.setVisible(true);
+                }
+            }
+        }
     }// GEN-LAST:event_jPanelDelMouseClicked
 
     private void jPanel11MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel11MouseClicked

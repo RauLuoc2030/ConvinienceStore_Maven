@@ -305,34 +305,35 @@ public class SanPhamDAO {
 
         return resultSet;
     }
-    
-    public Integer DOANHTHU(String from, String to){
+
+    public Integer DOANHTHU(String from, String to) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        
+
         ProcedureCall procedureCall = session.createStoredProcedureCall("DOANHTHU");
-        
+
         // Đăng ký các tham số và thiết lập giá trị
         procedureCall.registerParameter("FR_DATE", String.class, ParameterMode.IN).bindValue(from);
         procedureCall.registerParameter("END_DATE", String.class, ParameterMode.IN).bindValue(to);
         procedureCall.registerParameter("TONG", Integer.class, ParameterMode.OUT);
-        
+
         // Thực hiện procedure
         procedureCall.execute();
-        
+
         // Lấy giá trị từ tham số đầu ra
         Integer totalRevenue = (Integer) procedureCall.getOutputParameterValue("TONG");
-        
+
         session.getTransaction().commit();
-        
+
         return totalRevenue;
-    
     }
+
+
 
     public List<String> getMaSPList() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        
+
         Query<String> query = session.createQuery("SELECT s.maSPString FROM SanPhamDTO s", String.class);
         List<String> maSPList = query.getResultList();
 
@@ -341,13 +342,13 @@ public class SanPhamDAO {
         return maSPList;
     }
 
-    public String AutoGenerateMaSP(){
+    public String AutoGenerateMaSP() {
         // Lấy danh sách MaSP trong CSDL
         List<String> maSPList = new ArrayList<>();
         maSPList = getMaSPList();
         List<Integer> numberList = new ArrayList<>();
         // Tách riêng phần số trong MaSP ra
-        for (String maSP : maSPList){
+        for (String maSP : maSPList) {
             // Xóa tất cả các ký tự không phải số từ chuỗi
             String numberString = maSP.replaceAll("[^\\d]", "");
             numberList.add(Integer.parseInt(numberString));

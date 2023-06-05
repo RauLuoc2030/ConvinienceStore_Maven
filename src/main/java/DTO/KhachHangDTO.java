@@ -110,12 +110,6 @@ public class KhachHangDTO implements Serializable {
         }
     }
 
-    @Override
-    public String toString() {
-        return "KhachHangDTO [maKHString=" + maKHString + ", SDTKHString=" + SDTKHString + ", tenKHString="
-                + tenKHString + ", ngayDangKy=" + ngayDangKyDate + "]";
-    }
-
     /**
      * @return the ngayDangKyDate
      */
@@ -128,6 +122,12 @@ public class KhachHangDTO implements Serializable {
      */
     public void setNgayDangKyDate(Date ngayDangKyDate) {
         this.ngayDangKyDate = ngayDangKyDate;
+    }
+
+    @Override
+    public String toString() {
+        return "KhachHangDTO [maKHString=" + maKHString + ", SDTKHString=" + SDTKHString + ", tenKHString="
+                + tenKHString + ", ngayDangKyDate=" + ngayDangKyDate + "]";
     }
 
     // @Override

@@ -54,28 +54,29 @@ public class CTHD extends javax.swing.JPanel {
         jLabelThanhTien = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(530, 40));
-        setMinimumSize(new java.awt.Dimension(530, 40));
+        setMaximumSize(new java.awt.Dimension(670, 40));
+        setMinimumSize(new java.awt.Dimension(670, 40));
+        setPreferredSize(new java.awt.Dimension(670, 40));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTenSP.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabelTenSP.setText("TenSP");
-        add(jLabelTenSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 200, 40));
+        add(jLabelTenSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 340, 40));
 
         jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabelGia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelGia.setText("Giá");
-        add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 0, 120, 40));
+        add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 130, 40));
 
         jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabelSL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSL.setText("SL");
-        add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 0, 60, 40));
+        add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 60, 40));
 
         jLabelThanhTien.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
         jLabelThanhTien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelThanhTien.setText("Thành tiền");
-        add(jLabelThanhTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 0, 145, 40));
+        add(jLabelThanhTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 145, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

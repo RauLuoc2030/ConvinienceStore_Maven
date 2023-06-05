@@ -1,11 +1,15 @@
 package DAO_Hibernate;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.ParameterMode;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.Query;
 
 import DTO.KhachHangDTO;
@@ -104,7 +108,7 @@ public class KhachHangDAO {
         return result;
     }
 
-        /**
+    /**
      * Thêm một Khách hàng mới đã có thông tin vào CSDL
      * 
      * @param khachhang
@@ -122,6 +126,7 @@ public class KhachHangDAO {
             return false;
         }
     }
+
     /**
      * Xóa một Khách hàng khỏi CSDL
      * 
@@ -187,20 +192,74 @@ public class KhachHangDAO {
         return result;
     }
 
-    
     public KhachHangDTO tim(String keyword) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        
-        Query<KhachHangDTO> query = session.createQuery("FROM KhachHangDTO WHERE MaKH = :keyword OR SDTKHString LIKE :searchKeyword", KhachHangDTO.class);
+
+        Query<KhachHangDTO> query = session.createQuery(
+                "FROM KhachHangDTO WHERE MaKH = :keyword OR SDTKHString LIKE :searchKeyword", KhachHangDTO.class);
         query.setParameter("keyword", keyword);
         query.setParameter("searchKeyword", "%" + keyword + "%");
-        
+
         KhachHangDTO sanPham = query.uniqueResult();
-        
+
         session.getTransaction().commit();
         return sanPham;
     }
+
+    public boolean insertKhachHang(KhachHangDTO khachHangDTO) throws SQLException {
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            ProcedureCall procedureCall = session.createStoredProcedureCall("INSERT_KHACHHANG");
+
+            // Đăng ký các tham số và thiết lập giá trị
+            procedureCall.registerParameter("MA", String.class, ParameterMode.IN)
+                    .bindValue(khachHangDTO.getMaKHString());
+            procedureCall.registerParameter("TEN", String.class, ParameterMode.IN)
+                    .bindValue(khachHangDTO.gettenKHString());
+            procedureCall.registerParameter("SDT", String.class, ParameterMode.IN)
+                    .bindValue(khachHangDTO.getSDTKHString());
+
+            // Thực hiện stored procedure
+            // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+            // ResultSetOutput resultSetOutput = (ResultSetOutput)
+            // procedureOutputs.getCurrent();
+            procedureCall.execute();
+
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean deleteKhachHang(String ma) {
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            ProcedureCall procedureCall = session.createStoredProcedureCall("DELETE_KHACHHANG");
+
+            // Đăng ký các tham số và thiết lập giá trị
+            procedureCall.registerParameter("MA", String.class, ParameterMode.IN).bindValue(ma);
+
+            // Thực hiện stored procedure
+            // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+            // ResultSetOutput resultSetOutput = (ResultSetOutput)
+            // procedureOutputs.getCurrent();
+            procedureCall.execute();
+
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
 
     public List<String> getMaKHList() {
         Session session = HibernateUtil.getSessionFactory().openSession();

@@ -61,7 +61,7 @@ public class CTKho extends javax.swing.JPanel {
 
         jLabelMaSP.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaSP.setText("SP001");
-        add(jLabelMaSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 13, 130, 60));
+        add(jLabelMaSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 13, 150, 60));
 
         jLabelHSD.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelHSD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
