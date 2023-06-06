@@ -42,7 +42,7 @@ public class KhachHang extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabelMaKH = new javax.swing.JLabel();
@@ -51,13 +51,13 @@ public class KhachHang extends javax.swing.JPanel {
         jLabelNgayDK = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(45, 96, 151)));
         setMaximumSize(new java.awt.Dimension(1200, 60));
         setPreferredSize(new java.awt.Dimension(1200, 60));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
             }
-
             public void focusLost(java.awt.event.FocusEvent evt) {
                 formFocusLost(evt);
             }

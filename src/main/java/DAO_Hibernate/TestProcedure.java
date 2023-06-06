@@ -8,7 +8,9 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
+import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
+import DTO.KhoDTO;
 import DTO.SanPhamDTO;
 
 public class TestProcedure {
@@ -67,7 +69,7 @@ public class TestProcedure {
 
     public List<KhachHangDTO> SEARCH_KHACHHANG(String keyword) {
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
-            CallableStatement cstmt = conn.prepareCall("{call SEARCH_SANPHAM(?, ?) }");
+            CallableStatement cstmt = conn.prepareCall("{call SEARCH_KHACHHANG(?, ?) }");
             cstmt.setString(1, keyword);
             cstmt.registerOutParameter(2, Types.REF_CURSOR);
             cstmt.execute();
@@ -91,8 +93,62 @@ public class TestProcedure {
         }
     }
 
+    public List<HoaDonDTO> SEARCH_HOADON(String keyword) {
+        try (Connection conn = DriverManager.getConnection(url, username, password)) {
+            CallableStatement cstmt = conn.prepareCall("{call SEARCH_HOADON(?, ?) }");
+            cstmt.setString(1, keyword);
+            cstmt.registerOutParameter(2, Types.REF_CURSOR);
+            cstmt.execute();
+            ResultSet rs = (ResultSet) cstmt.getObject(2);
+            List<HoaDonDTO> hoaDonDTOs = new ArrayList<>();
+            while (rs.next()) {
+                HoaDonDTO hoaDonDTO = new HoaDonDTO();
+                hoaDonDTO.setMaHDString(rs.getString(1));
+                hoaDonDTO.setMaNVString(rs.getString(2));
+                hoaDonDTO.setMaKHString(rs.getString(3));
+                hoaDonDTO.setTriGiaHDInteger(rs.getInt(4));
+                hoaDonDTO.setNgayMuaHangHDDate(rs.getDate(5));
+                hoaDonDTO.setHinhThucThanhToanHDString(rs.getString(6));
+                hoaDonDTOs.add(hoaDonDTO);
+            }
+            rs.close();
+            cstmt.close();
+
+            return hoaDonDTOs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<KhoDTO> SEARCH_LOHANG(String keyword) {
+        try (Connection conn = DriverManager.getConnection(url, username, password)) {
+            CallableStatement cstmt = conn.prepareCall("{call SEARCH_LOHANG(?, ?) }");
+            cstmt.setString(1, keyword);
+            cstmt.registerOutParameter(2, Types.REF_CURSOR);
+            cstmt.execute();
+            ResultSet rs = (ResultSet) cstmt.getObject(2);
+            List<KhoDTO> khoDTOs = new ArrayList<>();
+            while (rs.next()) {
+                KhoDTO khoDTO = new KhoDTO();
+                khoDTO.setMaLoHangString(rs.getString(1));
+                khoDTO.setMaNhanVienString(rs.getString(2));
+                khoDTO.setNgayNhapDate(rs.getDate(3));
+                khoDTO.setTenNhaCungCapString(rs.getString(4));
+                khoDTOs.add(khoDTO);
+            }
+            rs.close();
+            cstmt.close();
+
+            return khoDTOs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
         TestProcedure testProcedure = new TestProcedure();
-        System.out.println(testProcedure.SEARCH_SANPHAM("Kem"));
+        System.out.println(testProcedure.SEARCH_LOHANG("LH000010"));
     }
 }

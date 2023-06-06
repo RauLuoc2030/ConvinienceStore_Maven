@@ -5,6 +5,10 @@
 package GUI;
 
 import BUS.HoaDonBUS;
+import DAO_Hibernate.TestProcedure;
+import DTO.HoaDonDTO;
+import DTO.SanPhamDTO;
+import java.util.List;
 
 /**
  *
@@ -77,7 +81,13 @@ public class QLHoaDon extends javax.swing.JPanel {
         panelRound2.setRoundTopRight(50);
         panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextField5.setFont(new java.awt.Font("Be Vietnam Pro", 0, 24)); // NOI18N
         jTextField5.setBorder(null);
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
         panelRound2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 0, 280, 50));
 
         jPanel16.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
@@ -128,6 +138,29 @@ public class QLHoaDon extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 1200, 750));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+        String keyword = jTextField5.getText();
+        TestProcedure testProcedure = new TestProcedure();
+        jPanelDSHD.removeAll();
+        if (keyword.length() != 0) { // Có nhập
+            List<HoaDonDTO> hoaDonDTOs = testProcedure.SEARCH_HOADON(keyword);
+            if (!hoaDonDTOs.isEmpty()) { // Tìm thấy
+                for (HoaDonDTO hoaDonDTO : hoaDonDTOs) {
+                    Invoice invoice = new Invoice(hoaDonDTO);
+                    jPanelDSHD.add(invoice);
+                }
+            }
+        } else { // Không nhập
+            for (int i = 0; i < hoaDonBUS.getList_HoaDonDTOs().size(); i++) {
+                Invoice invoice = new Invoice(hoaDonBUS.getList_HoaDonDTOs().get(i));
+                jPanelDSHD.add(invoice);
+            }
+        }
+        jPanelDSHD.revalidate();
+        jPanelDSHD.repaint();
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

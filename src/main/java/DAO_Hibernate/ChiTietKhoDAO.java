@@ -1,11 +1,15 @@
 package DAO_Hibernate;
 
 import org.hibernate.Session;
+import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.Query;
 
 import DTO.ChiTietKhoDTO;
 
+import java.sql.SQLException;
 import java.util.List;
+
+import javax.persistence.ParameterMode;
 
 public class ChiTietKhoDAO {
     Session session;
@@ -45,5 +49,25 @@ public class ChiTietKhoDAO {
             ex.printStackTrace();
             return false;
         }
+    }
+
+    public void insertLoHang(ChiTietKhoDTO chiTietKhoDTO) throws SQLException{
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("THEM_CHITIETKHO");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MALH1", String.class, ParameterMode.IN).bindValue(chiTietKhoDTO.getMaLoHang());
+        procedureCall.registerParameter("MASP1", String.class, ParameterMode.IN).bindValue(chiTietKhoDTO.getMaSP());
+        procedureCall.registerParameter("SOLUONG", Integer.class, ParameterMode.IN).bindValue(chiTietKhoDTO.getSoLuong());
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
     }
 }

@@ -25,7 +25,7 @@ public class KhoDTO {
     private String tenNhaCungCapString;
     // @Column(name = "NGAYXUAT")
     // private Date ngayXuatDate;
-    
+
     // @OneToMany(mappedBy = "kho", cascade = CascadeType.ALL, orphanRemoval = true)
     // private List<ChiTietKhoDTO> chiTietKhoList;
     /**
@@ -122,5 +122,11 @@ public class KhoDTO {
      */
     public void setTenNhaCungCapString(String tenNhaCungCapString) {
         this.tenNhaCungCapString = tenNhaCungCapString;
+    }
+
+    @Override
+    public String toString() {
+        return "KhoDTO [maLoHangString=" + maLoHangString + ", ngayNhapDate=" + ngayNhapDate + ", maNhanVienString="
+                + maNhanVienString + ", tenNhaCungCapString=" + tenNhaCungCapString + "]";
     }
 }

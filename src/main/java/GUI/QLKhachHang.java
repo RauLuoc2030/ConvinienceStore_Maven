@@ -6,10 +6,12 @@ package GUI;
 
 import BUS.KhachHangBUS;
 import DAO_Hibernate.KhachHangDAO;
+import DAO_Hibernate.TestProcedure;
 import DTO.KhachHangDTO;
 import java.awt.Component;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -284,6 +286,11 @@ public class QLKhachHang extends javax.swing.JPanel {
 
         jTextField5.setFont(new java.awt.Font("Be Vietnam Pro", 0, 24)); // NOI18N
         jTextField5.setBorder(null);
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
         panelRound1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 0, 280, 50));
 
         jPanel16.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 330, 50));
@@ -352,6 +359,7 @@ public class QLKhachHang extends javax.swing.JPanel {
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1200, 60));
 
+        jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -486,6 +494,8 @@ public class QLKhachHang extends javax.swing.JPanel {
                         if (khachHangBUS.xoa_proc(khachHang.getKhachHangDTO())) {
                             // Remove the customer from the panel and update the UI
                             jPanel4.remove(khachHang);
+                            jPanel4.revalidate();
+                            jPanel4.repaint();
                             System.out.println("Xoa KH thanh cong!");
                             jDialogDeleteKH.dispose();
                         } else {
@@ -529,6 +539,7 @@ public class QLKhachHang extends javax.swing.JPanel {
             if (khachHangDAO.insertKhachHang(khachHangDTO)) {
                 jDialogAddKH.dispose();
                 jPanel4.removeAll();
+                KhachHangBUS khachHangBUS = new KhachHangBUS();
                 for (int i = 0; i < khachHangBUS.getlist_KhachHangDTOs().size(); i++) {
                     KhachHang khachHang = new KhachHang(khachHangBUS.getlist_KhachHangDTOs().get(i));
                     jPanel4.add(khachHang);
@@ -564,6 +575,30 @@ public class QLKhachHang extends javax.swing.JPanel {
     private void jPanel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel13MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel13MouseClicked
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+        String keyword = jTextField5.getText();
+        TestProcedure testProcedure = new TestProcedure();
+        jPanel4.removeAll();
+        if (keyword.length() != 0) {
+            List<KhachHangDTO> khachHangDTOs = testProcedure.SEARCH_KHACHHANG(keyword);
+            if (!khachHangDTOs.isEmpty()) {
+                for (KhachHangDTO khachHangDTO : khachHangDTOs) {
+//                    Product_icon product_icon = new Product_icon(sanPhamDTO);
+                    KhachHang khachHang = new KhachHang(khachHangDTO);
+                    jPanel4.add(khachHang);
+                }
+            }
+        } else {
+            for (int i = 0; i < khachHangBUS.getlist_KhachHangDTOs().size(); i++) {
+                KhachHang khachHang = new KhachHang(khachHangBUS.getlist_KhachHangDTOs().get(i));
+                jPanel4.add(khachHang);
+            }
+        }
+        jPanel4.revalidate();
+        jPanel4.repaint();
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog jDialogAddKH;

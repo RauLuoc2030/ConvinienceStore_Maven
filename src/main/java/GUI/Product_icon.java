@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -62,6 +63,10 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabelGia.setText(gia);
         jLabelSL.setText(sl);
 
+        AbstractDocument docSL = (AbstractDocument) SL1.getDocument();
+        docSL.setDocumentFilter(new LimitDigitsDocumentFilter(4));
+        AbstractDocument docGia = (AbstractDocument) Gia1.getDocument();
+        docGia.setDocumentFilter(new LimitDigitsDocumentFilter(4));
     }
 
     @Override
@@ -316,9 +321,9 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jDialogDetailSP1.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 520));
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1100, 70));
-        setMinimumSize(new java.awt.Dimension(1100, 70));
-        setPreferredSize(new java.awt.Dimension(1100, 70));
+        setMaximumSize(new java.awt.Dimension(1100, 60));
+        setMinimumSize(new java.awt.Dimension(1100, 60));
+        setPreferredSize(new java.awt.Dimension(1100, 60));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 formMouseEntered(evt);
@@ -330,6 +335,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(45, 96, 151)));
         jPanel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel11.setMaximumSize(new java.awt.Dimension(1100, 70));
         jPanel11.setPreferredSize(new java.awt.Dimension(1100, 70));
@@ -350,18 +356,18 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
         jLabelTen.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelTen.setText("Tên ");
-        jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 450, 60));
+        jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 450, 60));
 
         jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelGia.setText("Giá");
-        jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 5, 200, 60));
+        jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 200, 60));
 
         jLabelSL.setBackground(new java.awt.Color(255, 255, 255));
         jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelSL.setText("SL");
-        jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 5, 200, 60));
+        jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 200, 60));
 
-        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 70));
+        add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered

@@ -1,18 +1,22 @@
 package DAO_Hibernate;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import javax.persistence.ParameterMode;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.Query;
 
 import DTO.KhoDTO;
 
 public class KhoDAO {
     Session session;
-    
-    
+
     /**
      * Lấy thông tin từ Database
      * 
@@ -200,6 +204,47 @@ public class KhoDAO {
 
         session.getTransaction().commit();
         return sanPham;
+    }
+
+    
+    public void insertLoHang(KhoDTO khoDTO) throws SQLException{
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("INSERT_KHO_LOHANG");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MLH", String.class, ParameterMode.IN).bindValue(khoDTO.getMaLoHangString());
+        procedureCall.registerParameter("MNV", String.class, ParameterMode.IN).bindValue(khoDTO.getMaNhanVienString());
+        procedureCall.registerParameter("TNCC", String.class, ParameterMode.IN).bindValue(khoDTO.getTenNhaCungCapString());
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
+    public boolean deleteLoHang(KhoDTO khoDTO) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("DELETE_KHO_LOHANG");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MLH", String.class, ParameterMode.IN).bindValue(khoDTO.getMaLoHangString());
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+
+        return true;
     }
 
     public List<String> getMaLHList() {

@@ -34,6 +34,8 @@ public class NhanVienHomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelHomePage = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -50,8 +52,18 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+
+        jPanelHomePage.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelHomePage.setMaximumSize(new java.awt.Dimension(1200, 900));
+        jPanelHomePage.setMinimumSize(new java.awt.Dimension(1200, 900));
+        jPanelHomePage.setPreferredSize(new java.awt.Dimension(1200, 900));
+        jPanelHomePage.setLayout(new javax.swing.BoxLayout(jPanelHomePage, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Homepage.png"))); // NOI18N
+        jPanelHomePage.add(jLabel3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -83,7 +95,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel14.setText("HÓA ĐƠN");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 462, 236, 67));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 556, 236, 67));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
@@ -106,7 +118,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel5.setText("BÁN HÀNG");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 186, 236, 67));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 268, 236, 67));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
@@ -128,7 +140,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel4.setText("TRANG CHỦ");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 94, 236, 67));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 172, 236, 67));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
@@ -151,7 +163,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel11.setText("SẢN PHẨM");
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 278, 236, 67));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 364, 236, 67));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
@@ -174,7 +186,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel6.setText("KHO VẬN");
         jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 554, 236, 67));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 652, 236, 67));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
@@ -197,7 +209,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel13.setText("KHÁCH HÀNG");
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 370, 236, 67));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 460, 236, 67));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(234, 105, 95), 3));
@@ -219,7 +231,10 @@ public class NhanVienHomePage extends javax.swing.JFrame {
         jLabel7.setText("ĐĂNG XUẤT");
         jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 646, 236, 67));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 748, 236, 67));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo.png"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 11, 282, 135));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 900));
 
@@ -338,8 +353,11 @@ public class NhanVienHomePage extends javax.swing.JFrame {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseClicked
         // TODO add your handling code here:
-        System.out.println("Về trang chủ");
+//        System.out.println("Về trang chủ");
         jPanel11.removeAll();
+        jPanel11.add(jPanelHomePage);
+        jPanel11.revalidate();
+        jPanel11.repaint();
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
@@ -414,10 +432,12 @@ public class NhanVienHomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
@@ -427,5 +447,6 @@ public class NhanVienHomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelHomePage;
     // End of variables declaration//GEN-END:variables
 }

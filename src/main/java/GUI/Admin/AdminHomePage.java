@@ -7,6 +7,10 @@ package GUI.Admin;
 import BUS.SanPhamBUS;
 import GUI.DangNhap;
 import GUI.Product_icon;
+import GUI.QLHoaDon;
+import GUI.QLKhachHang;
+import GUI.QLKho;
+import GUI.QLSanPham;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingUtilities;
@@ -61,8 +65,6 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -81,6 +83,9 @@ public class AdminHomePage extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
         jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel2MouseEntered(evt);
             }
@@ -95,7 +100,7 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel14.setText("HÓA ĐƠN");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 462, 236, 67));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 495, 236, 67));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
@@ -114,7 +119,7 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel5.setText("NHÂN VIÊN");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 186, 236, 67));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 219, 236, 67));
 
         jPanelTrangChu.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTrangChu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
@@ -136,11 +141,14 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel4.setText("TRANG CHỦ");
         jPanelTrangChu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanelTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 94, 236, 67));
+        jPanel1.add(jPanelTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 127, 236, 67));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
         jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel5MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel5MouseEntered(evt);
             }
@@ -155,11 +163,14 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel6.setText("SẢN PHẨM");
         jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 278, 236, 67));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 311, 236, 67));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
         jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel6MouseEntered(evt);
             }
@@ -174,11 +185,14 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel15.setText("KHO VẬN");
         jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 554, 236, 67));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 587, 236, 67));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
         jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel7MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel7MouseEntered(evt);
             }
@@ -193,26 +207,7 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel13.setText("KHÁCH HÀNG");
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 370, 236, 67));
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
-        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel8MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel8MouseExited(evt);
-            }
-        });
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel16.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("LƯƠNG NV");
-        jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
-
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 646, 236, 67));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 403, 236, 67));
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(234, 105, 95), 3));
@@ -234,7 +229,7 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel7.setText("ĐĂNG XUẤT");
         jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 60));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 738, 236, 67));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 679, 236, 67));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, -9, 282, 135));
@@ -295,6 +290,38 @@ public class AdminHomePage extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jPanel9MouseClicked
 
+    private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
+        // TODO add your handling code here:
+        jPanel4.removeAll();
+        jPanel4.add(new QLSanPham());
+        jPanel4.validate();
+        jPanel4.repaint();
+    }//GEN-LAST:event_jPanel5MouseClicked
+
+    private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
+        // TODO add your handling code here:
+        jPanel4.removeAll();
+        jPanel4.add(new QLKhachHang());
+        jPanel4.validate();
+        jPanel4.repaint();
+    }//GEN-LAST:event_jPanel7MouseClicked
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        // TODO add your handling code here:
+        jPanel4.removeAll();
+        jPanel4.add(new QLHoaDon());
+        jPanel4.validate();
+        jPanel4.repaint();
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // TODO add your handling code here:
+        jPanel4.removeAll();
+        jPanel4.add(new QLKho());
+        jPanel4.validate();
+        jPanel4.repaint();
+    }//GEN-LAST:event_jPanel6MouseClicked
+
     private void jPanel5MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseEntered
         // TODO add your handling code here:
         jPanel5.setBackground(new java.awt.Color(45, 96, 151));
@@ -341,18 +368,6 @@ public class AdminHomePage extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
     }// GEN-LAST:event_jPanel6MouseExited
-
-    private void jPanel8MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel8MouseEntered
-        // TODO add your handling code here:
-        jPanel8.setBackground(new java.awt.Color(45, 96, 151));
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-    }// GEN-LAST:event_jPanel8MouseEntered
-
-    private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel8MouseExited
-        // TODO add your handling code here:
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-    }// GEN-LAST:event_jPanel8MouseExited
 
     private void jPanel9MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel9MouseEntered
         // TODO add your handling code here:
@@ -413,7 +428,6 @@ public class AdminHomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -427,7 +441,6 @@ public class AdminHomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelTrangChu;
     // End of variables declaration//GEN-END:variables

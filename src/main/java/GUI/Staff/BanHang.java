@@ -552,7 +552,6 @@ public class BanHang extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setToolTipText("");
         jPanel14.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
         jPanel5.add(jPanel14);
@@ -564,7 +563,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("4");
-        jLabel20.setToolTipText("");
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel20MouseClicked(evt);
@@ -581,7 +579,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("5");
-        jLabel21.setToolTipText("");
         jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel21MouseClicked(evt);
@@ -598,7 +595,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("6");
-        jLabel22.setToolTipText("");
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel22MouseClicked(evt);
@@ -614,7 +610,6 @@ public class BanHang extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setToolTipText("");
         jPanel20.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
         jPanel5.add(jPanel20);
@@ -626,7 +621,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("1");
-        jLabel24.setToolTipText("");
         jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel24MouseClicked(evt);
@@ -643,7 +637,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("2");
-        jLabel25.setToolTipText("");
         jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel25MouseClicked(evt);
@@ -660,7 +653,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel26.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("3");
-        jLabel26.setToolTipText("");
         jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel26MouseClicked(evt);
@@ -676,7 +668,6 @@ public class BanHang extends javax.swing.JFrame {
 
         jLabel27.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setToolTipText("");
         jPanel24.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
         jPanel5.add(jPanel24);
@@ -688,7 +679,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("C");
-        jLabel28.setToolTipText("");
         jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel28MouseClicked(evt);
@@ -705,7 +695,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel29.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("0");
-        jLabel29.setToolTipText("");
         jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel29MouseClicked(evt);
@@ -721,7 +710,6 @@ public class BanHang extends javax.swing.JFrame {
 
         jLabel30.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel30.setToolTipText("");
         jPanel27.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
         jPanel5.add(jPanel27);
@@ -733,7 +721,6 @@ public class BanHang extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Del");
-        jLabel31.setToolTipText("");
         jLabel31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -780,6 +767,10 @@ public class BanHang extends javax.swing.JFrame {
 
         jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 500, 60));
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 1, new java.awt.Color(45, 96, 151)));
+
+        jPanelGioHang.setBackground(new java.awt.Color(255, 255, 255));
         jPanelGioHang.setLayout(new javax.swing.BoxLayout(jPanelGioHang, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanelGioHang);
 
@@ -787,25 +778,30 @@ public class BanHang extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 500, 850));
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(45, 96, 151));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Tên sản phẩm");
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 490, 40));
 
         jLabel13.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Giá");
         jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 5, 60, 40));
 
         jLabel14.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Số lượng");
         jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 5, 150, 40));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 1100, 50));
 
+        jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        jPanelSanPham.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSanPham.setLayout(new javax.swing.BoxLayout(jPanelSanPham, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane2.setViewportView(jPanelSanPham);
 

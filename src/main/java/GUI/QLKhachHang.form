@@ -554,6 +554,9 @@
                       <Border info="null"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="25" y="0" width="280" height="50"/>
@@ -735,6 +738,9 @@
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
       </Properties>
       <Constraints>

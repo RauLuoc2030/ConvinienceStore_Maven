@@ -50,38 +50,38 @@ public class CTKho extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        setMaximumSize(new java.awt.Dimension(1148, 86));
-        setMinimumSize(new java.awt.Dimension(1148, 86));
-        setPreferredSize(new java.awt.Dimension(1148, 86));
+        setMaximumSize(new java.awt.Dimension(1148, 60));
+        setMinimumSize(new java.awt.Dimension(1148, 60));
+        setPreferredSize(new java.awt.Dimension(1148, 60));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelTenSP.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelTenSP.setText("Tên sản phẩm");
-        add(jLabelTenSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 13, 297, 60));
+        add(jLabelTenSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 297, 60));
 
         jLabelMaSP.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaSP.setText("SP001");
-        add(jLabelMaSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 13, 150, 60));
+        add(jLabelMaSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 60));
 
         jLabelHSD.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelHSD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelHSD.setText("HSD");
-        add(jLabelHSD, new org.netbeans.lib.awtextra.AbsoluteConstraints(836, 13, 180, 60));
+        add(jLabelHSD, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 180, 60));
 
         jLabelPhanLoai.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelPhanLoai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPhanLoai.setText("Phân loại");
-        add(jLabelPhanLoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 13, 180, 60));
+        add(jLabelPhanLoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 180, 60));
 
         jLabelNSX.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelNSX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNSX.setText("NSX");
-        add(jLabelNSX, new org.netbeans.lib.awtextra.AbsoluteConstraints(656, 13, 180, 60));
+        add(jLabelNSX, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 180, 60));
 
         jLabelSoLuong.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelSoLuong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSoLuong.setText("SL");
-        add(jLabelSoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(1016, 13, 132, 60));
+        add(jLabelSoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 0, 132, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
