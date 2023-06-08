@@ -11,6 +11,7 @@ import java.util.List;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.KhoDTO;
+import DTO.NhanVienDTO;
 import DTO.SanPhamDTO;
 
 public class TestProcedure {
@@ -141,6 +142,37 @@ public class TestProcedure {
             cstmt.close();
 
             return khoDTOs;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<NhanVienDTO> SEARCH_NHANVIEN(String keyword) {
+        try (Connection conn = DriverManager.getConnection(url, username, password)) {
+            CallableStatement cstmt = conn.prepareCall("{call SEARCH_NHANVIEN(?, ?) }");
+            cstmt.setString(1, keyword);
+            cstmt.registerOutParameter(2, Types.REF_CURSOR);
+            cstmt.execute();
+            ResultSet rs = (ResultSet) cstmt.getObject(2);
+            List<NhanVienDTO> nhanVienDTOs = new ArrayList<>();
+            while (rs.next()) {
+                NhanVienDTO nhanVienDTO = new NhanVienDTO();
+                nhanVienDTO.setMaNVString(rs.getString(1));
+                nhanVienDTO.setHoTenNVString(rs.getString(2));
+                nhanVienDTO.setSDTNVString(rs.getString(3));
+                nhanVienDTO.setNgaySinhNVDate(rs.getDate(4));
+                nhanVienDTO.setCCCDNVString(rs.getString(5));
+                nhanVienDTO.setDiaChiNVString(rs.getString(6));
+                nhanVienDTO.setChucVuNVString(rs.getString(7));
+                nhanVienDTO.setLuongInteger(rs.getInt(8));
+                nhanVienDTO.setNgayVaoLamDate(rs.getDate(9));
+                nhanVienDTOs.add(nhanVienDTO);
+            }
+            rs.close();
+            cstmt.close();
+
+            return nhanVienDTOs;
         } catch (Exception e) {
             e.printStackTrace();
             return null;

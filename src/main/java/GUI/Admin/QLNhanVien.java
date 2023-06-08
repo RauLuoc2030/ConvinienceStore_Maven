@@ -5,8 +5,10 @@
 package GUI.Admin;
 
 import BUS.NhanVienBUS;
-import GUI.Product_icon;
+import DAO_Hibernate.NhanVienDAO;
 import java.awt.Component;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +21,7 @@ public class QLNhanVien extends javax.swing.JPanel {
      */
     public QLNhanVien() {
         initComponents();
+        jDialogDeleteSP.setLocationRelativeTo(null);
         NhanVienBUS nhanVienBUS = new NhanVienBUS();
         for (int i = 0; i < nhanVienBUS.getListnNhanVienDTOs().size(); i++) {
             NhanVien nhanVien = new NhanVien(nhanVienBUS.getListnNhanVienDTOs().get(i));
@@ -44,37 +47,12 @@ public class QLNhanVien extends javax.swing.JPanel {
         jPanel11 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jDialogAddSP = new javax.swing.JDialog();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanelSave = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
         panelRound1 = new GUI.PanelRound();
         jTextField5 = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelDel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -149,141 +127,6 @@ public class QLNhanVien extends javax.swing.JPanel {
 
         jDialogDeleteSP.getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
 
-        jDialogAddSP.setModal(true);
-        jDialogAddSP.setUndecorated(true);
-        jDialogAddSP.setResizable(false);
-        jDialogAddSP.setSize(new java.awt.Dimension(420, 570));
-        jDialogAddSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel7.setBackground(new java.awt.Color(45, 96, 151));
-        jPanel7.setMaximumSize(new java.awt.Dimension(420, 568));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel8.setBackground(new java.awt.Color(143, 203, 253));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(209, 202, 191)));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanelSave.setBackground(new java.awt.Color(45, 96, 151));
-        jPanelSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanelSave.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelSaveMouseClicked(evt);
-            }
-        });
-        jPanelSave.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Lưu");
-        jPanelSave.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, -10, 40, 60));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/download.png"))); // NOI18N
-        jPanelSave.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 8, 24, 24));
-
-        jPanel9.add(jPanelSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 452, 135, 41));
-
-        jLabel8.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel8.setText("Giá");
-        jPanel9.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 87, 135, 24));
-
-        jLabel9.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel9.setText("Mã sản phẩm");
-        jPanel9.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 22, 135, 24));
-
-        jLabel10.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel10.setText("Mô tả");
-        jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 156, 135, 24));
-
-        jLabel12.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel12.setText("Tên sản phẩm");
-        jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 22, 135, 24));
-
-        jLabel13.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel13.setText("Phân loại");
-        jPanel9.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 87, 135, 24));
-
-        jLabel14.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel14.setText("Số lượng");
-        jPanel9.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 156, 135, 24));
-
-        jLabel15.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel15.setText("NSX");
-        jLabel15.setEnabled(false);
-        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 223, 135, 24));
-
-        jLabel16.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel16.setText("HSD");
-        jLabel16.setEnabled(false);
-        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 223, 135, 24));
-
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jPanel9.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 46, 135, 24));
-
-        jTextField2.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextField2.setText("0");
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jPanel9.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 111, 135, 24));
-
-        jTextField3.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jPanel9.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 180, 135, 24));
-
-        jTextField4.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jPanel9.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 46, 135, 24));
-
-        jTextField6.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextField6.setText("0");
-        jTextField6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jPanel9.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 180, 135, 24));
-
-        jComboBox1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jComboBox1.setLightWeightPopupEnabled(false);
-        jComboBox1.setOpaque(true);
-        jPanel9.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 111, 135, 24));
-
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jDateChooser1.setDateFormatString("dd/MM/yyyy");
-        jDateChooser1.setEnabled(false);
-        jDateChooser1.setFont(new java.awt.Font("Be Vietnam Pro", 0, 10)); // NOI18N
-        jPanel9.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 247, 135, 24));
-
-        jDateChooser2.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jDateChooser2.setDateFormatString("dd/MM/yyyy");
-        jDateChooser2.setEnabled(false);
-        jDateChooser2.setFont(new java.awt.Font("Be Vietnam Pro", 0, 10)); // NOI18N
-        jPanel9.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 247, 135, 24));
-
-        jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 507));
-
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 51, 420, 517));
-
-        jLabel17.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 20)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Thêm sản phẩm");
-        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 168, 60));
-
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/x.png"))); // NOI18N
-        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel18MouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
-
-        jDialogAddSP.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
-
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1200, 900));
         setMinimumSize(new java.awt.Dimension(1200, 900));
@@ -322,22 +165,22 @@ public class QLNhanVien extends javax.swing.JPanel {
 
         jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
 
-        jPanel3.setBackground(new java.awt.Color(45, 96, 151));
-        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jPanelDel.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelDel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelDel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
+                jPanelDelMouseClicked(evt);
             }
         });
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelDel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Xóa NV");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 210, 70));
+        jPanelDel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 210, 70));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 10, 230, 70));
+        jPanel1.add(jPanelDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 10, 230, 70));
 
         jPanel6.setBackground(new java.awt.Color(45, 96, 151));
         jPanel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -423,7 +266,7 @@ public class QLNhanVien extends javax.swing.JPanel {
 //        jPanel4.repaint();
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+    private void jPanelDelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelDelMouseClicked
         // TODO add your handling code here:
 //        jDialogDeleteKH.setVisible(true);
         Component[] components = jPanel4.getComponents();
@@ -433,16 +276,16 @@ public class QLNhanVien extends javax.swing.JPanel {
             Component component = components[i];
 
             // Check if the component is an instance of Product
-            if (component instanceof Product_icon) {
-                Product_icon product_icon = (Product_icon) component;
+            if (component instanceof NhanVien) {
+                NhanVien nhanVien = (NhanVien) component;
 
                 // Check if the product needs to be deleted
-                if (product_icon.isSelect()) {
+                if (nhanVien.isSelect()) {
                     jDialogDeleteSP.setVisible(true);
                 }
             }
         }
-    }//GEN-LAST:event_jPanel3MouseClicked
+    }//GEN-LAST:event_jPanelDelMouseClicked
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
@@ -455,46 +298,60 @@ public class QLNhanVien extends javax.swing.JPanel {
 
     private void jPanel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel11MouseClicked
         // TODO add your handling code here:
+        jDialogDeleteSP.dispose();
     }//GEN-LAST:event_jPanel11MouseClicked
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
         // TODO add your handling code here:
+        Component[] components = jPanel4.getComponents();
+
+        // Iterate over the components in reverse order
+        for (int i = components.length - 1; i >= 0; i--) {
+            Component component = components[i];
+
+            // Check if the component is an instance of Product
+            if (component instanceof NhanVien) {
+                NhanVien nhanVien = (NhanVien) component;
+
+                // Check if the product needs to be deleted
+                if (nhanVien.isSelect()) {
+                    // Remove the Nhan vien from Database
+                    NhanVienDAO nhanVienDAO = new NhanVienDAO();
+                    try {
+                        nhanVienDAO.deleteNhanVien(nhanVien.getNhanVienDTO().getMaNVString());
+                    } catch (SQLException e) {
+                        // Xử lý SQLException
+                        JOptionPane.showMessageDialog(null, "Lỗi SQL: " + e.getMessage());
+
+                    } catch (Exception e) {
+                        // Xử lý các exception khác
+                        e.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Lỗi: " + e.getMessage());
+                    } finally {
+                        jDialogDeleteSP.dispose();
+                        jPanel4.removeAll();
+                        NhanVienBUS nhanVienBUS = new NhanVienBUS();
+                        for (int j = 0; j < nhanVienBUS.getListnNhanVienDTOs().size(); j++) {
+                            NhanVien nhanVien1 = new NhanVien(nhanVienBUS.getListnNhanVienDTOs().get(j));
+                            jPanel4.add(nhanVien1);
+                        }
+                        jPanel4.revalidate();
+                        jPanel4.repaint();
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_jLabel22MouseClicked
 
-    private void jPanelSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelSaveMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jPanelSaveMouseClicked
-
-    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel18MouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private javax.swing.JDialog jDialogAddSP;
     private javax.swing.JDialog jDialogDeleteSP;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelChucVu;
     private javax.swing.JLabel jLabelLuong;
     private javax.swing.JLabel jLabelMaNV;
@@ -504,20 +361,11 @@ public class QLNhanVien extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JPanel jPanelSave;
+    private javax.swing.JPanel jPanelDel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private GUI.PanelRound panelRound1;
     private GUI.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables

@@ -2,13 +2,10 @@ package DAO_Hibernate;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.ParameterMode;
-import javax.persistence.criteria.CriteriaBuilder.In;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.procedure.ProcedureCall;

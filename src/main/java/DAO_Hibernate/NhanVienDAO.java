@@ -1,11 +1,17 @@
 package DAO_Hibernate;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.ParameterMode;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.exception.ConstraintViolationException;
+import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.Query;
 
 import DTO.NhanVienDTO;
@@ -205,6 +211,64 @@ public class NhanVienDAO {
 
         session.getTransaction().commit();
         return sanPham;
+    }
+
+    public void updateNhanVien(NhanVienDTO nhanVienDTO) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("UPDATE_NV");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MNV", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getMaNVString());
+        procedureCall.registerParameter("TEN", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getHoTenNVString());
+        procedureCall.registerParameter("SDT", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getSDTNVString());
+        procedureCall.registerParameter("NS", Date.class, ParameterMode.IN).bindValue(nhanVienDTO.getNgaySinhNVDate());
+        procedureCall.registerParameter("CCCDI", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getCCCDNVString());
+        procedureCall.registerParameter("DC", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getDiaChiNVString());
+        procedureCall.registerParameter("CV", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getChucVuNVString());
+        procedureCall.registerParameter("L", Integer.class, ParameterMode.IN).bindValue(nhanVienDTO.getLuongInteger());
+        procedureCall.registerParameter("NVL", Date.class, ParameterMode.IN).bindValue(nhanVienDTO.getNgayVaoLamDate());
+        
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
+    public void deleteNhanVien(String ma) throws SQLException {
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            ProcedureCall procedureCall = session.createStoredProcedureCall("DELETE_NV");
+
+            // Đăng ký các tham số và thiết lập giá trị
+            procedureCall.registerParameter("MNV", String.class, ParameterMode.IN).bindValue(ma);
+
+            // Thực hiện stored procedure
+            procedureCall.execute();
+
+            session.getTransaction().commit();
+        } catch (ConstraintViolationException e) {
+            if (session != null && session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+            }
+            throw new SQLException("Error executing deleteNhanVien: " + e.getMessage(), e);
+        } catch (Exception e) {
+            if (session != null && session.getTransaction().isActive()) {
+                session.getTransaction().rollback();
+            }
+            throw new SQLException("Error executing deleteNhanVien: " + e.getMessage(), e);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
     }
 
     public List<String> getMaNVList() {
