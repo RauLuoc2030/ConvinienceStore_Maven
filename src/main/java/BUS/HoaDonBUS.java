@@ -31,12 +31,12 @@ public class HoaDonBUS {
     public HoaDonBUS() {
         list_HoaDonDTOs = new ArrayList<>();
         hoaDonDAO = new HoaDonDAO();
-        list_HoaDonDTOs = hoaDonDAO.readDB();
+        list_HoaDonDTOs = hoaDonDAO.readDB("", "NGAYMUA DESC");
     }
 
     /**
      * Thêm 1 Hóa đơn vào danh sách và database
-     * 
+     *
      * @param hoaDonDTO
      * @return true nếu thành công
      * @throws Exception
@@ -51,7 +51,7 @@ public class HoaDonBUS {
 
     /**
      * Xóa 1 Hóa đơn khỏi danh sách và database
-     * 
+     *
      * @param hoaDonDTO
      * @return true nếu thành công
      * @throws Exception
@@ -71,7 +71,7 @@ public class HoaDonBUS {
 
     /**
      * Sửa thông tin của 1 Hóa đơn trong danh sách và database
-     * 
+     *
      * @param hoaDonDTO
      * @return true nếu thành công
      * @throws Exception

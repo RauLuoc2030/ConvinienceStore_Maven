@@ -9,6 +9,8 @@ import DAO_Hibernate.SanPhamDAO;
 import DAO_Hibernate.TestProcedure;
 import DTO.SanPhamDTO;
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -160,10 +162,12 @@ public class QLSanPham extends javax.swing.JPanel {
 
         jLabel15.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel15.setText("NSX");
+        jLabel15.setEnabled(false);
         jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 223, 135, 24));
 
         jLabel16.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel16.setText("HSD");
+        jLabel16.setEnabled(false);
         jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 223, 135, 24));
 
         jTextField1.setEditable(false);
@@ -190,7 +194,6 @@ public class QLSanPham extends javax.swing.JPanel {
         jPanel8.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 180, 135, 24));
 
         jComboBox1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PL1", "PL2", "PL3", "PL4", "PL5" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jComboBox1.setLightWeightPopupEnabled(false);
         jComboBox1.setOpaque(true);
@@ -199,12 +202,14 @@ public class QLSanPham extends javax.swing.JPanel {
         jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
         jDateChooser1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jDateChooser1.setDateFormatString("dd/MM/yyyy");
+        jDateChooser1.setEnabled(false);
         jDateChooser1.setFont(new java.awt.Font("Be Vietnam Pro", 0, 10)); // NOI18N
         jPanel8.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 247, 135, 24));
 
         jDateChooser2.setBackground(new java.awt.Color(255, 255, 255));
         jDateChooser2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jDateChooser2.setDateFormatString("dd/MM/yyyy");
+        jDateChooser2.setEnabled(false);
         jDateChooser2.setFont(new java.awt.Font("Be Vietnam Pro", 0, 10)); // NOI18N
         jPanel8.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 247, 135, 24));
 
@@ -294,7 +299,7 @@ public class QLSanPham extends javax.swing.JPanel {
         jDialogDeleteSP.getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1200, 810));
+        setMaximumSize(new java.awt.Dimension(1200, 900));
         addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 formFocusGained(evt);
@@ -380,6 +385,9 @@ public class QLSanPham extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 750));
 
         jPanelDanhSachSP.setBackground(new java.awt.Color(255, 255, 255));
         jPanelDanhSachSP.setLayout(new javax.swing.BoxLayout(jPanelDanhSachSP, javax.swing.BoxLayout.Y_AXIS));
@@ -415,7 +423,7 @@ public class QLSanPham extends javax.swing.JPanel {
         sanPhamDTO.setTenSPString(jTextField4.getText());
         sanPhamDTO.setGiaInt(Integer.valueOf(jTextField2.getText()));
         sanPhamDTO.setPhanLoaiString(jComboBox1.getSelectedItem().toString());
-        sanPhamDTO.setMoTaString(jTextField2.getText());
+        sanPhamDTO.setMoTaString(jTextField3.getText());
         sanPhamDTO.setSoLuongSPInt(Integer.valueOf(jTextField6.getText()));
         sanPhamDTO.setNSXDate(jDateChooser2.getDate());
         sanPhamDTO.setHSDDate(jDateChooser1.getDate());
@@ -479,6 +487,19 @@ public class QLSanPham extends javax.swing.JPanel {
         doc2.setDocumentFilter(new LimitDigitsDocumentFilter(9));
         AbstractDocument doc6 = (AbstractDocument) jTextField6.getDocument();
         doc6.setDocumentFilter(new LimitDigitsDocumentFilter(4));
+
+        List<String> phanLoaiList = new ArrayList<String>();
+        phanLoaiList = sanPhamDAO.readPhanLoai();
+        List<String> uniquePhanLoaiList = new ArrayList<>();
+        for (String element : phanLoaiList) {
+            if (!uniquePhanLoaiList.contains(element)) {
+                uniquePhanLoaiList.add(element);
+            }
+        }
+        for (String phanLoai : uniquePhanLoaiList) {
+            jComboBox1.addItem(phanLoai);
+        }
+        jComboBox1.setLightWeightPopupEnabled(false);
         jDialogAddSP.setVisible(true);
     }// GEN-LAST:event_jPanelAddMouseClicked
 

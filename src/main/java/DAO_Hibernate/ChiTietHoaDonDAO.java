@@ -7,8 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import DTO.ChiTietHoaDonDTO;
+import java.sql.SQLException;
 
 public class ChiTietHoaDonDAO {
+
     Session session;
 
     public List<String> getSanPhamListByMaHoaDon(String maHoaDon) {
@@ -30,21 +32,18 @@ public class ChiTietHoaDonDAO {
 
     /**
      * Thêm một Chi tiết hóa đơn mới đã có thông tin vào CSDL
-     * 
+     *
      * @param chiTietHoaDonDTO
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
      */
-    public boolean them_optimized(ChiTietHoaDonDTO chiTietHoaDonDTO) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            session.save(chiTietHoaDonDTO);
-            session.getTransaction().commit();
-            return true;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return false;
-        }
+    public boolean them_optimized(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(chiTietHoaDonDTO);
+        session.getTransaction().commit();
+        return true;
+
     }
 
     public List<ChiTietHoaDonDTO> tim(String keyword) {
@@ -67,8 +66,8 @@ public class ChiTietHoaDonDAO {
         ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
         List<ChiTietHoaDonDTO> chiTietHoaDonDTOs = new ArrayList<>();
         chiTietHoaDonDTOs = chiTietHoaDonDAO.tim("HD8");
-        for (int i = 0; i < chiTietHoaDonDTOs.size(); i++){
-            System.out.println(chiTietHoaDonDTOs.get(i).toString()); 
+        for (int i = 0; i < chiTietHoaDonDTOs.size(); i++) {
+            System.out.println(chiTietHoaDonDTOs.get(i).toString());
         }
     }
 }

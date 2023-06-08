@@ -10,6 +10,7 @@ import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import static GUI.LoHang.formatter;
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ import java.util.List;
  * @author Locc
  */
 public class Invoice extends javax.swing.JPanel {
+
+    private boolean isSelect;
 
     private int clickCount;
     private long lastClickTime;
@@ -86,11 +89,9 @@ public class Invoice extends javax.swing.JPanel {
         jLabelHTTT = new javax.swing.JLabel();
 
         jDialog1.setBackground(new java.awt.Color(45, 96, 151));
-        jDialog1.setMaximumSize(new java.awt.Dimension(700, 800));
         jDialog1.setMinimumSize(new java.awt.Dimension(700, 800));
         jDialog1.setModal(true);
         jDialog1.setUndecorated(true);
-        jDialog1.setPreferredSize(new java.awt.Dimension(700, 800));
         jDialog1.setResizable(false);
         jDialog1.setSize(new java.awt.Dimension(580, 800));
         jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -191,7 +192,6 @@ public class Invoice extends javax.swing.JPanel {
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 71, 390, 30));
 
         jLabel15.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
-        jLabel15.setText("XXX");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 101, 520, 30));
 
         jLabel12.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 18)); // NOI18N
@@ -220,10 +220,18 @@ public class Invoice extends javax.swing.JPanel {
         jDialog1.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 800));
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(45, 96, 151)));
         setMaximumSize(new java.awt.Dimension(1200, 60));
         setMinimumSize(new java.awt.Dimension(1200, 60));
         setPreferredSize(new java.awt.Dimension(1200, 60));
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                formFocusLost(evt);
+            }
+        });
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -233,24 +241,49 @@ public class Invoice extends javax.swing.JPanel {
 
         jLabelMaHD.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaHD.setText("HD00000X");
+        jLabelMaHD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMaHDMouseClicked(evt);
+            }
+        });
         add(jLabelMaHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 5, 160, 50));
 
         jLabelNgayLap.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelNgayLap.setText("01/01/2023");
+        jLabelNgayLap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelNgayLapMouseClicked(evt);
+            }
+        });
         add(jLabelNgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 5, 290, 50));
 
         jLabelMaNV.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaNV.setText("NV00000X");
+        jLabelMaNV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMaNVMouseClicked(evt);
+            }
+        });
         add(jLabelMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 5, 140, 50));
 
         jLabelMaKH.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaKH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelMaKH.setText("KH000001");
+        jLabelMaKH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMaKHMouseClicked(evt);
+            }
+        });
         add(jLabelMaKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 5, 170, 50));
 
         jLabelHTTT.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelHTTT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelHTTT.setText("HTTT");
+        jLabelHTTT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHTTTMouseClicked(evt);
+            }
+        });
         add(jLabelHTTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 5, 180, 50));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -296,12 +329,49 @@ public class Invoice extends javax.swing.JPanel {
             lastClickTime = 0;
         } else {
             // Lưu số lần click và thời gian hiện tại
-
+            requestFocus();
             clickCount = 1;
             lastClickTime = currentTime;
         }
 
     }//GEN-LAST:event_formMouseClicked
+
+    private void jLabelMaHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMaHDMouseClicked
+        // TODO add your handling code here:
+        requestFocus();
+    }//GEN-LAST:event_jLabelMaHDMouseClicked
+
+    private void jLabelNgayLapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelNgayLapMouseClicked
+        // TODO add your handling code here:
+        requestFocus();
+    }//GEN-LAST:event_jLabelNgayLapMouseClicked
+
+    private void jLabelMaNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMaNVMouseClicked
+        // TODO add your handling code here:
+        requestFocus();
+    }//GEN-LAST:event_jLabelMaNVMouseClicked
+
+    private void jLabelMaKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMaKHMouseClicked
+        // TODO add your handling code here:
+        requestFocus();
+    }//GEN-LAST:event_jLabelMaKHMouseClicked
+
+    private void jLabelHTTTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHTTTMouseClicked
+        // TODO add your handling code here:
+        requestFocus();
+    }//GEN-LAST:event_jLabelHTTTMouseClicked
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+        setBackground(new java.awt.Color(245, 181, 189));
+        isSelect = true;
+    }//GEN-LAST:event_formFocusGained
+
+    private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
+        // TODO add your handling code here:
+        setBackground(Color.WHITE);
+        isSelect = false;
+    }//GEN-LAST:event_formFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog jDialog1;
@@ -334,4 +404,17 @@ public class Invoice extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private GUI.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
+    /**
+     * @return the isSelect
+     */
+    public boolean isSelect() {
+        return isSelect;
+    }
+
+    /**
+     * @param isSelect the isSelect to set
+     */
+    public void setSelect(boolean isSelect) {
+        this.isSelect = isSelect;
+    }
 }

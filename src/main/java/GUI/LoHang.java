@@ -114,9 +114,9 @@ public class LoHang extends javax.swing.JPanel {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jTextFieldMaLH = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabelMaLH = new javax.swing.JLabel();
@@ -325,14 +325,6 @@ public class LoHang extends javax.swing.JPanel {
         jTextField6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jPanel8.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 180, 135, 24));
 
-        jComboBox1.setEditable(true);
-        jComboBox1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PL1", "PL2", "PL3", "PL4", "PL5" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jComboBox1.setLightWeightPopupEnabled(false);
-        jComboBox1.setOpaque(true);
-        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 111, 135, 24));
-
         jTextFieldMaLH.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jTextFieldMaLH.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jTextFieldMaLH.setEnabled(false);
@@ -341,6 +333,10 @@ public class LoHang extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel11.setText("Mã lô hàng");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 233, 135, 24));
+
+        jTextField7.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel8.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 111, 135, 24));
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 507));
 
@@ -365,7 +361,7 @@ public class LoHang extends javax.swing.JPanel {
         jDialogAddSP_LH.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(45, 96, 151)));
         setMaximumSize(new java.awt.Dimension(1200, 60));
         setMinimumSize(new java.awt.Dimension(1200, 60));
         setPreferredSize(new java.awt.Dimension(1200, 60));
@@ -386,28 +382,73 @@ public class LoHang extends javax.swing.JPanel {
 
         jLabelMaLH.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaLH.setText("Mã LH");
+        jLabelMaLH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMaLHMouseClicked(evt);
+            }
+        });
         add(jLabelMaLH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, 60));
 
         jLabelMaNV.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaNV.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelMaNV.setText("Mã NV");
+        jLabelMaNV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelMaNVMouseClicked(evt);
+            }
+        });
         add(jLabelMaNV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 170, 60));
 
         jLabelNgayNhap.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelNgayNhap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelNgayNhap.setText("Ngày nhập");
+        jLabelNgayNhap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelNgayNhapMouseClicked(evt);
+            }
+        });
         add(jLabelNgayNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 150, 60));
 
         jLabelSuplier.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelSuplier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSuplier.setText("Suplier");
+        jLabelSuplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSuplierMouseClicked(evt);
+            }
+        });
         add(jLabelSuplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 180, 60));
 
         jLabelSLSP.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelSLSP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSLSP.setText("SL SP trong LH");
+        jLabelSLSP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSLSPMouseClicked(evt);
+            }
+        });
         add(jLabelSLSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 180, 60));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelMaLHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMaLHMouseClicked
+        requestFocus();
+    }//GEN-LAST:event_jLabelMaLHMouseClicked
+
+    private void jLabelMaNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMaNVMouseClicked
+        requestFocus();
+    }//GEN-LAST:event_jLabelMaNVMouseClicked
+
+    private void jLabelNgayNhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelNgayNhapMouseClicked
+        requestFocus();
+    }//GEN-LAST:event_jLabelNgayNhapMouseClicked
+
+    private void jLabelSuplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSuplierMouseClicked
+        requestFocus();
+    }//GEN-LAST:event_jLabelSuplierMouseClicked
+
+    private void jLabelSLSPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSLSPMouseClicked
+        requestFocus();
+    }//GEN-LAST:event_jLabelSLSPMouseClicked
 
     private void jPanelSaveMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelSaveMouseClicked
         // TODO add your handling code here:
@@ -455,6 +496,7 @@ public class LoHang extends javax.swing.JPanel {
                 jTextField2.setText(sp.getGiaInt().toString());
                 jTextField3.setText(sp.getMoTaString());
                 jTextField3.setToolTipText(sp.getMoTaString());
+                jTextField7.setText(sp.getPhanLoaiString());
             } else { // Không tìm thấy maSP
                 JOptionPane.showMessageDialog(null, "Không có Mã sản phẩm vừa nhập trong cửa hàng!");
             }
@@ -464,20 +506,19 @@ public class LoHang extends javax.swing.JPanel {
             jTextField2.setText("");
             jTextField3.setText("");
             jTextField3.setToolTipText("");
+            jTextField7.setText("");
         }
     }// GEN-LAST:event_jTextFieldMaSP_LHActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_formFocusGained
         // TODO add your handling code here:
         isSelect = true;
-        System.out.println("is Select true");
         setBackground(new java.awt.Color(245, 181, 189));
     }// GEN-LAST:event_formFocusGained
 
     private void formFocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_formFocusLost
         // TODO add your handling code here:
         isSelect = false;
-        System.out.println("is Select false");
         setBackground(Color.WHITE);
     }// GEN-LAST:event_formFocusLost
 
@@ -526,7 +567,6 @@ public class LoHang extends javax.swing.JPanel {
     }// GEN-LAST:event_formMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDialog jDialogAddSP_LH;
     private javax.swing.JDialog jDialogDetailLH;
     private javax.swing.JLabel jLabel1;
@@ -570,6 +610,7 @@ public class LoHang extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextFieldMaLH;
     private javax.swing.JTextField jTextFieldMaSP_LH;
     // End of variables declaration//GEN-END:variables

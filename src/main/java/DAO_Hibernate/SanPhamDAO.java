@@ -328,7 +328,23 @@ public class SanPhamDAO {
         return totalRevenue;
     }
 
+    public List<String> readPhanLoai() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<String> phanloaiList = null;
 
+        try {
+            String queryString = "select phanLoaiString from SanPhamDTO";
+
+            Query<String> query = session.createQuery(queryString, String.class);
+            phanloaiList = query.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return phanloaiList;
+    }
 
     public List<String> getMaSPList() {
         Session session = HibernateUtil.getSessionFactory().openSession();

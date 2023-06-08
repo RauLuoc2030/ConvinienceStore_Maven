@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"BUS"},{"l":"DAO_Hibernate"},{"l":"DTO"},{"l":"GUI"},{"l":"GUI.Admin"},{"l":"GUI.Staff"}];updateSearchResults();

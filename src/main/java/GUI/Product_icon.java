@@ -356,15 +356,30 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
         jLabelTen.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelTen.setText("Tên ");
+        jLabelTen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelTenMouseClicked(evt);
+            }
+        });
         jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 450, 60));
 
         jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelGia.setText("Giá");
+        jLabelGia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelGiaMouseClicked(evt);
+            }
+        });
         jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 200, 60));
 
         jLabelSL.setBackground(new java.awt.Color(255, 255, 255));
         jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
         jLabelSL.setText("SL");
+        jLabelSL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelSLMouseClicked(evt);
+            }
+        });
         jPanel11.add(jLabelSL, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, 200, 60));
 
         add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 60));
@@ -379,6 +394,18 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         // TODO add your handling code here:
 //
     }//GEN-LAST:event_formMouseExited
+
+    private void jLabelTenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTenMouseClicked
+        jPanel11.requestFocus();
+    }//GEN-LAST:event_jLabelTenMouseClicked
+
+    private void jLabelGiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelGiaMouseClicked
+        jPanel11.requestFocus();
+    }//GEN-LAST:event_jLabelGiaMouseClicked
+
+    private void jLabelSLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSLMouseClicked
+        jPanel11.requestFocus();
+    }//GEN-LAST:event_jLabelSLMouseClicked
 
     private void jPanel11FocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusGained
         // TODO add your handling code here:

@@ -51,6 +51,8 @@ public class AdminHomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelHomePage = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -69,6 +71,16 @@ public class AdminHomePage extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
+        jPanelHomePage.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelHomePage.setMaximumSize(new java.awt.Dimension(1200, 900));
+        jPanelHomePage.setMinimumSize(new java.awt.Dimension(1200, 900));
+        jPanelHomePage.setPreferredSize(new java.awt.Dimension(1200, 900));
+        jPanelHomePage.setLayout(new javax.swing.BoxLayout(jPanelHomePage, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Homepage.png"))); // NOI18N
+        jPanelHomePage.add(jLabel8);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -105,6 +117,9 @@ public class AdminHomePage extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(45, 96, 151), 3));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel3MouseEntered(evt);
             }
@@ -237,7 +252,11 @@ public class AdminHomePage extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 900));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.LINE_AXIS));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Homepage.png"))); // NOI18N
+        jPanel4.add(jLabel1);
+
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 1200, 900));
 
         pack();
@@ -271,16 +290,10 @@ public class AdminHomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelTrangChuMouseEntered
 
     private void jPanelTrangChuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelTrangChuMouseClicked
-        // TODO add your handling code here:
-        jPanelTrangChu.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                // Kiểm tra xem sự kiện click có xảy ra bên ngoài panel hay không
-                if (!SwingUtilities.isDescendingFrom(e.getComponent(), jPanelTrangChu)) {
-                    System.out.println("Click bên ngoài panel");
-                }
-            }
-        });        // TODO add your handling code here:
+        jPanel4.removeAll();
+        jPanel4.add(jPanelHomePage);
+        jPanel4.revalidate();
+        jPanel4.repaint();
     }//GEN-LAST:event_jPanelTrangChuMouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
@@ -321,6 +334,14 @@ public class AdminHomePage extends javax.swing.JFrame {
         jPanel4.validate();
         jPanel4.repaint();
     }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+        // TODO add your handling code here:
+        jPanel4.removeAll();
+        jPanel4.add(new QLNhanVien());
+        jPanel4.validate();
+        jPanel4.repaint();
+    }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel5MouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel5MouseEntered
         // TODO add your handling code here:
@@ -425,6 +446,7 @@ public class AdminHomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -434,6 +456,7 @@ public class AdminHomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -442,6 +465,7 @@ public class AdminHomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelHomePage;
     private javax.swing.JPanel jPanelTrangChu;
     // End of variables declaration//GEN-END:variables
 }

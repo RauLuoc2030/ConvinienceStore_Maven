@@ -47,6 +47,7 @@ public class DangNhap extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -61,18 +62,24 @@ public class DangNhap extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1600, 900));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1600, 900));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1600, 900));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel2.setFont(new java.awt.Font("Be Vietnam Pro ExtraBold", 0, 45)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ĐĂNG NHẬP");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 74, 391, 55));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 74, 391, 55));
 
         jLabel3.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 25)); // NOI18N
         jLabel3.setText("Mật khẩu");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 313, 230, 31));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 313, 230, 31));
 
         jLabel4.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 25)); // NOI18N
         jLabel4.setText("Tên đăng nhập");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(899, 170, 238, 31));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(899, 170, 238, 31));
 
         jTextFieldUsername.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 20)); // NOI18N
         jTextFieldUsername.setText("admin2");
@@ -81,7 +88,7 @@ public class DangNhap extends javax.swing.JFrame {
                 jTextFieldUsernameActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 209, 604, 69));
+        jPanel1.add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 209, 604, 69));
 
         jPasswordField.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 20)); // NOI18N
         jPasswordField.setText("admin");
@@ -90,7 +97,7 @@ public class DangNhap extends javax.swing.JFrame {
                 jPasswordFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 352, 604, 68));
+        jPanel1.add(jPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 352, 604, 68));
 
         panelRound1.setBackground(new java.awt.Color(45, 96, 151));
         panelRound1.setRoundBottomLeft(50);
@@ -110,10 +117,12 @@ public class DangNhap extends javax.swing.JFrame {
         jLabel5.setText("Đăng nhập");
         panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 10, 251, 56));
 
-        getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1038, 515, 338, 76));
+        jPanel1.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1038, 515, 338, 76));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Ảnh đăng nhập.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/LoginPic.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -293,6 +302,7 @@ public class DangNhap extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField;
     private javax.swing.JTextField jTextFieldUsername;
     private GUI.PanelRound panelRound1;

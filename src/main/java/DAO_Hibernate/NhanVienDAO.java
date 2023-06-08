@@ -25,7 +25,7 @@ public class NhanVienDAO {
         List<NhanVienDTO> nhanVienDTOs = null;
 
         try {
-            String queryString = "from NhanVienDAO";
+            String queryString = "from NhanVienDTO";
 
             if (condition != null && !condition.isEmpty()) {
                 queryString += " where " + condition;

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NhanVienDAO",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.NhanVienDAO",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
+            "name": "HoaDonDAO",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.HoaDonDAO",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "TestProcedure",
             "request": "launch",
             "mainClass": "DAO_Hibernate.TestProcedure",

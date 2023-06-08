@@ -236,6 +236,35 @@ public class KhachHangDAO {
         }
     }
 
+    public boolean updateKhachHang(KhachHangDTO khachHangDTO) throws SQLException {
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+
+            ProcedureCall procedureCall = session.createStoredProcedureCall("UPDATE_KHACHHANG");
+
+            // Đăng ký các tham số và thiết lập giá trị
+            procedureCall.registerParameter("MA", String.class, ParameterMode.IN)
+                    .bindValue(khachHangDTO.getMaKHString());
+            procedureCall.registerParameter("TEN", String.class, ParameterMode.IN)
+                    .bindValue(khachHangDTO.gettenKHString());
+            procedureCall.registerParameter("SDT", String.class, ParameterMode.IN)
+                    .bindValue(khachHangDTO.getSDTKHString());
+
+            // Thực hiện stored procedure
+            // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+            // ResultSetOutput resultSetOutput = (ResultSetOutput)
+            // procedureOutputs.getCurrent();
+            procedureCall.execute();
+
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public boolean deleteKhachHang(String ma) {
         try {
             session = HibernateUtil.getSessionFactory().openSession();

@@ -8,6 +8,7 @@ import BUS.SanPhamBUS;
 import DAO_Hibernate.ChiTietHoaDonDAO;
 import DAO_Hibernate.HoaDonDAO;
 import DAO_Hibernate.KhachHangDAO;
+import DAO_Hibernate.TestProcedure;
 import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
@@ -19,9 +20,12 @@ import GUI.LimitDigitsDocumentFilter;
 
 import java.awt.Component;
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.AbstractDocument;
 
@@ -431,7 +435,6 @@ public class BanHang extends javax.swing.JFrame {
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField_TimKiem.setFont(new java.awt.Font("Be Vietnam Pro", 0, 24)); // NOI18N
-        jTextField_TimKiem.setText("Tìm kiếm");
         jTextField_TimKiem.setBorder(null);
         jTextField_TimKiem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -813,6 +816,7 @@ public class BanHang extends javax.swing.JFrame {
     private void jPanelThanhToanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelThanhToanMouseClicked
         // TODO add your handling code here:
         // Tạo mới một hóa đơn
+
         HoaDonDTO hoaDonDTO = new HoaDonDTO();
         HoaDonDAO hoaDonDAO = new HoaDonDAO();
         hoaDonDTO.setMaHDString(hoaDonDAO.AutoGenerateMaHD());
@@ -855,14 +859,19 @@ public class BanHang extends javax.swing.JFrame {
                 chiTietHoaDonDTO.setGia(Integer.valueOf(product.getjLabelThanhTien().getText()));
                 // Thêm chi tiết hóa đơn vào CSDL
                 ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
-                chiTietHoaDonDAO.them_optimized(chiTietHoaDonDTO);
+                try {
+                    chiTietHoaDonDAO.them_optimized(chiTietHoaDonDTO);
+                    JOptionPane.showMessageDialog(null, "Thanh toán thành công!");
+                    jPanelGioHang.removeAll();
+                    jLabel7.setText("0");
+                    jPanelSanPham.removeAll();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Số lượng sản phẩm không đủ!");
+                    hoaDonDAO.xoa(hoaDonDTO);
+                }
                 index++;
             }
         }
-        JOptionPane.showMessageDialog(null, "Thanh toán thành công!");
-        jPanelGioHang.removeAll();
-        jLabel7.setText("0");
-        jPanelSanPham.removeAll();
         //-----------------------------------------
         sanPhamBUS = new SanPhamBUS();
         for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
@@ -1500,31 +1509,476 @@ public class BanHang extends javax.swing.JFrame {
     }
 
     private void jTextField_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField_TimKiemActionPerformed
-        String text = jTextField_TimKiem.getText();
-        if (text.length() != 0) {
-            sanPhamBUS = new SanPhamBUS();
-            SanPhamDTO sp = sanPhamBUS.tim(text);
-            if (sp != null) {
-                Product_icon p = new Product_icon(sp);
-                jPanelSanPham.removeAll();
-                jPanelSanPham.add(p);
+        String keyword = jTextField_TimKiem.getText();
+        TestProcedure testProcedure = new TestProcedure();
+        jPanelSanPham.removeAll();
+        if (keyword.length() != 0) {
+            List<SanPhamDTO> sanPhamDTOs = testProcedure.SEARCH_SANPHAM(keyword);
+            if (!sanPhamDTOs.isEmpty()) {
+                for (SanPhamDTO sanPhamDTO : sanPhamDTOs) {
+                    Product_icon product_icon = new Product_icon(sanPhamDTO);
+                    product_icon.addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            System.out.println("Click");
+                            Component[] components = jPanelGioHang.getComponents();
+                            if (components.length == 0) {
 
-            } else {
-                jPanelSanPham.removeAll();
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                            } else {
+                                boolean isExist = false;
+                                // Iterate over the components in reverse order
+                                for (int i = components.length - 1; i >= 0; i--) {
+                                    Component component = components[i];
+                                    if (component instanceof Product) {
+                                        Product product = (Product) component;
+                                        // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                        if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                            // Tăng số lượng lên
+                                            product.tangSoLuong();
+                                            updateTongGia();
+                                            jPanelGioHang.revalidate();
+                                            jPanelGioHang.repaint();
+                                            isExist = true;
+                                            System.out.println("Sản phẩm đã tồn tại");
+                                        }
+                                    }
+                                }
+
+                                if (!isExist) { // Chưa tồn tại
+                                    Product p = new Product(product_icon.getSanPhamDTO());
+                                    jPanelGioHang.add(p);
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    System.out.println("Sản phẩm chưa tồn tại");
+                                }
+                            }
+                        }
+                    });
+
+                    product_icon.getjPanel11().addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Component[] components = jPanelGioHang.getComponents();
+                            if (components.length == 0) {
+
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                            } else {
+                                boolean isExist = false;
+                                for (Component component : components) {
+                                    if (component instanceof Product) {
+                                        Product product = (Product) component;
+                                        // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                        if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                            // Tăng số lượng lên
+                                            product.tangSoLuong();
+                                            updateTongGia();
+                                            jPanelGioHang.revalidate();
+                                            jPanelGioHang.repaint();
+                                            isExist = true;
+                                            System.out.println("Sản phẩm đã tồn tại");
+
+                                        }
+                                    }
+                                }
+
+                                if (!isExist) { // Chưa tồn tại
+                                    Product p = new Product(product_icon.getSanPhamDTO());
+                                    jPanelGioHang.add(p);
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    System.out.println("Sản phẩm chưa tồn tại");
+                                }
+                            }
+                        }
+                    });
+
+                    product_icon.getjLabelTen().addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Component[] components = jPanelGioHang.getComponents();
+                            if (components.length == 0) {
+
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                            } else {
+                                boolean isExist = false;
+                                for (Component component : components) {
+                                    if (component instanceof Product) {
+                                        Product product = (Product) component;
+                                        // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                        if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                            // Tăng số lượng lên
+                                            product.tangSoLuong();
+                                            updateTongGia();
+                                            jPanelGioHang.revalidate();
+                                            jPanelGioHang.repaint();
+                                            isExist = true;
+                                            System.out.println("Sản phẩm đã tồn tại");
+
+                                        }
+                                    }
+                                }
+
+                                if (!isExist) { // Chưa tồn tại
+                                    Product p = new Product(product_icon.getSanPhamDTO());
+                                    jPanelGioHang.add(p);
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    System.out.println("Sản phẩm chưa tồn tại");
+                                }
+                            }
+                        }
+                    });
+
+                    product_icon.getjLabelGia().addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Component[] components = jPanelGioHang.getComponents();
+                            if (components.length == 0) {
+
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                            } else {
+                                boolean isExist = false;
+                                for (Component component : components) {
+                                    if (component instanceof Product) {
+                                        Product product = (Product) component;
+                                        // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                        if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                            // Tăng số lượng lên
+                                            product.tangSoLuong();
+                                            updateTongGia();
+                                            jPanelGioHang.revalidate();
+                                            jPanelGioHang.repaint();
+                                            isExist = true;
+                                            System.out.println("Sản phẩm đã tồn tại");
+
+                                        }
+                                    }
+                                }
+
+                                if (!isExist) { // Chưa tồn tại
+                                    Product p = new Product(product_icon.getSanPhamDTO());
+                                    jPanelGioHang.add(p);
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    System.out.println("Sản phẩm chưa tồn tại");
+                                }
+                            }
+                        }
+                    });
+
+                    product_icon.getjLabelSL().addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            Component[] components = jPanelGioHang.getComponents();
+                            if (components.length == 0) {
+
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                            } else {
+                                boolean isExist = false;
+                                for (Component component : components) {
+                                    if (component instanceof Product) {
+                                        Product product = (Product) component;
+                                        // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                        if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                            // Tăng số lượng lên
+                                            product.tangSoLuong();
+                                            updateTongGia();
+                                            jPanelGioHang.revalidate();
+                                            jPanelGioHang.repaint();
+                                            isExist = true;
+                                            System.out.println("Sản phẩm đã tồn tại");
+
+                                        }
+                                    }
+                                }
+
+                                if (!isExist) { // Chưa tồn tại
+                                    Product p = new Product(product_icon.getSanPhamDTO());
+                                    jPanelGioHang.add(p);
+                                    updateTongGia();
+                                    jPanelGioHang.revalidate();
+                                    jPanelGioHang.repaint();
+                                    System.out.println("Sản phẩm chưa tồn tại");
+                                }
+                            }
+                        }
+                    });
+                    jPanelSanPham.add(product_icon);
+                }
             }
-            jPanelSanPham.revalidate();
-            jPanelSanPham.repaint();
-            System.out.println("TextField contains text");
         } else {
-            jPanelSanPham.removeAll();
-            sanPhamBUS = new SanPhamBUS();
             for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
                 Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
+                product_icon.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        System.out.println("Click");
+                        Component[] components = jPanelGioHang.getComponents();
+                        if (components.length == 0) {
+
+                            Product p = new Product(product_icon.getSanPhamDTO());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                        } else {
+                            boolean isExist = false;
+                            // Iterate over the components in reverse order
+                            for (int i = components.length - 1; i >= 0; i--) {
+                                Component component = components[i];
+                                if (component instanceof Product) {
+                                    Product product = (Product) component;
+                                    // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                    if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                        // Tăng số lượng lên
+                                        product.tangSoLuong();
+                                        updateTongGia();
+                                        jPanelGioHang.revalidate();
+                                        jPanelGioHang.repaint();
+                                        isExist = true;
+                                        System.out.println("Sản phẩm đã tồn tại");
+                                    }
+                                }
+                            }
+
+                            if (!isExist) { // Chưa tồn tại
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                                System.out.println("Sản phẩm chưa tồn tại");
+                            }
+                        }
+                    }
+                });
+
+                product_icon.getjPanel11().addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        Component[] components = jPanelGioHang.getComponents();
+                        if (components.length == 0) {
+
+                            Product p = new Product(product_icon.getSanPhamDTO());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                        } else {
+                            boolean isExist = false;
+                            for (Component component : components) {
+                                if (component instanceof Product) {
+                                    Product product = (Product) component;
+                                    // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                    if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                        // Tăng số lượng lên
+                                        product.tangSoLuong();
+                                        updateTongGia();
+                                        jPanelGioHang.revalidate();
+                                        jPanelGioHang.repaint();
+                                        isExist = true;
+                                        System.out.println("Sản phẩm đã tồn tại");
+
+                                    }
+                                }
+                            }
+
+                            if (!isExist) { // Chưa tồn tại
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                                System.out.println("Sản phẩm chưa tồn tại");
+                            }
+                        }
+                    }
+                });
+
+                product_icon.getjLabelTen().addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        Component[] components = jPanelGioHang.getComponents();
+                        if (components.length == 0) {
+
+                            Product p = new Product(product_icon.getSanPhamDTO());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                        } else {
+                            boolean isExist = false;
+                            for (Component component : components) {
+                                if (component instanceof Product) {
+                                    Product product = (Product) component;
+                                    // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                    if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                        // Tăng số lượng lên
+                                        product.tangSoLuong();
+                                        updateTongGia();
+                                        jPanelGioHang.revalidate();
+                                        jPanelGioHang.repaint();
+                                        isExist = true;
+                                        System.out.println("Sản phẩm đã tồn tại");
+
+                                    }
+                                }
+                            }
+
+                            if (!isExist) { // Chưa tồn tại
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                                System.out.println("Sản phẩm chưa tồn tại");
+                            }
+                        }
+                    }
+                });
+
+                product_icon.getjLabelGia().addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        Component[] components = jPanelGioHang.getComponents();
+                        if (components.length == 0) {
+
+                            Product p = new Product(product_icon.getSanPhamDTO());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                        } else {
+                            boolean isExist = false;
+                            for (Component component : components) {
+                                if (component instanceof Product) {
+                                    Product product = (Product) component;
+                                    // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                    if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                        // Tăng số lượng lên
+                                        product.tangSoLuong();
+                                        updateTongGia();
+                                        jPanelGioHang.revalidate();
+                                        jPanelGioHang.repaint();
+                                        isExist = true;
+                                        System.out.println("Sản phẩm đã tồn tại");
+
+                                    }
+                                }
+                            }
+
+                            if (!isExist) { // Chưa tồn tại
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                                System.out.println("Sản phẩm chưa tồn tại");
+                            }
+                        }
+                    }
+                });
+
+                product_icon.getjLabelSL().addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        Component[] components = jPanelGioHang.getComponents();
+                        if (components.length == 0) {
+
+                            Product p = new Product(product_icon.getSanPhamDTO());
+                            jPanelGioHang.add(p);
+                            updateTongGia();
+                            jPanelGioHang.revalidate();
+                            jPanelGioHang.repaint();
+                        } else {
+                            boolean isExist = false;
+                            for (Component component : components) {
+                                if (component instanceof Product) {
+                                    Product product = (Product) component;
+                                    // TODO: Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+                                    if (product.getSanPhamDTO() == product_icon.getSanPhamDTO()) { // Đã tồn tại
+                                        // Tăng số lượng lên
+                                        product.tangSoLuong();
+                                        updateTongGia();
+                                        jPanelGioHang.revalidate();
+                                        jPanelGioHang.repaint();
+                                        isExist = true;
+                                        System.out.println("Sản phẩm đã tồn tại");
+
+                                    }
+                                }
+                            }
+
+                            if (!isExist) { // Chưa tồn tại
+                                Product p = new Product(product_icon.getSanPhamDTO());
+                                jPanelGioHang.add(p);
+                                updateTongGia();
+                                jPanelGioHang.revalidate();
+                                jPanelGioHang.repaint();
+                                System.out.println("Sản phẩm chưa tồn tại");
+                            }
+                        }
+                    }
+                });
                 jPanelSanPham.add(product_icon);
             }
-            jPanelSanPham.revalidate();
-            jPanelSanPham.repaint();
+
         }
+        jPanelSanPham.revalidate();
+        jPanelSanPham.repaint();
+        //---------------------------------------------------------------------------------------------------------
+//        String text = jTextField_TimKiem.getText();
+//        if (text.length() != 0) {
+//            TestProcedure testProcedure = new TestProcedure();
+//
+//            sanPhamBUS = new SanPhamBUS();
+//            SanPhamDTO sp = sanPhamBUS.tim(text);
+//            if (sp != null) {
+//                Product_icon p = new Product_icon(sp);
+//                jPanelSanPham.removeAll();
+//                jPanelSanPham.add(p);
+//
+//            } else {
+//                jPanelSanPham.removeAll();
+//            }
+//            jPanelSanPham.revalidate();
+//            jPanelSanPham.repaint();
+//            System.out.println("TextField contains text");
+//        } else {
+//            jPanelSanPham.removeAll();
+//            sanPhamBUS = new SanPhamBUS();
+//            for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
+//                Product_icon product_icon = new Product_icon(sanPhamBUS.getList_SanPhamDTOs().get(i));
+//                jPanelSanPham.add(product_icon);
+//            }
+//            jPanelSanPham.revalidate();
+//            jPanelSanPham.repaint();
+//        }
     }// GEN-LAST:event_jTextField_TimKiemActionPerformed
 
     private void jTextField_TimKiemMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jTextField_TimKiemMouseClicked

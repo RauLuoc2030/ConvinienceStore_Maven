@@ -48,6 +48,8 @@ public class QLHoaDon extends javax.swing.JPanel {
         jLabel43 = new javax.swing.JLabel();
         panelRound2 = new GUI.PanelRound();
         jTextField5 = new javax.swing.JTextField();
+        jPanelDel = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -94,6 +96,26 @@ public class QLHoaDon extends javax.swing.JPanel {
 
         jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
 
+        jPanelDel.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelDel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanelDel.setFocusable(false);
+        jPanelDel.setMaximumSize(new java.awt.Dimension(80, 80));
+        jPanelDel.setMinimumSize(new java.awt.Dimension(80, 80));
+        jPanelDel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelDelMouseClicked(evt);
+            }
+        });
+        jPanelDel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 28)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Xóa HD");
+        jPanelDel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 210, 70));
+
+        jPanel1.add(jPanelDel, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 10, 230, 70));
+
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 90));
 
         jPanel2.setBackground(new java.awt.Color(45, 96, 151));
@@ -129,10 +151,14 @@ public class QLHoaDon extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane1.setMinimumSize(new java.awt.Dimension(1200, 750));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 750));
 
         jPanelDSHD.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelDSHD.setMaximumSize(new java.awt.Dimension(1200, 660));
-        jPanelDSHD.setMinimumSize(new java.awt.Dimension(1200, 660));
+        jPanelDSHD.setMaximumSize(new java.awt.Dimension(1200, 750));
+        jPanelDSHD.setMinimumSize(new java.awt.Dimension(1200, 750));
+        jPanelDSHD.setPreferredSize(new java.awt.Dimension(1200, 750));
         jPanelDSHD.setLayout(new javax.swing.BoxLayout(jPanelDSHD, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanelDSHD);
 
@@ -162,17 +188,24 @@ public class QLHoaDon extends javax.swing.JPanel {
         jPanelDSHD.repaint();
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    private void jPanelDelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelDelMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jPanelDelMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelDSHD;
+    private javax.swing.JPanel jPanelDel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField5;
     private GUI.PanelRound panelRound2;

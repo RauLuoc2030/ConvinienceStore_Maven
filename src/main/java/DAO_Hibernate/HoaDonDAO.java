@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.ParameterMode;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.Query;
 
 import DTO.HoaDonDTO;
@@ -202,6 +205,24 @@ public class HoaDonDAO {
 
         session.getTransaction().commit();
         return sanPham;
+    }
+
+    public void deleteHoaDon(String ma) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("DELETE_HOADON");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MHD", String.class, ParameterMode.IN).bindValue(ma);
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
     }
 
     public List<String> getMaHDList() {
