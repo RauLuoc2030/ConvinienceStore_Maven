@@ -703,6 +703,7 @@ public class LoHang_HQT extends javax.swing.JPanel {
             obj[2] = sanPhamDTO.getPhanLoaiString();
             obj[3] = chiTietKhoDTO.getSoLuong();
             model.addRow(obj);
+            jDialogAddSP_LH.dispose();
         } catch (SQLException ex) {
             if (ex.getErrorCode() == -20000) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
