@@ -244,6 +244,7 @@ public class KhachHang extends javax.swing.JPanel {
     private void jPanelSave1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelSave1MouseClicked
         // TODO add your handling code here:
         KhachHangDTO khachHangDTO = new KhachHangDTO();
+        khachHangDTO.setMaKHString(jTextFieldMaKH.getText());
         khachHangDTO.setSDTKHString(jTextFieldSDTKH.getText());
         khachHangDTO.setTenKHString(jTextFieldTenKH.getText());
         KhachHangDAO khachHangDAO = new KhachHangDAO();

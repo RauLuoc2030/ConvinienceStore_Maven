@@ -82,6 +82,7 @@ public class DangNhap extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(899, 170, 238, 31));
 
         jTextFieldUsername.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 20)); // NOI18N
+        jTextFieldUsername.setText("admin2");
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsernameActionPerformed(evt);
@@ -90,6 +91,7 @@ public class DangNhap extends javax.swing.JFrame {
         jPanel1.add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 209, 604, 69));
 
         jPasswordField.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 20)); // NOI18N
+        jPasswordField.setText("admin");
         jPasswordField.setToolTipText("");
         jPasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

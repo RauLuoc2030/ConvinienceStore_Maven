@@ -32,8 +32,8 @@ public class CTKho extends javax.swing.JPanel {
         jLabelTenSP.setToolTipText(sanPhamDTO.getTenSPString());
         jLabelPhanLoai.setText(sanPhamDTO.getPhanLoaiString());
         jLabelPhanLoai.setToolTipText(sanPhamDTO.getPhanLoaiString());
-        jLabelNSX.setText(formatter.format(sanPhamDTO.getNSXDate()));
-        jLabelHSD.setText(formatter.format(sanPhamDTO.getHSDDate()));
+//        jLabelNSX.setText(formatter.format(sanPhamDTO.getNSXDate()));
+//        jLabelHSD.setText(formatter.format(sanPhamDTO.getHSDDate()));
         ChiTietKhoDAO chiTietKhoDAO = new ChiTietKhoDAO();
         ChiTietKhoDTO chiTietKhoDTO = chiTietKhoDAO.tim(maLoHang, sanPhamDTO.getMaSPString());
         jLabelSoLuong.setText(chiTietKhoDTO.getSoLuong().toString());
@@ -50,9 +50,7 @@ public class CTKho extends javax.swing.JPanel {
 
         jLabelTenSP = new javax.swing.JLabel();
         jLabelMaSP = new javax.swing.JLabel();
-        jLabelHSD = new javax.swing.JLabel();
         jLabelPhanLoai = new javax.swing.JLabel();
-        jLabelNSX = new javax.swing.JLabel();
         jLabelSoLuong = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -94,16 +92,6 @@ public class CTKho extends javax.swing.JPanel {
         });
         add(jLabelMaSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 60));
 
-        jLabelHSD.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
-        jLabelHSD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelHSD.setText("HSD");
-        jLabelHSD.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelHSDMouseClicked(evt);
-            }
-        });
-        add(jLabelHSD, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 180, 60));
-
         jLabelPhanLoai.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelPhanLoai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelPhanLoai.setText("Phân loại");
@@ -112,17 +100,7 @@ public class CTKho extends javax.swing.JPanel {
                 jLabelPhanLoaiMouseClicked(evt);
             }
         });
-        add(jLabelPhanLoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 180, 60));
-
-        jLabelNSX.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
-        jLabelNSX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNSX.setText("NSX");
-        jLabelNSX.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelNSXMouseClicked(evt);
-            }
-        });
-        add(jLabelNSX, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 180, 60));
+        add(jLabelPhanLoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 180, 60));
 
         jLabelSoLuong.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelSoLuong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -132,7 +110,7 @@ public class CTKho extends javax.swing.JPanel {
                 jLabelSoLuongMouseClicked(evt);
             }
         });
-        add(jLabelSoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 0, 132, 60));
+        add(jLabelSoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, 132, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
@@ -169,25 +147,13 @@ public class CTKho extends javax.swing.JPanel {
         requestFocus();
     }//GEN-LAST:event_jLabelPhanLoaiMouseClicked
 
-    private void jLabelNSXMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelNSXMouseClicked
-        // TODO add your handling code here:
-        requestFocus();
-    }//GEN-LAST:event_jLabelNSXMouseClicked
-
-    private void jLabelHSDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHSDMouseClicked
-        // TODO add your handling code here:
-        requestFocus();
-    }//GEN-LAST:event_jLabelHSDMouseClicked
-
     private void jLabelSoLuongMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSoLuongMouseClicked
         // TODO add your handling code here:
         requestFocus();
     }//GEN-LAST:event_jLabelSoLuongMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabelHSD;
     private javax.swing.JLabel jLabelMaSP;
-    private javax.swing.JLabel jLabelNSX;
     private javax.swing.JLabel jLabelPhanLoai;
     private javax.swing.JLabel jLabelSoLuong;
     private javax.swing.JLabel jLabelTenSP;

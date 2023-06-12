@@ -17,11 +17,12 @@ import org.hibernate.query.Query;
 import DTO.NhanVienDTO;
 
 public class NhanVienDAO {
+
     Session session;
 
     /**
      * Lấy thông tin từ Database
-     * 
+     *
      * @param condition
      * @param orderBy
      * @return Danh sách Nhân viên
@@ -54,7 +55,7 @@ public class NhanVienDAO {
 
     /**
      * Override lại phương thức readDB() cho TH truyền vào một tham số Condition
-     * 
+     *
      * @param condition
      * @return readDB(condition, null)
      */
@@ -64,7 +65,7 @@ public class NhanVienDAO {
 
     /**
      * Override lại phương thức readDB() cho TH không truyền vào tham số
-     * 
+     *
      * @return readDB(null, null)
      */
     public List<NhanVienDTO> readDB() {
@@ -73,7 +74,7 @@ public class NhanVienDAO {
 
     /**
      * Thêm một Nhân viên mới đã có thông tin vào CSDL
-     * 
+     *
      * @param nhanVienDTO
      * @return True nếu thành công
      */
@@ -116,7 +117,7 @@ public class NhanVienDAO {
 
     /**
      * Thêm một Nhân viên mới đã có thông tin vào CSDL
-     * 
+     *
      * @param nhanvien
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -135,7 +136,7 @@ public class NhanVienDAO {
 
     /**
      * Xóa một Nhân viên khỏi CSDL
-     * 
+     *
      * @param nhanVienDTO
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -168,7 +169,7 @@ public class NhanVienDAO {
 
     /**
      * Sửa một Nhân viên có trong CSDL
-     * 
+     *
      * @param nhanVienDTO
      * @return
      * @throws Exception
@@ -213,7 +214,7 @@ public class NhanVienDAO {
         return sanPham;
     }
 
-    public void insertNhanVien(NhanVienDTO nhanVienDTO) {
+    public void insertNhanVien(NhanVienDTO nhanVienDTO) throws Exception {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
@@ -229,7 +230,6 @@ public class NhanVienDAO {
         procedureCall.registerParameter("CV", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getChucVuNVString());
         procedureCall.registerParameter("L", Integer.class, ParameterMode.IN).bindValue(nhanVienDTO.getLuongInteger());
         procedureCall.registerParameter("NVL", Date.class, ParameterMode.IN).bindValue(nhanVienDTO.getNgayVaoLamDate());
-        
 
         // Thực hiện stored procedure
         // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
@@ -240,7 +240,7 @@ public class NhanVienDAO {
         session.getTransaction().commit();
     }
 
-    public void updateNhanVien(NhanVienDTO nhanVienDTO) {
+    public void updateNhanVien(NhanVienDTO nhanVienDTO) throws Exception {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
@@ -256,7 +256,6 @@ public class NhanVienDAO {
         procedureCall.registerParameter("CV", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getChucVuNVString());
         procedureCall.registerParameter("L", Integer.class, ParameterMode.IN).bindValue(nhanVienDTO.getLuongInteger());
         procedureCall.registerParameter("NVL", Date.class, ParameterMode.IN).bindValue(nhanVienDTO.getNgayVaoLamDate());
-        
 
         // Thực hiện stored procedure
         // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();

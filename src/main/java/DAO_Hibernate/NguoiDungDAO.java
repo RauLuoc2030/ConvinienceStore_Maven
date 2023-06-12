@@ -2,8 +2,11 @@ package DAO_Hibernate;
 
 import java.util.List;
 
+import javax.persistence.ParameterMode;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.procedure.ProcedureCall;
 import org.hibernate.query.Query;
 
 import DTO.NguoiDungDTO;
@@ -185,6 +188,46 @@ public class NguoiDungDAO {
         return result;
     }
 
+    public void insertTaiKhoan(NguoiDungDTO nguoiDungDTO) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("INSERT_TAIKHOAN");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("USR", String.class, ParameterMode.IN)
+                .bindValue(nguoiDungDTO.getUsernameString());
+        procedureCall.registerParameter("PASS", String.class, ParameterMode.IN)
+                .bindValue(nguoiDungDTO.getPasswordString());
+        procedureCall.registerParameter("MNV", String.class, ParameterMode.IN).bindValue(nguoiDungDTO.getMaNVString());
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
+    public void deleteTaiKhoan(String username) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("DELETE_TK");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MTK", String.class, ParameterMode.IN).bindValue(username);
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
     /**
      * Tìm kiếm một người dùng dựa trên maND cho trước
      *
@@ -235,5 +278,4 @@ public class NguoiDungDAO {
         return nguoiDung;
     }
 
-    
 }

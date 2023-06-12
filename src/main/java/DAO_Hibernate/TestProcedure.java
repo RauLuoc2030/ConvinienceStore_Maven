@@ -11,10 +11,12 @@ import java.util.List;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.KhoDTO;
+import DTO.NguoiDungDTO;
 import DTO.NhanVienDTO;
 import DTO.SanPhamDTO;
 
 public class TestProcedure {
+
     String url = "jdbc:oracle:thin:@localhost:1521:orcl";
     String username = "ConvinienceStore";
     String password = "conviniencestore";
@@ -179,8 +181,31 @@ public class TestProcedure {
         }
     }
 
+    public NguoiDungDTO SEARCH_TAIKHOAN(String maTK) {
+        try (Connection conn = DriverManager.getConnection(url, username, password)) {
+            CallableStatement cstmt = conn.prepareCall("{call SEARCH_TK(?, ?) }");
+            cstmt.setString(1, maTK);
+            cstmt.registerOutParameter(2, Types.REF_CURSOR);
+            cstmt.execute();
+            ResultSet rs = (ResultSet) cstmt.getObject(2);
+            NguoiDungDTO nguoiDungDTO = new NguoiDungDTO();
+            while (rs.next()) {
+                nguoiDungDTO.setUsernameString(rs.getString(1));
+                nguoiDungDTO.setPasswordString(rs.getString(2));
+                nguoiDungDTO.setMaNVString(rs.getString(3));
+            }
+            rs.close();
+            cstmt.close();
+
+            return nguoiDungDTO;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
         TestProcedure testProcedure = new TestProcedure();
-        System.out.println(testProcedure.SEARCH_LOHANG("LH000010"));
+        System.out.println(testProcedure.SEARCH_TAIKHOAN(""));
     }
 }

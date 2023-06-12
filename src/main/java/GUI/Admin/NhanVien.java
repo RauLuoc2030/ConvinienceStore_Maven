@@ -8,6 +8,11 @@ import DTO.NhanVienDTO;
 import java.awt.Color;
 
 import DAO_Hibernate.NhanVienDAO;
+import DAO_Hibernate.TestProcedure;
+import DTO.NguoiDungDTO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -81,8 +86,11 @@ public class NhanVien extends javax.swing.JPanel {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jTextField7 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabelMaNV = new javax.swing.JLabel();
@@ -209,16 +217,27 @@ public class NhanVien extends javax.swing.JPanel {
         jLabel23.setText("Chức vụ");
         jPanel9.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 223, 135, 24));
 
-        jTextField8.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jTextField8.setText("0");
-        jTextField8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
-        jPanel9.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 180, 135, 24));
-
         jDateChooser3.setBackground(new java.awt.Color(255, 255, 255));
         jDateChooser3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
         jDateChooser3.setDateFormatString("dd/MM/yyyy");
         jDateChooser3.setFont(new java.awt.Font("Be Vietnam Pro", 0, 10)); // NOI18N
         jPanel9.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 111, 135, 24));
+
+        jLabel24.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel24.setText("Tài khoản");
+        jPanel9.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 370, 135, 24));
+
+        jLabel25.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jLabel25.setText("Mật khẩu");
+        jPanel9.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 370, 135, 24));
+
+        jTextField9.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel9.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 400, 135, 24));
+
+        jTextField10.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
+        jTextField10.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(45, 96, 151)));
+        jPanel9.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 400, 135, 24));
 
         jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 400, 507));
 
@@ -338,7 +357,11 @@ public class NhanVien extends javax.swing.JPanel {
             }
             jTextField7.setText(nhanVienDTO.getLuongInteger().toString());
             jDateChooser2.setDate(nhanVienDTO.getNgayVaoLamDate());
-
+            TestProcedure testProcedure = new TestProcedure();
+            NguoiDungDTO nguoiDungDTO = new NguoiDungDTO();
+            nguoiDungDTO = testProcedure.SEARCH_TAIKHOAN(nhanVienDTO.getMaNVString());
+            jTextField9.setText(nguoiDungDTO.getUsernameString());
+            jTextField10.setText(nguoiDungDTO.getPasswordString());
             jDialogDetailNV.setVisible(true);
             // Reset lại số lần click và thời gian sau khi xử lý xong
             clickCount = 0;
@@ -394,9 +417,15 @@ public class NhanVien extends javax.swing.JPanel {
         nhanVienDTO.setNgayVaoLamDate(jDateChooser2.getDate());
 
         NhanVienDAO nhanVienDAO = new NhanVienDAO();
-        nhanVienDAO.updateNhanVien(nhanVienDTO);
-        this.nhanVienDTO = nhanVienDTO;
-        jDialogDetailNV.dispose();
+        try {
+            nhanVienDAO.updateNhanVien(nhanVienDTO);
+            this.nhanVienDTO = nhanVienDTO;
+            jDialogDetailNV.dispose();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Vui lòng kiểm tra lại định dạng thông tin");
+            Logger.getLogger(NhanVien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jPanelSaveMouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
@@ -422,6 +451,8 @@ public class NhanVien extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -436,12 +467,13 @@ public class NhanVien extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelSave;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
     /**

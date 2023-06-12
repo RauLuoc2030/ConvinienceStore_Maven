@@ -5,6 +5,7 @@
 package GUI.Staff;
 
 import GUI.DangNhap;
+import GUI.HQT_CSDL.QLKho_HQT;
 import GUI.QLHoaDon;
 import GUI.QLKhachHang;
 import GUI.QLKho;
@@ -263,7 +264,7 @@ public class NhanVienHomePage extends javax.swing.JFrame {
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
         jPanel11.removeAll();
-        jPanel11.add(new QLKho());
+        jPanel11.add(new QLKho_HQT());
         jPanel11.validate();
         jPanel11.repaint();
     }//GEN-LAST:event_jPanel6MouseClicked

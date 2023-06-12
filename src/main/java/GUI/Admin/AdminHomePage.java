@@ -6,6 +6,7 @@ package GUI.Admin;
 
 import BUS.SanPhamBUS;
 import GUI.DangNhap;
+import GUI.HQT_CSDL.QLKho_HQT;
 import GUI.Product_icon;
 import GUI.QLHoaDon;
 import GUI.QLKhachHang;
@@ -330,7 +331,7 @@ public class AdminHomePage extends javax.swing.JFrame {
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
         jPanel4.removeAll();
-        jPanel4.add(new QLKho());
+        jPanel4.add(new QLKho_HQT());
         jPanel4.validate();
         jPanel4.repaint();
     }//GEN-LAST:event_jPanel6MouseClicked

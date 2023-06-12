@@ -14,11 +14,12 @@ import org.hibernate.query.Query;
 import DTO.SanPhamDTO;
 
 public class SanPhamDAO {
+
     Session session;
 
     /**
      * Lấy thông tin từ Database
-     * 
+     *
      * @param condition
      * @param orderBy
      * @return Danh sách Sản phẩm
@@ -51,7 +52,7 @@ public class SanPhamDAO {
 
     /**
      * Override lại phương thức readDB() cho TH truyền vào một tham số Condition
-     * 
+     *
      * @param condition
      * @return readDB(condition, null)
      */
@@ -61,7 +62,7 @@ public class SanPhamDAO {
 
     /**
      * Override lại phương thức readDB() cho TH không truyền vào tham số
-     * 
+     *
      * @return readDB(null, null)
      */
     public List<SanPhamDTO> readDB() {
@@ -70,7 +71,7 @@ public class SanPhamDAO {
 
     /**
      * Thêm một Sản phẩm mới đã có thông tin vào CSDL
-     * 
+     *
      * @param sanpham
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -114,27 +115,22 @@ public class SanPhamDAO {
 
     /**
      * Thêm một Sản phẩm mới đã có thông tin vào CSDL
-     * 
+     *
      * @param sanpham
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
      */
-    public boolean them_optimized(SanPhamDTO sanpham) {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            // sanpham.setMaSPString(AutoGenerateMaSP());
-            session.save(sanpham);
-            session.getTransaction().commit();
-            return true;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return false;
-        }
+    public boolean them_optimized(SanPhamDTO sanpham) throws Exception {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(sanpham);
+        session.getTransaction().commit();
+        return true;
     }
 
     /**
      * Xóa một Sản phẩm khỏi CSDL
-     * 
+     *
      * @param sanpham
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -167,32 +163,22 @@ public class SanPhamDAO {
 
     /**
      * Sửa một Sản phẩm có trong CSDL
-     * 
+     *
      * @param sanpham
      * @return
      * @throws Exception
      */
-    public boolean sua(SanPhamDTO sanpham) {
+    public boolean sua(SanPhamDTO sanpham) throws Exception {
         boolean result = false;
         Transaction transaction = null;
-        try {
-            session = HibernateUtil.getSessionFactory().openSession();
-            transaction = session.beginTransaction();
 
-            session.update(sanpham); // sửa thông tin đối tượng SanPhamDTO trong database
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
 
-            transaction.commit(); // commit transaction
-            result = true;
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback(); // rollback transaction nếu có lỗi xảy ra
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+        session.update(sanpham); // sửa thông tin đối tượng SanPhamDTO trong database
+
+        transaction.commit(); // commit transaction
+        result = true;
 
         return result;
     }

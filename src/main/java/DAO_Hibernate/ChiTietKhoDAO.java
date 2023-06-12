@@ -73,6 +73,45 @@ public class ChiTietKhoDAO {
         session.getTransaction().commit();
     }
 
+    public void deleteChiTietKho(String maLH, String maSP) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("DELETE_CTK");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MLH", String.class, ParameterMode.IN).bindValue(maLH);
+        procedureCall.registerParameter("MSP", String.class, ParameterMode.IN).bindValue(maSP);
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
+    public void updateChiTietKho(String maLH, String maSP, Integer soLuong) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("UPDATE_CHITIETKHO");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MALH", String.class, ParameterMode.IN).bindValue(maLH);
+        procedureCall.registerParameter("MSP", String.class, ParameterMode.IN).bindValue(maSP);
+        procedureCall.registerParameter("SL", Integer.class, ParameterMode.IN).bindValue(soLuong);
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
     public ChiTietKhoDTO tim(String MaLH, String MaSP) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

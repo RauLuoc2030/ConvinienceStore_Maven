@@ -110,8 +110,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
@@ -123,8 +121,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabel48 = new javax.swing.JLabel();
         MoTa1 = new javax.swing.JTextField();
         MaSP1 = new javax.swing.JTextField();
-        NSX1 = new javax.swing.JTextField();
-        HSD1 = new javax.swing.JTextField();
         SL1 = new javax.swing.JTextField();
         PL1 = new javax.swing.JTextField();
         Gia1 = new javax.swing.JTextField();
@@ -168,29 +164,21 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jLabel30.setText("Mã sản phẩm:");
         jPanel16.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 90, 40));
 
-        jLabel31.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel31.setText("NSX:");
-        jPanel16.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 30, 40));
-
-        jLabel32.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        jLabel32.setText("HSD:");
-        jPanel16.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 30, 40));
-
         jLabel33.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel33.setText("Số lượng:");
-        jPanel16.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 60, 40));
+        jPanel16.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 60, 40));
 
         jLabel34.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel34.setText("Phân loại:");
-        jPanel16.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 60, 40));
+        jPanel16.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 60, 40));
 
         jLabel44.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel44.setText("Giá:");
-        jPanel16.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 30, 40));
+        jPanel16.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 30, 40));
 
         jLabel45.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         jLabel45.setText("Mô tả:");
-        jPanel16.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 40, 40));
+        jPanel16.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 40, 40));
 
         jScrollPane6.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane6.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -237,7 +225,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         MoTa1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         MoTa1.setText("jTextField1");
         MoTa1.setBorder(null);
-        jPanel16.add(MoTa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 260, 330, 40));
+        jPanel16.add(MoTa1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 220, 380, 40));
 
         MaSP1.setEditable(false);
         MaSP1.setBackground(new java.awt.Color(255, 255, 255));
@@ -247,29 +235,13 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         MaSP1.setBorder(null);
         jPanel16.add(MaSP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 20, 110, 40));
 
-        NSX1.setEditable(false);
-        NSX1.setBackground(new java.awt.Color(255, 255, 255));
-        NSX1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        NSX1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        NSX1.setText("jTextField1");
-        NSX1.setBorder(null);
-        jPanel16.add(NSX1, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 60, 165, 40));
-
-        HSD1.setEditable(false);
-        HSD1.setBackground(new java.awt.Color(255, 255, 255));
-        HSD1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
-        HSD1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        HSD1.setText("jTextField1");
-        HSD1.setBorder(null);
-        jPanel16.add(HSD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 100, 165, 40));
-
         SL1.setEditable(false);
         SL1.setBackground(new java.awt.Color(255, 255, 255));
         SL1.setFont(new java.awt.Font("Be Vietnam Pro SemiBold", 0, 12)); // NOI18N
         SL1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         SL1.setText("jTextField1");
         SL1.setBorder(null);
-        jPanel16.add(SL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 139, 40));
+        jPanel16.add(SL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 139, 40));
 
         PL1.setEditable(false);
         PL1.setBackground(new java.awt.Color(255, 255, 255));
@@ -277,7 +249,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         PL1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         PL1.setText("jTextField1");
         PL1.setBorder(null);
-        jPanel16.add(PL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 180, 134, 40));
+        jPanel16.add(PL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 100, 134, 40));
 
         Gia1.setEditable(false);
         Gia1.setBackground(new java.awt.Color(255, 255, 255));
@@ -285,7 +257,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         Gia1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         Gia1.setText("jTextField1");
         Gia1.setBorder(null);
-        jPanel16.add(Gia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 169, 40));
+        jPanel16.add(Gia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 169, 40));
 
         jPanelSave.setBackground(new java.awt.Color(45, 96, 151));
         jPanelSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -435,8 +407,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanelSave.setEnabled(true);
         jPanelSave.setVisible(true);
 
-        NSX1.setEditable(true);
-        HSD1.setEditable(true);
         SL1.setEditable(true);
         PL1.setEditable(true);
         Gia1.setEditable(true);
@@ -454,8 +424,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
         // Disable edit in every TextField
         MaSP1.setEditable(false);
-        NSX1.setEditable(false);
-        HSD1.setEditable(false);
         SL1.setEditable(false);
         PL1.setEditable(false);
         Gia1.setEditable(false);
@@ -465,8 +433,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         // Sửa sản phẩm trong CSDL
         sanPhamBUS = new SanPhamBUS();
         sanPhamDTO.setMaSPString(MaSP1.getText());
-        sanPhamDTO.setNSXDate(NSX1.getText());
-        sanPhamDTO.setHSDDate(HSD1.getText());
         sanPhamDTO.setSoLuongSPInt(Integer.valueOf(SL1.getText()));
         sanPhamDTO.setPhanLoaiString(PL1.getText());
         sanPhamDTO.setGiaInt(Integer.valueOf(Gia1.getText()));
@@ -477,22 +443,12 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             sanPhamBUS.sua(sanPhamDTO);
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            JOptionPane.showMessageDialog(null, "Sua khong thanh cong");
+            JOptionPane.showMessageDialog(null, "Vui lòng kiểm tra lại định dạng thông tin");
+//            JOptionPane.showMessageDialog(null, "Sua khong thanh cong");
             e.printStackTrace();
         }
 
         // Hiển thị lại thông tin sản phẩm sau khi sửa
-        MaSP1.setText(sanPhamDTO.getMaSPString());
-        if (sanPhamDTO.getNSXDate() == null) {
-            NSX1.setText("");
-        } else {
-            NSX1.setText(sdf.format(sanPhamDTO.getNSXDate()).toString());
-        }
-        if (sanPhamDTO.getHSDDate() == null) {
-            HSD1.setText("");
-        } else {
-            HSD1.setText(sdf.format(sanPhamDTO.getHSDDate()).toString());
-        }
         SL1.setText(sanPhamDTO.getSoLuongSPInt().toString());
         PL1.setText(sanPhamDTO.getPhanLoaiString());
         Gia1.setText(sanPhamDTO.getGiaInt().toString());
@@ -517,16 +473,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         if (clickCount == 1 && (currentTime - lastClickTime) <= 200) {
             // Xử lý sự kiện double click
             MaSP1.setText(sanPhamDTO.getMaSPString());
-            if (sanPhamDTO.getNSXDate() == null) {
-                NSX1.setText("");
-            } else {
-                NSX1.setText(sdf.format(sanPhamDTO.getNSXDate()));
-            }
-            if (sanPhamDTO.getHSDDate() == null) {
-                HSD1.setText("");
-            } else {
-                HSD1.setText(sdf.format(sanPhamDTO.getHSDDate()));
-            }
+
             SL1.setText(sanPhamDTO.getSoLuongSPInt().toString());
             PL1.setText(sanPhamDTO.getPhanLoaiString());
             Gia1.setText(sanPhamDTO.getGiaInt().toString());
@@ -550,17 +497,13 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Gia1;
-    private javax.swing.JTextField HSD1;
     private javax.swing.JTextField MaSP1;
     private javax.swing.JTextField MoTa1;
-    private javax.swing.JTextField NSX1;
     private javax.swing.JTextField PL1;
     private javax.swing.JTextField SL1;
     private javax.swing.JTextArea TenSP1;
     private javax.swing.JDialog jDialogDetailSP1;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel43;
