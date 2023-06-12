@@ -7,6 +7,7 @@ import DAO_Hibernate.NhanVienDAO;
 import DTO.NhanVienDTO;
 
 public class NhanVienBUS {
+
     private List<NhanVienDTO> list_NhanVienDTOs;
     /**
      * Xử lý các lệnh trong database
@@ -30,12 +31,12 @@ public class NhanVienBUS {
     public NhanVienBUS() {
         list_NhanVienDTOs = new ArrayList<>();
         nhanVienDAO = new NhanVienDAO();
-        list_NhanVienDTOs = nhanVienDAO.readDB();
+        list_NhanVienDTOs = nhanVienDAO.readDB("", "manv");
     }
 
     /**
      * Thêm 1 Nhân viên vào danh sách và database
-     * 
+     *
      * @param nhanVienDTO
      * @return true nếu thành công
      * @throws Exception
@@ -50,7 +51,7 @@ public class NhanVienBUS {
 
     /**
      * Xóa 1 Nhân viên khỏi danh sách và database
-     * 
+     *
      * @param nhanVienDTO
      * @return true nếu thành công
      * @throws Exception
@@ -70,7 +71,7 @@ public class NhanVienBUS {
 
     /**
      * Sửa thông tin của 1 Nhân viên trong danh sách và database
-     * 
+     *
      * @param nhanVienDTO
      * @return true nếu thành công
      * @throws Exception

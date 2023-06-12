@@ -7,6 +7,7 @@ import DAO_Hibernate.SanPhamDAO;
 import DTO.SanPhamDTO;
 
 public class SanPhamBUS {
+
     private List<SanPhamDTO> list_SanPhamDTOs;
     /**
      * Xử lý các lệnh trong database
@@ -30,12 +31,12 @@ public class SanPhamBUS {
     public SanPhamBUS() {
         list_SanPhamDTOs = new ArrayList<>();
         sanPhamDAO = new SanPhamDAO();
-        list_SanPhamDTOs = sanPhamDAO.readDB();
+        list_SanPhamDTOs = sanPhamDAO.readDB("", "phanLoaiString");
     }
 
     /**
      * Thêm 1 Sản phẩm vào danh sách và database
-     * 
+     *
      * @param sanPhamDTO
      * @return true nếu thành công
      * @throws Exception
@@ -50,7 +51,7 @@ public class SanPhamBUS {
 
     /**
      * Xóa 1 Sản phẩm khỏi danh sách và database
-     * 
+     *
      * @param sanPhamDTO
      * @return true nếu thành công
      * @throws Exception
@@ -70,7 +71,7 @@ public class SanPhamBUS {
 
     /**
      * Sửa thông tin của 1 Sản phẩm trong danh sách và database
-     * 
+     *
      * @param sanPhamDTO
      * @return true nếu thành công
      * @throws Exception

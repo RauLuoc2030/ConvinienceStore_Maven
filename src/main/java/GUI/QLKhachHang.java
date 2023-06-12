@@ -169,7 +169,6 @@ public class QLKhachHang extends javax.swing.JPanel {
 
         jDialogDeleteKH.getContentPane().add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
 
-        jDialogAddKH.setMaximumSize(new java.awt.Dimension(420, 510));
         jDialogAddKH.setMinimumSize(new java.awt.Dimension(420, 510));
         jDialogAddKH.setModal(true);
         jDialogAddKH.setUndecorated(true);

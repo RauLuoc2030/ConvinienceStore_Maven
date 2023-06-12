@@ -30,7 +30,7 @@ public class QLSanPham extends javax.swing.JPanel {
      */
     public QLSanPham() {
         initComponents();
-        jDialogAddSP.setLocationRelativeTo(null);
+        jDialogAddNV.setLocationRelativeTo(null);
         jDialogDeleteSP.setLocationRelativeTo(null);
 
         sanPhamBUS = new SanPhamBUS();
@@ -52,7 +52,7 @@ public class QLSanPham extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialogAddSP = new javax.swing.JDialog();
+        jDialogAddNV = new javax.swing.JDialog();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -100,11 +100,11 @@ public class QLSanPham extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
 
-        jDialogAddSP.setModal(true);
-        jDialogAddSP.setUndecorated(true);
-        jDialogAddSP.setResizable(false);
-        jDialogAddSP.setSize(new java.awt.Dimension(420, 570));
-        jDialogAddSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jDialogAddNV.setModal(true);
+        jDialogAddNV.setUndecorated(true);
+        jDialogAddNV.setResizable(false);
+        jDialogAddNV.setSize(new java.awt.Dimension(420, 570));
+        jDialogAddNV.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel6.setBackground(new java.awt.Color(45, 96, 151));
         jPanel6.setMaximumSize(new java.awt.Dimension(420, 568));
@@ -233,8 +233,9 @@ public class QLSanPham extends javax.swing.JPanel {
         });
         jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
 
-        jDialogAddSP.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
+        jDialogAddNV.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
 
+        jDialogDeleteSP.setFocusCycleRoot(false);
         jDialogDeleteSP.setFocusable(false);
         jDialogDeleteSP.setFocusableWindowState(false);
         jDialogDeleteSP.setMinimumSize(new java.awt.Dimension(625, 210));
@@ -432,7 +433,7 @@ public class QLSanPham extends javax.swing.JPanel {
             if (sanPhamBUS.them(sanPhamDTO)) {
                 Product_icon product_icon = new Product_icon(sanPhamDTO);
                 jPanelDanhSachSP.add(product_icon);
-                jDialogAddSP.dispose();
+                jDialogAddNV.dispose();
                 jPanelDanhSachSP.revalidate();
                 jPanelDanhSachSP.repaint();
             }
@@ -500,7 +501,7 @@ public class QLSanPham extends javax.swing.JPanel {
             jComboBox1.addItem(phanLoai);
         }
         jComboBox1.setLightWeightPopupEnabled(false);
-        jDialogAddSP.setVisible(true);
+        jDialogAddNV.setVisible(true);
     }// GEN-LAST:event_jPanelAddMouseClicked
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_formFocusGained
@@ -518,7 +519,7 @@ public class QLSanPham extends javax.swing.JPanel {
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel18MouseClicked
         // TODO add your handling code here:
-        jDialogAddSP.dispose();
+        jDialogAddNV.dispose();
     }// GEN-LAST:event_jLabel18MouseClicked
 
     private void jPanelDelMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanelDelMouseClicked
@@ -590,7 +591,7 @@ public class QLSanPham extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
-    private javax.swing.JDialog jDialogAddSP;
+    private javax.swing.JDialog jDialogAddNV;
     private javax.swing.JDialog jDialogDeleteSP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

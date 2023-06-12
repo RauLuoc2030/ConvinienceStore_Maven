@@ -66,7 +66,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         AbstractDocument docSL = (AbstractDocument) SL1.getDocument();
         docSL.setDocumentFilter(new LimitDigitsDocumentFilter(4));
         AbstractDocument docGia = (AbstractDocument) Gia1.getDocument();
-        docGia.setDocumentFilter(new LimitDigitsDocumentFilter(4));
+        docGia.setDocumentFilter(new LimitDigitsDocumentFilter(8));
     }
 
     @Override
@@ -413,7 +413,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanel11.setBackground(new java.awt.Color(245, 181, 189));
 //        setBorder(new LineBorder(Color.BLACK, 2));
 
-        System.out.println("Focus gained");
     }// GEN-LAST:event_jPanel11FocusGained
 
     private void jPanel11FocusLost(java.awt.event.FocusEvent evt) {// GEN-FIRST:event_jPanel11FocusLost
@@ -422,7 +421,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanel11.setBackground(Color.WHITE);
 //        setBorder(new LineBorder(Color.WHITE, 2));
 
-        System.out.println("Focus lost");
     }// GEN-LAST:event_jPanel11FocusLost
 
     private void jLabel43MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel43MouseClicked
@@ -522,12 +520,12 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             if (sanPhamDTO.getNSXDate() == null) {
                 NSX1.setText("");
             } else {
-                NSX1.setText(sdf.format(sanPhamDTO.getNSXDate()).toString());
+                NSX1.setText(sdf.format(sanPhamDTO.getNSXDate()));
             }
             if (sanPhamDTO.getHSDDate() == null) {
                 HSD1.setText("");
             } else {
-                HSD1.setText(sdf.format(sanPhamDTO.getHSDDate()).toString());
+                HSD1.setText(sdf.format(sanPhamDTO.getHSDDate()));
             }
             SL1.setText(sanPhamDTO.getSoLuongSPInt().toString());
             PL1.setText(sanPhamDTO.getPhanLoaiString());
@@ -537,7 +535,6 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
             MoTa1.setToolTipText(sanPhamDTO.getMoTaString());
 
             jDialogDetailSP1.setVisible(true);
-            System.out.println("Double clicked!");
 
             // Reset lại số lần click và thời gian sau khi xử lý xong
             clickCount = 0;

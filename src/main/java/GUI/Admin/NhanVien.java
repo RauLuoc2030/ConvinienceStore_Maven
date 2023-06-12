@@ -30,7 +30,7 @@ public class NhanVien extends javax.swing.JPanel {
 
     public NhanVien(NhanVienDTO nhanVienDTO) {
         initComponents();
-        jDialogAddSP.setLocationRelativeTo(null);
+        jDialogDetailNV.setLocationRelativeTo(null);
 
         this.nhanVienDTO = new NhanVienDTO();
         this.nhanVienDTO = nhanVienDTO;
@@ -57,7 +57,7 @@ public class NhanVien extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialogAddSP = new javax.swing.JDialog();
+        jDialogDetailNV = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -91,11 +91,11 @@ public class NhanVien extends javax.swing.JPanel {
         jLabelLuong = new javax.swing.JLabel();
         jLabelChucVu = new javax.swing.JLabel();
 
-        jDialogAddSP.setModal(true);
-        jDialogAddSP.setUndecorated(true);
-        jDialogAddSP.setResizable(false);
-        jDialogAddSP.setSize(new java.awt.Dimension(420, 570));
-        jDialogAddSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jDialogDetailNV.setModal(true);
+        jDialogDetailNV.setUndecorated(true);
+        jDialogDetailNV.setResizable(false);
+        jDialogDetailNV.setSize(new java.awt.Dimension(420, 570));
+        jDialogDetailNV.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBackground(new java.awt.Color(45, 96, 151));
         jPanel7.setMaximumSize(new java.awt.Dimension(420, 568));
@@ -240,7 +240,7 @@ public class NhanVien extends javax.swing.JPanel {
         });
         jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 13, 24, 24));
 
-        jDialogAddSP.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
+        jDialogDetailNV.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 570));
 
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(45, 96, 151)));
@@ -339,7 +339,7 @@ public class NhanVien extends javax.swing.JPanel {
             jTextField7.setText(nhanVienDTO.getLuongInteger().toString());
             jDateChooser2.setDate(nhanVienDTO.getNgayVaoLamDate());
 
-            jDialogAddSP.setVisible(true);
+            jDialogDetailNV.setVisible(true);
             // Reset lại số lần click và thời gian sau khi xử lý xong
             clickCount = 0;
             lastClickTime = 0;
@@ -385,7 +385,7 @@ public class NhanVien extends javax.swing.JPanel {
         nhanVienDTO.setNgaySinhNVDate(jDateChooser3.getDate());
         nhanVienDTO.setCCCDNVString(jTextField3.getText());
         nhanVienDTO.setDiaChiNVString(jTextField6.getText());
-        if (jComboBox1.getSelectedItem().equals("Quản lý")){
+        if (jComboBox1.getSelectedItem().equals("Quản lý")) {
             nhanVienDTO.setChucVuNVString("quan ly");
         } else if (jComboBox1.getSelectedItem().equals("Nhân viên")) {
             nhanVienDTO.setChucVuNVString("nhan vien");
@@ -396,12 +396,12 @@ public class NhanVien extends javax.swing.JPanel {
         NhanVienDAO nhanVienDAO = new NhanVienDAO();
         nhanVienDAO.updateNhanVien(nhanVienDTO);
         this.nhanVienDTO = nhanVienDTO;
-        jDialogAddSP.dispose();
+        jDialogDetailNV.dispose();
     }//GEN-LAST:event_jPanelSaveMouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         // TODO add your handling code here:
-        jDialogAddSP.dispose();
+        jDialogDetailNV.dispose();
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -412,7 +412,7 @@ public class NhanVien extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
-    private javax.swing.JDialog jDialogAddSP;
+    private javax.swing.JDialog jDialogDetailNV;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;

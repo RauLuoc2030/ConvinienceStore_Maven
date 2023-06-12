@@ -197,6 +197,7 @@ public class LoHang extends javax.swing.JPanel {
         jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 61, 1168, 730));
 
         jPanelThemSP_LH.setBackground(new java.awt.Color(45, 96, 151));
+        jPanelThemSP_LH.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanelThemSP_LH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanelThemSP_LHMouseClicked(evt);
@@ -548,7 +549,7 @@ public class LoHang extends javax.swing.JPanel {
             jPanel17.removeAll();
             for (int i = sanPhamList.size() - 1; i >= 0; i--) {
                 sanPhamDAO = new SanPhamDAO();
-                CTKho ctKho = new CTKho(sanPhamDAO.tim(sanPhamList.get(i)));
+                CTKho ctKho = new CTKho(khoDTO.getMaLoHangString(), sanPhamDAO.tim(sanPhamList.get(i)));
                 jPanel17.add(ctKho);
             }
             jPanel17.validate();

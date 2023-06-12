@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import DAO_Hibernate.ChiTietKhoDAO;
+import DTO.ChiTietKhoDTO;
 import DTO.SanPhamDTO;
 import static GUI.LoHang.formatter;
 import java.awt.Color;
@@ -23,7 +25,7 @@ public class CTKho extends javax.swing.JPanel {
         initComponents();
     }
 
-    public CTKho(SanPhamDTO sanPhamDTO) {
+    public CTKho(String maLoHang, SanPhamDTO sanPhamDTO) {
         initComponents();
         jLabelMaSP.setText(sanPhamDTO.getMaSPString());
         jLabelTenSP.setText(sanPhamDTO.getTenSPString());
@@ -32,7 +34,9 @@ public class CTKho extends javax.swing.JPanel {
         jLabelPhanLoai.setToolTipText(sanPhamDTO.getPhanLoaiString());
         jLabelNSX.setText(formatter.format(sanPhamDTO.getNSXDate()));
         jLabelHSD.setText(formatter.format(sanPhamDTO.getHSDDate()));
-        jLabelSoLuong.setText(sanPhamDTO.getSoLuongSPInt().toString());
+        ChiTietKhoDAO chiTietKhoDAO = new ChiTietKhoDAO();
+        ChiTietKhoDTO chiTietKhoDTO = chiTietKhoDAO.tim(maLoHang, sanPhamDTO.getMaSPString());
+        jLabelSoLuong.setText(chiTietKhoDTO.getSoLuong().toString());
     }
 
     /**
@@ -82,6 +86,7 @@ public class CTKho extends javax.swing.JPanel {
 
         jLabelMaSP.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelMaSP.setText("SP001");
+        jLabelMaSP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelMaSP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelMaSPMouseClicked(evt);
@@ -134,12 +139,14 @@ public class CTKho extends javax.swing.JPanel {
         // TODO add your handling code here:
         setBackground(new java.awt.Color(245, 181, 189));
         isSelect = true;
+        System.out.println(isSelect);
     }//GEN-LAST:event_formFocusGained
 
     private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
         // TODO add your handling code here:
         isSelect = false;
         setBackground(Color.WHITE);
+        System.out.println(isSelect);
     }//GEN-LAST:event_formFocusLost
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked

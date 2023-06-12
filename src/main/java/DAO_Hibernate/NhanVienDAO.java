@@ -213,6 +213,33 @@ public class NhanVienDAO {
         return sanPham;
     }
 
+    public void insertNhanVien(NhanVienDTO nhanVienDTO) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        ProcedureCall procedureCall = session.createStoredProcedureCall("INSERT_NV");
+
+        // Đăng ký các tham số và thiết lập giá trị
+        procedureCall.registerParameter("MNV", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getMaNVString());
+        procedureCall.registerParameter("TEN", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getHoTenNVString());
+        procedureCall.registerParameter("SDT", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getSDTNVString());
+        procedureCall.registerParameter("NS", Date.class, ParameterMode.IN).bindValue(nhanVienDTO.getNgaySinhNVDate());
+        procedureCall.registerParameter("CCCD", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getCCCDNVString());
+        procedureCall.registerParameter("DC", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getDiaChiNVString());
+        procedureCall.registerParameter("CV", String.class, ParameterMode.IN).bindValue(nhanVienDTO.getChucVuNVString());
+        procedureCall.registerParameter("L", Integer.class, ParameterMode.IN).bindValue(nhanVienDTO.getLuongInteger());
+        procedureCall.registerParameter("NVL", Date.class, ParameterMode.IN).bindValue(nhanVienDTO.getNgayVaoLamDate());
+        
+
+        // Thực hiện stored procedure
+        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
+        // ResultSetOutput resultSetOutput = (ResultSetOutput)
+        // procedureOutputs.getCurrent();
+        procedureCall.execute();
+
+        session.getTransaction().commit();
+    }
+
     public void updateNhanVien(NhanVienDTO nhanVienDTO) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

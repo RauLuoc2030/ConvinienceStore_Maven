@@ -35,7 +35,7 @@ public class QLKho extends javax.swing.JPanel {
     public QLKho() {
         initComponents();
         jDialogAddLH.setLocationRelativeTo(null);
-        jDialogDeleteSP.setLocationRelativeTo(null);
+        jDialogDeleteLH.setLocationRelativeTo(null);
         khoVanBUS = new KhoBUS();
         for (int i = 0; i < khoVanBUS.getList_KhoVanDTOs().size(); i++) {
             LoHang loHang = new LoHang(khoVanBUS.getList_KhoVanDTOs().get(i));
@@ -54,7 +54,7 @@ public class QLKho extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialogDeleteSP = new javax.swing.JDialog();
+        jDialogDeleteLH = new javax.swing.JDialog();
         panelRound1 = new GUI.PanelRound();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -92,13 +92,13 @@ public class QLKho extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel4 = new javax.swing.JPanel();
 
-        jDialogDeleteSP.setFocusable(false);
-        jDialogDeleteSP.setFocusableWindowState(false);
-        jDialogDeleteSP.setModal(true);
-        jDialogDeleteSP.setUndecorated(true);
-        jDialogDeleteSP.setResizable(false);
-        jDialogDeleteSP.setSize(new java.awt.Dimension(625, 210));
-        jDialogDeleteSP.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jDialogDeleteLH.setFocusable(false);
+        jDialogDeleteLH.setFocusableWindowState(false);
+        jDialogDeleteLH.setModal(true);
+        jDialogDeleteLH.setUndecorated(true);
+        jDialogDeleteLH.setResizable(false);
+        jDialogDeleteLH.setSize(new java.awt.Dimension(625, 210));
+        jDialogDeleteLH.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(143, 203, 253));
         panelRound1.setMaximumSize(new java.awt.Dimension(625, 210));
@@ -148,9 +148,8 @@ public class QLKho extends javax.swing.JPanel {
         });
         panelRound1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 104, 32));
 
-        jDialogDeleteSP.getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
+        jDialogDeleteLH.getContentPane().add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 625, 210));
 
-        jDialogAddLH.setMaximumSize(new java.awt.Dimension(420, 510));
         jDialogAddLH.setModal(true);
         jDialogAddLH.setUndecorated(true);
         jDialogAddLH.setSize(new java.awt.Dimension(420, 510));
@@ -267,6 +266,7 @@ public class QLKho extends javax.swing.JPanel {
         jPanel1.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, 430, 90));
 
         jPanel3.setBackground(new java.awt.Color(45, 96, 151));
+        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel3MouseClicked(evt);
@@ -283,6 +283,7 @@ public class QLKho extends javax.swing.JPanel {
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 10, 230, 70));
 
         jPanel6.setBackground(new java.awt.Color(45, 96, 151));
+        jPanel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel6MouseClicked(evt);
@@ -343,7 +344,7 @@ public class QLKho extends javax.swing.JPanel {
 
     private void jPanel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel12MouseClicked
         // TODO add your handling code here:
-        jDialogDeleteSP.dispose();
+        jDialogDeleteLH.dispose();
     }//GEN-LAST:event_jPanel12MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
@@ -360,7 +361,7 @@ public class QLKho extends javax.swing.JPanel {
 
                 // Check if the product needs to be deleted
                 if (loHang.isSelect()) {
-                    jDialogDeleteSP.setVisible(true);
+                    jDialogDeleteLH.setVisible(true);
                 }
             }
         }
@@ -387,7 +388,7 @@ public class QLKho extends javax.swing.JPanel {
                             // Remove the product from the panel and update the UI
                             jPanel4.remove(loHang);
                             System.out.println("Xoa SP thanh cong!");
-                            jDialogDeleteSP.dispose();
+                            jDialogDeleteLH.dispose();
                         } else {
                             JOptionPane.showMessageDialog(null, "Xóa LH không được!");
                         }
@@ -474,7 +475,7 @@ public class QLKho extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog jDialogAddLH;
-    private javax.swing.JDialog jDialogDeleteSP;
+    private javax.swing.JDialog jDialogDeleteLH;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;

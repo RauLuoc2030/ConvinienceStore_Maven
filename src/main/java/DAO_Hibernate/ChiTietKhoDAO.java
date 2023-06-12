@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.ParameterMode;
 
 public class ChiTietKhoDAO {
+
     Session session;
 
     public List<String> getSanPhamListByMaLoHang(String maLoHang) {
@@ -34,7 +35,7 @@ public class ChiTietKhoDAO {
     // Các phương thức khác của ChiTietKhoDAO...
     /**
      * Thêm một Chi tiết kho mới đã có thông tin vào CSDL
-     * 
+     *
      * @param chiTietKhoDTO
      * @return True nếu thành công
      * @throws Exception và rollback Transaction
@@ -51,7 +52,7 @@ public class ChiTietKhoDAO {
         }
     }
 
-    public void insertLoHang(ChiTietKhoDTO chiTietKhoDTO) throws SQLException{
+    public void insertLoHang(ChiTietKhoDTO chiTietKhoDTO) throws SQLException {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
 
@@ -60,7 +61,8 @@ public class ChiTietKhoDAO {
         // Đăng ký các tham số và thiết lập giá trị
         procedureCall.registerParameter("MALH1", String.class, ParameterMode.IN).bindValue(chiTietKhoDTO.getMaLoHang());
         procedureCall.registerParameter("MASP1", String.class, ParameterMode.IN).bindValue(chiTietKhoDTO.getMaSP());
-        procedureCall.registerParameter("SOLUONG", Integer.class, ParameterMode.IN).bindValue(chiTietKhoDTO.getSoLuong());
+        procedureCall.registerParameter("SOLUONG", Integer.class, ParameterMode.IN)
+                .bindValue(chiTietKhoDTO.getSoLuong());
 
         // Thực hiện stored procedure
         // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
@@ -69,5 +71,28 @@ public class ChiTietKhoDAO {
         procedureCall.execute();
 
         session.getTransaction().commit();
+    }
+
+    public ChiTietKhoDTO tim(String MaLH, String MaSP) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+
+        Query<ChiTietKhoDTO> query = session
+                .createQuery("FROM ChiTietKhoDTO WHERE maLoHang = :keyword AND maSP = :searchKeyword",
+                        ChiTietKhoDTO.class);
+        query.setParameter("keyword", MaLH);
+        query.setParameter("searchKeyword", MaSP);
+
+        ChiTietKhoDTO chiTietKhoDTO = query.uniqueResult();
+
+        session.getTransaction().commit();
+        session.close();
+        return chiTietKhoDTO;
+    }
+
+    public static void main(String[] args) {
+        ChiTietKhoDAO chiTietKhoDAO = new ChiTietKhoDAO();
+
+        System.out.println(chiTietKhoDAO.tim("LH00000=11", "SP000014"));
     }
 }

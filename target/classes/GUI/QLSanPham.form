@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JDialog" name="jDialogAddSP">
+    <Container class="javax.swing.JDialog" name="jDialogAddNV">
       <Properties>
         <Property name="modal" type="boolean" value="true"/>
         <Property name="undecorated" type="boolean" value="true"/>
@@ -451,6 +451,7 @@
     </Container>
     <Container class="javax.swing.JDialog" name="jDialogDeleteSP">
       <Properties>
+        <Property name="focusCycleRoot" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
         <Property name="focusableWindowState" type="boolean" value="false"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
