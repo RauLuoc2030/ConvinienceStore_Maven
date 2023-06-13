@@ -861,6 +861,7 @@ public class BanHang extends javax.swing.JFrame {
                 ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
                 try {
                     chiTietHoaDonDAO.them_optimized(chiTietHoaDonDTO);
+                    JOptionPane.showMessageDialog(null, "Thanh toán thành công!");
                     jPanelGioHang.removeAll();
                     jLabel7.setText("0");
                     jPanelSanPham.removeAll();
@@ -871,7 +872,6 @@ public class BanHang extends javax.swing.JFrame {
                 index++;
             }
         }
-        JOptionPane.showMessageDialog(null, "Thanh toán thành công!");
         //-----------------------------------------
         sanPhamBUS = new SanPhamBUS();
         for (int i = 0; i < sanPhamBUS.getList_SanPhamDTOs().size(); i++) {
