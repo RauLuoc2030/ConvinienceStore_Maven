@@ -8,7 +8,7 @@ import DTO.NhanVienDTO;
 import java.awt.Color;
 
 import DAO_Hibernate.NhanVienDAO;
-import DAO_Hibernate.TestProcedure;
+import DAO_Hibernate.Procedure;
 import DTO.NguoiDungDTO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -357,7 +357,7 @@ public class NhanVien extends javax.swing.JPanel {
             }
             jTextField7.setText(nhanVienDTO.getLuongInteger().toString());
             jDateChooser2.setDate(nhanVienDTO.getNgayVaoLamDate());
-            TestProcedure testProcedure = new TestProcedure();
+            Procedure testProcedure = new Procedure();
             NguoiDungDTO nguoiDungDTO = new NguoiDungDTO();
             nguoiDungDTO = testProcedure.SEARCH_TAIKHOAN(nhanVienDTO.getMaNVString());
             jTextField9.setText(nguoiDungDTO.getUsernameString());

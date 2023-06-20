@@ -15,7 +15,7 @@ import DTO.NguoiDungDTO;
 import DTO.NhanVienDTO;
 import DTO.SanPhamDTO;
 
-public class TestProcedure {
+public class Procedure {
 
     String url = "jdbc:oracle:thin:@localhost:1521:orcl";
     String username = "ConvinienceStore";
@@ -205,7 +205,7 @@ public class TestProcedure {
     }
 
     public static void main(String[] args) {
-        TestProcedure testProcedure = new TestProcedure();
+        Procedure testProcedure = new Procedure();
         System.out.println(testProcedure.SEARCH_TAIKHOAN(""));
     }
 }

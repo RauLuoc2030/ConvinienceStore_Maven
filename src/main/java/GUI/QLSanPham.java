@@ -6,7 +6,7 @@ package GUI;
 
 import BUS.SanPhamBUS;
 import DAO_Hibernate.SanPhamDAO;
-import DAO_Hibernate.TestProcedure;
+import DAO_Hibernate.Procedure;
 import DTO.SanPhamDTO;
 import java.awt.Component;
 import java.util.ArrayList;
@@ -427,7 +427,7 @@ public class QLSanPham extends javax.swing.JPanel {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
         String keyword = jTextField5.getText();
-        TestProcedure testProcedure = new TestProcedure();
+        Procedure testProcedure = new Procedure();
         jPanelDanhSachSP.removeAll();
         if (keyword.length() != 0) {
             List<SanPhamDTO> sanPhamDTOs = testProcedure.SEARCH_SANPHAM(keyword);

@@ -7,7 +7,7 @@ package GUI.Admin;
 import BUS.NhanVienBUS;
 import DAO_Hibernate.NguoiDungDAO;
 import DAO_Hibernate.NhanVienDAO;
-import DAO_Hibernate.TestProcedure;
+import DAO_Hibernate.Procedure;
 import DTO.NguoiDungDTO;
 import DTO.NhanVienDTO;
 import GUI.LimitDigitsDocumentFilter;
@@ -448,7 +448,7 @@ public class QLNhanVien extends javax.swing.JPanel {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
         String keyword = jTextField5.getText();
-        TestProcedure testProcedure = new TestProcedure();
+        Procedure testProcedure = new Procedure();
         jPanel4.removeAll();
         if (keyword.length() != 0) {
             List<NhanVienDTO> nhanVienDTOs = testProcedure.SEARCH_NHANVIEN(keyword);
@@ -530,7 +530,7 @@ public class QLNhanVien extends javax.swing.JPanel {
                     // Remove the Nhan vien from Database
                     NhanVienDAO nhanVienDAO = new NhanVienDAO();
                     NguoiDungDAO nguoiDungDAO = new NguoiDungDAO();
-                    TestProcedure testProcedure = new TestProcedure();
+                    Procedure testProcedure = new Procedure();
                     NguoiDungDTO nguoiDungDTO = new NguoiDungDTO();
                     nguoiDungDTO = testProcedure.SEARCH_TAIKHOAN(nhanVien.getNhanVienDTO().getMaNVString());
                     try {

@@ -7,7 +7,7 @@ package GUI;
 import GUI.*;
 import BUS.KhoBUS;
 import DAO_Hibernate.KhoDAO;
-import DAO_Hibernate.TestProcedure;
+import DAO_Hibernate.Procedure;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.KhoDTO;
@@ -454,7 +454,7 @@ public class QLKho_HQT extends javax.swing.JPanel {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
         String keyword = jTextField5.getText();
-        TestProcedure testProcedure = new TestProcedure();
+        Procedure testProcedure = new Procedure();
         jPanel4.removeAll();
         if (keyword.length() != 0) { // Có nhập
             List<KhoDTO> khoDTOs = testProcedure.SEARCH_LOHANG(keyword);

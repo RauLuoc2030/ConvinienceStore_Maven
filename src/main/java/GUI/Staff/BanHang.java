@@ -8,7 +8,7 @@ import BUS.SanPhamBUS;
 import DAO_Hibernate.ChiTietHoaDonDAO;
 import DAO_Hibernate.HoaDonDAO;
 import DAO_Hibernate.KhachHangDAO;
-import DAO_Hibernate.TestProcedure;
+import DAO_Hibernate.Procedure;
 import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
@@ -1510,7 +1510,7 @@ public class BanHang extends javax.swing.JFrame {
 
     private void jTextField_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField_TimKiemActionPerformed
         String keyword = jTextField_TimKiem.getText();
-        TestProcedure testProcedure = new TestProcedure();
+        Procedure testProcedure = new Procedure();
         jPanelSanPham.removeAll();
         if (keyword.length() != 0) {
             List<SanPhamDTO> sanPhamDTOs = testProcedure.SEARCH_SANPHAM(keyword);

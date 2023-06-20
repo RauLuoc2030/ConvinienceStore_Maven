@@ -7,7 +7,7 @@ package GUI;
 import GUI.*;
 import BUS.KhachHangBUS;
 import DAO_Hibernate.KhachHangDAO;
-import DAO_Hibernate.TestProcedure;
+import DAO_Hibernate.Procedure;
 import DTO.KhachHangDTO;
 import java.awt.Component;
 import java.sql.SQLException;
@@ -579,7 +579,7 @@ public class QLKhachHang_HQT extends javax.swing.JPanel {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
         String keyword = jTextField5.getText();
-        TestProcedure testProcedure = new TestProcedure();
+        Procedure testProcedure = new Procedure();
         jPanel4.removeAll();
         if (keyword.length() != 0) {
             List<KhachHangDTO> khachHangDTOs = testProcedure.SEARCH_KHACHHANG(keyword);
