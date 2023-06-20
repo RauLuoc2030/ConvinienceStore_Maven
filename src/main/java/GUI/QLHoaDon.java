@@ -134,9 +134,6 @@ public class QLHoaDon extends javax.swing.JPanel {
         jScrollPane1.setPreferredSize(new java.awt.Dimension(1200, 750));
 
         jPanelDSHD.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelDSHD.setMaximumSize(new java.awt.Dimension(1200, 750));
-        jPanelDSHD.setMinimumSize(new java.awt.Dimension(1200, 750));
-        jPanelDSHD.setPreferredSize(new java.awt.Dimension(1200, 750));
         jPanelDSHD.setLayout(new javax.swing.BoxLayout(jPanelDSHD, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(jPanelDSHD);
 

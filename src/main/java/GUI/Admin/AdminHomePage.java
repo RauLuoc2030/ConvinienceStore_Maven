@@ -6,7 +6,7 @@ package GUI.Admin;
 
 import BUS.SanPhamBUS;
 import GUI.DangNhap;
-import GUI.HQT_CSDL.QLKho_HQT;
+import GUI.QLKho_HQT;
 import GUI.Product_icon;
 import GUI.QLHoaDon;
 import GUI.QLKhachHang;

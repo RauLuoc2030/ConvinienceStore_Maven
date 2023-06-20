@@ -5,7 +5,7 @@
 package GUI.Staff;
 
 import GUI.DangNhap;
-import GUI.HQT_CSDL.QLKho_HQT;
+import GUI.QLKho_HQT;
 import GUI.QLHoaDon;
 import GUI.QLKhachHang;
 import GUI.QLKho;

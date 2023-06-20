@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NguoiDungDAO",
+            "request": "launch",
+            "mainClass": "DAO_Hibernate.NguoiDungDAO",
+            "projectName": "ConvinienceStore_Maven"
+        },
+        {
+            "type": "java",
             "name": "ChiTietKhoDAO",
             "request": "launch",
             "mainClass": "DAO_Hibernate.ChiTietKhoDAO",
@@ -143,7 +150,7 @@
             "mainClass": "GUI.DangNhap",
             "projectName": "ConvinienceStore_Maven",
             "noDebug": false,
-            "__progressId": "a2857da7-abf7-4cd8-94b7-738ced0a17a6",
+            "__progressId": "85367b58-c642-4f78-bd7b-0dc9791fc4d1",
             "__origin": "internal"
         },
         {

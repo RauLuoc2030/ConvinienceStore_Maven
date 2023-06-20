@@ -220,20 +220,11 @@ public class NguoiDungDAO {
         procedureCall.registerParameter("MTK", String.class, ParameterMode.IN).bindValue(username);
 
         // Thực hiện stored procedure
-        // ProcedureOutputs procedureOutputs = procedureCall.getOutputs();
-        // ResultSetOutput resultSetOutput = (ResultSetOutput)
-        // procedureOutputs.getCurrent();
         procedureCall.execute();
 
         session.getTransaction().commit();
     }
 
-    /**
-     * Tìm kiếm một người dùng dựa trên maND cho trước
-     *
-     * @param maND
-     * @return null nếu không tìm thấy
-     */
     public NguoiDungDTO findByUsername(String username) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -277,5 +268,4 @@ public class NguoiDungDAO {
         session.getTransaction().commit();
         return nguoiDung;
     }
-
 }

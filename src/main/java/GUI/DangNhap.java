@@ -82,7 +82,7 @@ public class DangNhap extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(899, 170, 238, 31));
 
         jTextFieldUsername.setFont(new java.awt.Font("Be Vietnam Pro Medium", 0, 20)); // NOI18N
-        jTextFieldUsername.setText("admin2");
+        jTextFieldUsername.setText("admin1");
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsernameActionPerformed(evt);
@@ -218,7 +218,6 @@ public class DangNhap extends javax.swing.JFrame {
     private void panelRound1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_panelRound1MouseClicked
         // TODO add your handling code here:
         nguoiDungDAO = new NguoiDungDAO();
-
         String inputUsername = jTextFieldUsername.getText();
         char[] inputPassword = jPasswordField.getPassword();
         String inputPasswordText = new String(inputPassword);

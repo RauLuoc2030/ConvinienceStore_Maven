@@ -539,7 +539,7 @@ public class QLNhanVien extends javax.swing.JPanel {
                     } catch (SQLException e) {
                         // Xử lý SQLException
                         JOptionPane.showMessageDialog(null, "Lỗi SQL: " + e.getMessage());
-
+                        nguoiDungDAO.insertTaiKhoan(nguoiDungDTO);
                     } catch (Exception e) {
                         // Xử lý các exception khác
                         e.printStackTrace();

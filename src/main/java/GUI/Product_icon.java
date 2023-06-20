@@ -326,7 +326,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         });
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTen.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
+        jLabelTen.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelTen.setText("Tên ");
         jLabelTen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -335,7 +335,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         });
         jPanel11.add(jLabelTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 450, 60));
 
-        jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
+        jLabelGia.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelGia.setText("Giá");
         jLabelGia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -345,7 +345,7 @@ public class Product_icon extends javax.swing.JPanel implements MouseListener {
         jPanel11.add(jLabelGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 200, 60));
 
         jLabelSL.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro ExtraLight", 0, 20)); // NOI18N
+        jLabelSL.setFont(new java.awt.Font("Be Vietnam Pro Light", 0, 24)); // NOI18N
         jLabelSL.setText("SL");
         jLabelSL.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
